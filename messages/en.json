@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "wiki": "Knowledge Base",
+    "guide": "Guides",
+    "tools": "Tools",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "heading": "Need Precision Slitter Knives?",
+    "subheading": "TOA DR Enterprise has supplied precision slitting tools since 1972.",
+    "button": "Request a Quote →"
+  },
+  "newsletter": {
+    "heading": "Industry Insights, Delivered",
+    "subheading": "Get technical updates on slitting technology.",
+    "placeholder": "your@email.com",
+    "button": "Subscribe",
+    "success": "Thank you! You're subscribed.",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "tagline": "The global knowledge hub for slitting machine technology.",
+    "copyright": "© {year} TOA DR Enterprise Co., Ltd."
+  }
+}

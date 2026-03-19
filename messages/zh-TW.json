@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "wiki": "知識庫",
+    "guide": "指南",
+    "tools": "工具",
+    "about": "關於",
+    "contact": "聯絡"
+  },
+  "cta": {
+    "heading": "需要精密裁刀？",
+    "subheading": "道德煜企業自1972年起供應精密裁切工具。",
+    "button": "立即詢價 →"
+  },
+  "newsletter": {
+    "heading": "產業動態，直接送達",
+    "subheading": "獲取裁切技術的最新資訊。",
+    "placeholder": "your@email.com",
+    "button": "訂閱",
+    "success": "感謝您！您已成功訂閱。",
+    "error": "發生錯誤，請再試一次。"
+  },
+  "footer": {
+    "tagline": "全球裁切機技術知識中心。",
+    "copyright": "© {year} 道德煜企業有限公司"
+  }
+}

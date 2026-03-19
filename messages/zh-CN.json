@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "wiki": "知识库",
+    "guide": "指南",
+    "tools": "工具",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "cta": {
+    "heading": "需要精密分切刀？",
+    "subheading": "道德煜企业自1972年起供应精密分切工具。",
+    "button": "立即询价 →"
+  },
+  "newsletter": {
+    "heading": "行业动态，直接送达",
+    "subheading": "获取分切技术的最新资讯。",
+    "placeholder": "your@email.com",
+    "button": "订阅",
+    "success": "感谢您！您已成功订阅。",
+    "error": "发生错误，请再试一次。"
+  },
+  "footer": {
+    "tagline": "全球分切机技术知识中心。",
+    "copyright": "© {year} 道德煜企业有限公司"
+  }
+}
