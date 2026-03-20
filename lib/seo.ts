@@ -17,7 +17,7 @@ export function buildMetadata({
   ogImage?: string
 }): Metadata {
   const url = `${BASE_URL}/${locale}${path}`
-  const image = ogImage ?? `${BASE_URL}/og-default.png`
+  const image = ogImage ?? `${BASE_URL}/og-default.jpg`
 
   return {
     title: `${title} | slitter.ai`,

@@ -127,6 +127,24 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
         </table>
       </div>
 
+      {/* Hero image banner */}
+      <div className="relative w-full h-48 md:h-64 overflow-hidden">
+        <img
+          src="/slitter-machine-hero.jpg"
+          alt="Industrial slitting machine with precision slitter knives in operation"
+          className="w-full h-full object-cover object-center"
+          style={{ filter: 'brightness(0.55)' }}
+        />
+        <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
+          <p className="font-mono text-[11px] text-[#F5C400] uppercase tracking-widest mb-2">
+            Slitting Machine Knowledge Hub · by TOA DR Enterprise
+          </p>
+          <h1 className="font-sans text-2xl md:text-4xl font-bold text-white leading-tight">
+            The Global Technical Reference<br className="hidden md:block" /> for Slitting Technology
+          </h1>
+        </div>
+      </div>
+
       {/* ai-cite bar */}
       <div className="bg-[#1A1A1A] border-b border-[#242424] py-2">
         <div className="max-w-[1200px] mx-auto px-6 flex items-center gap-4 font-mono text-[11px] text-[#555555]">
