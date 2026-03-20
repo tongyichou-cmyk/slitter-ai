@@ -141,13 +141,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
         </div>
       </div>
 
-      {/* 3-column layout */}
-      <div
-        className="max-w-[1200px] mx-auto px-6 py-8"
-        style={{ display: 'grid', gridTemplateColumns: '220px 1fr 240px', gap: '32px', alignItems: 'start' }}
-      >
-        {/* ── LEFT SIDEBAR ── */}
-        <aside className="sticky top-[88px]">
+      {/* 3-column layout — stacks to single column on mobile */}
+      <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6 lg:py-8 grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-6 lg:gap-8 items-start">
+        {/* ── LEFT SIDEBAR — hidden on mobile ── */}
+        <aside className="hidden lg:block sticky top-[88px]">
           {leftNav.map(group => (
             <div key={group.section} className="mb-7">
               <p className="font-mono text-[10px] font-semibold text-[#555555] uppercase tracking-widest mb-2 pb-1.5 border-b border-[#242424]">
@@ -225,7 +222,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 2: Knowledge Base cards (2-col grid) */}
           <section id="knowledge" className="mb-10">
             <h2 style={sectionHeadingStyle}>Knowledge Base</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {knowledgeCards.map((card, i) => (
                 <Link
                   key={i}
@@ -299,8 +296,8 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           </section>
         </main>
 
-        {/* ── RIGHT SIDEBAR ── */}
-        <aside className="sticky top-[88px] flex flex-col gap-6">
+        {/* ── RIGHT SIDEBAR — below content on mobile, sticky on desktop ── */}
+        <aside className="lg:sticky lg:top-[88px] flex flex-col gap-6">
           <QuickFacts title="Quick Facts" rows={quickFactsRows} />
 
           {/* Tools box */}
