@@ -35,7 +35,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
         />
         <div className="relative max-w-6xl mx-auto px-4 py-28 text-center">
           <p className="text-xs font-semibold tracking-widest text-gold-500 uppercase mb-6">
-            Global Technical Authority
+            Slitting Machine Knowledge Hub · by TOA DR Enterprise
           </p>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
             The Engineering Hub<br />
