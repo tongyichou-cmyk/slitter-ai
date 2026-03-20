@@ -6,6 +6,9 @@ import { setRequestLocale } from 'next-intl/server'
 import { locales, type Locale } from '@/lib/i18n'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Script from 'next/script'
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? ''
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -24,6 +27,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');
+            `}</Script>
+          </>
+        )}
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider messages={messages}>
           <Navigation locale={locale} />
