@@ -1,19 +1,30 @@
 import sharp from 'sharp'
-import { existsSync, renameSync, unlinkSync } from 'fs'
+import { existsSync, renameSync, unlinkSync, statSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const publicDir = join(__dirname, '..', 'public')
 
+// Output specs per image
 const targets = [
-  'slitter-machine-hero.jpg',
-  'og-default.jpg',
+  {
+    filename: 'slitter-machine-hero.jpg',
+    width: 1920,   // full-bleed banner, up to 2x retina 960px display
+    height: 640,   // ~h-48 md:h-64 banner aspect ratio
+    quality: 82,
+  },
+  {
+    filename: 'og-default.jpg',
+    width: 1200,   // OG image spec
+    height: 630,   // OG image spec
+    quality: 85,
+  },
 ]
 
 const WATERMARK_TEXT = 'www.slitterline.com'
 
-async function addWatermark(filename) {
+async function processImage({ filename, width, height, quality }) {
   const inputPath = join(publicDir, filename)
   const outputPath = join(publicDir, filename)
 
@@ -22,52 +33,52 @@ async function addWatermark(filename) {
     return
   }
 
-  const image = sharp(inputPath)
-  const meta = await image.metadata()
-  const { width, height } = meta
+  const beforeSize = statSync(inputPath).size
 
-  // Build SVG text overlay (bottom-right, semi-transparent)
-  const fontSize = Math.max(18, Math.round(width * 0.022))
-  const padding = Math.round(width * 0.018)
-  const approxTextWidth = WATERMARK_TEXT.length * fontSize * 0.6
+  // Build SVG overlay sized to OUTPUT dimensions
+  const fontSize = Math.max(14, Math.round(width * 0.018))
+  const padding = Math.round(width * 0.015)
+  const approxTextWidth = WATERMARK_TEXT.length * fontSize * 0.62
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
     <rect
       x="${width - approxTextWidth - padding * 2}"
-      y="${height - fontSize * 2 - padding}"
+      y="${height - fontSize * 1.8 - padding}"
       width="${approxTextWidth + padding * 2}"
-      height="${fontSize + padding}"
-      fill="rgba(0,0,0,0.45)"
+      height="${fontSize * 1.4 + padding}"
+      fill="rgba(0,0,0,0.5)"
       rx="3"
     />
     <text
       x="${width - padding - approxTextWidth / 2}"
-      y="${height - fontSize - padding + fontSize * 0.8}"
+      y="${height - padding - fontSize * 0.2}"
       font-family="monospace"
       font-size="${fontSize}"
-      fill="rgba(245,196,0,0.85)"
+      fill="rgba(245,196,0,0.9)"
       text-anchor="middle"
       dominant-baseline="auto"
     >${WATERMARK_TEXT}</text>
   </svg>`
 
   const svgBuffer = Buffer.from(svg)
-
-  // Write to a temp buffer then overwrite original
   const tmpPath = outputPath + '.tmp.jpg'
 
   await sharp(inputPath)
+    .resize(width, height, { fit: 'cover', position: 'center' })
     .composite([{ input: svgBuffer, blend: 'over' }])
-    .jpeg({ quality: 88 })
+    .jpeg({ quality, mozjpeg: true })
     .toFile(tmpPath)
 
-  // Atomically replace original
   try { unlinkSync(outputPath) } catch {}
   renameSync(tmpPath, outputPath)
 
-  console.log(`✓ Watermarked: ${filename}`)
+  const afterSize = statSync(outputPath).size
+  const reduction = (((beforeSize - afterSize) / beforeSize) * 100).toFixed(0)
+  console.log(
+    `✓ ${filename}  ${width}×${height}  ${(afterSize / 1024).toFixed(0)} KB  (-${reduction}%)`
+  )
 }
 
 for (const target of targets) {
-  await addWatermark(target)
+  await processImage(target)
 }
