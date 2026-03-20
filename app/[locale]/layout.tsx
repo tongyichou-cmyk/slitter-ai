@@ -27,7 +27,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <head>
+      <body className="min-h-screen flex flex-col bg-white text-gray-900">
         {GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
@@ -39,8 +39,6 @@ export default async function LocaleLayout({
             `}</Script>
           </>
         )}
-      </head>
-      <body className="min-h-screen flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider messages={messages}>
           <Navigation locale={locale} />
           <main className="flex-1">{children}</main>
