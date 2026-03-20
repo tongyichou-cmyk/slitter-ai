@@ -33,7 +33,7 @@ export default function Navigation({ locale }: { locale: Locale }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-mono text-[11px] font-medium text-[#999999] no-underline tracking-widest uppercase hover:text-[#F5C400] transition-colors"
+                className="font-mono text-[13px] font-medium text-[#999999] no-underline tracking-widest uppercase hover:text-[#F5C400] transition-colors"
               >
                 {item.label}
               </Link>
@@ -44,7 +44,7 @@ export default function Navigation({ locale }: { locale: Locale }) {
           <input
             type="search"
             placeholder="Search..."
-            className="hidden lg:block bg-[#141414] border border-[#2E2E2E] rounded px-2.5 py-1.5 text-[12px] font-mono text-[#E8E8E8] w-[180px] outline-none placeholder:text-[#555555]"
+            className="hidden lg:block bg-[#141414] border border-[#2E2E2E] rounded px-2.5 py-1.5 text-[13px] font-mono text-[#E8E8E8] w-[180px] outline-none placeholder:text-[#555555]"
           />
 
           {/* Get a Quote */}
@@ -52,7 +52,7 @@ export default function Navigation({ locale }: { locale: Locale }) {
             href="https://slitterline.com"
             target="_blank"
             rel="noopener"
-            className="bg-[#F5C400] text-[#080808] font-mono text-[11px] font-semibold px-3 py-2 rounded-[3px] no-underline whitespace-nowrap hover:bg-[#D4A800] transition-colors shrink-0"
+            className="bg-[#F5C400] text-[#080808] font-mono text-[12px] font-semibold px-3 py-2 rounded-[3px] no-underline whitespace-nowrap hover:bg-[#D4A800] transition-colors shrink-0"
           >
             Get a Quote
           </Link>

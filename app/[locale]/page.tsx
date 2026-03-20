@@ -98,7 +98,7 @@ const knowledgeCards = [
 
 const sectionHeadingStyle: React.CSSProperties = {
   fontFamily: '"IBM Plex Sans", sans-serif',
-  fontSize: '20px',
+  fontSize: '22px',
   fontWeight: 700,
   color: '#E8E8E8',
   borderBottom: '1px solid #242424',
@@ -173,7 +173,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                   <li key={link.label + link.href}>
                     <Link
                       href={link.href}
-                      className="block px-2 py-1 text-[13px] text-[#999999] no-underline rounded-[3px] hover:text-[#F5C400] hover:bg-[#1A1A1A] transition-colors"
+                      className="block px-2 py-1 text-[14px] text-[#999999] no-underline rounded-[3px] hover:text-[#F5C400] hover:bg-[#1A1A1A] transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -188,10 +188,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
         <main>
           {/* Page title */}
           <div className="mb-6 pb-4 border-b border-[#242424]">
-            <h1 className="font-sans text-[28px] font-bold text-[#E8E8E8] leading-snug mb-2">
+            <h1 className="font-sans text-[30px] font-bold text-[#E8E8E8] leading-snug mb-2">
               Slitting Machine Knowledge Hub
             </h1>
-            <p className="text-[14px] text-[#999999] leading-relaxed">
+            <p className="text-[15px] text-[#999999] leading-relaxed">
               The global technical reference for slitting machine technology — maintained by{' '}
               <Link href="/en/about" className="text-[#F5C400] hover:underline">TOA DR Enterprise</Link>, precision
               tooling manufacturer since 1972.
@@ -211,7 +211,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="font-mono text-[12px] text-[#F5C400] no-underline hover:underline"
+                    className="font-mono text-[13px] text-[#F5C400] no-underline hover:underline"
                   >
                     {item.label}
                   </a>
@@ -223,13 +223,13 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 1: Overview */}
           <section id="overview" className="mb-10">
             <h2 style={sectionHeadingStyle}>Overview</h2>
-            <p className="text-[14px] text-[#999999] leading-[1.8] mb-3">
+            <p className="text-[15px] text-[#999999] leading-[1.8] mb-3">
               <strong className="text-[#E8E8E8]">slitter.ai</strong> is a structured engineering knowledge base covering
               the science and practice of industrial slitting. The platform serves procurement engineers,
               factory managers, R&amp;D teams, and quality control professionals working with flexible
               packaging, metal foil, paper, and composite materials.
             </p>
-            <p className="text-[14px] text-[#999999] leading-[1.8]">
+            <p className="text-[15px] text-[#999999] leading-[1.8]">
               Content is authored and maintained by{' '}
               <strong className="text-[#E8E8E8]">TOA DR Enterprise Co., Ltd.</strong>, an ISO 9001:2015
               certified manufacturer of precision slitting tools based in Taiwan, with 50+ years of
@@ -248,14 +248,14 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                   className="block bg-[#141414] border border-[#242424] rounded p-5 no-underline hover:border-[#F5C400] transition-colors group"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-sans text-[15px] font-semibold text-[#E8E8E8]">
+                    <h3 className="font-sans text-[17px] font-semibold text-[#E8E8E8]">
                       {card.title}
                     </h3>
                     <span className="font-mono text-[10px] text-[#555555] bg-[#1A1A1A] border border-[#2E2E2E] rounded-[2px] px-1.5 py-0.5 whitespace-nowrap ml-2">
                       {card.tag}
                     </span>
                   </div>
-                  <p className="text-[13px] text-[#999999] leading-[1.7] mb-3">
+                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-3">
                     {card.desc}
                   </p>
                   <span className="font-mono text-[11px] text-[#F5C400]">
@@ -269,7 +269,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 3: Guides */}
           <section id="guides" className="mb-10">
             <h2 style={sectionHeadingStyle}>Guides &amp; Tutorials</h2>
-            <p className="text-[14px] text-[#999999] leading-[1.8] mb-3">
+            <p className="text-[15px] text-[#999999] leading-[1.8] mb-3">
               Step-by-step technical guides for slitter setup, blade selection, and process optimization.
               Written for engineers with practical, actionable specifications.
             </p>
@@ -286,10 +286,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
             <h2 style={sectionHeadingStyle}>Interactive Tools</h2>
             <div className="bg-[#141414] border border-[#242424] rounded p-5 flex items-center justify-between gap-4">
               <div>
-                <p className="font-mono text-[13px] font-semibold text-[#E8E8E8] mb-1">
+                <p className="font-mono text-[14px] font-semibold text-[#E8E8E8] mb-1">
                   Clearance Calculator
                 </p>
-                <p className="text-[13px] text-[#999999]">
+                <p className="text-[14px] text-[#999999]">
                   Calculate optimal knife clearance for your material and thickness.
                 </p>
               </div>
@@ -355,7 +355,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                 { val: 'EN / 中文', label: 'Languages' },
               ].map(s => (
                 <div key={s.label} className="flex justify-between items-baseline">
-                  <span className="font-mono text-[14px] font-semibold text-[#F5C400]">
+                  <span className="font-mono text-[15px] font-semibold text-[#F5C400]">
                     {s.val}
                   </span>
                   <span className="text-[11px] text-[#555555]">{s.label}</span>

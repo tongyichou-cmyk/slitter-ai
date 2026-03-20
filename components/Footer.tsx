@@ -17,10 +17,10 @@ export default function Footer() {
           <p className="font-mono text-lg font-semibold text-[#F5C400] tracking-tight mb-2">
             slitter<span className="text-[#999999]">.ai</span>
           </p>
-          <p className="text-[13px] text-[#555555] max-w-[220px] leading-relaxed">
+          <p className="text-[14px] text-[#555555] max-w-[220px] leading-relaxed">
             The global knowledge hub for slitting machine technology.
           </p>
-          <p className="mt-3 text-[12px] text-[#555555]">
+          <p className="mt-3 text-[13px] text-[#555555]">
             © {new Date().getFullYear()} TOA DR Enterprise Co., Ltd.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[13px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
+                  className="text-[14px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -61,7 +61,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[13px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
+                  className="text-[14px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                   href={item.href}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener' : undefined}
-                  className="text-[13px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
+                  className="text-[14px] text-[#999999] no-underline hover:text-[#F5C400] transition-colors"
                 >
                   {item.label}
                 </Link>

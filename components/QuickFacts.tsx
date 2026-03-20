@@ -31,7 +31,7 @@ export default function QuickFacts({ title, rows }: QuickFactsProps) {
         <p
           style={{
             fontFamily: '"IBM Plex Mono", monospace',
-            fontSize: '12px',
+            fontSize: '13px',
             fontWeight: 600,
             color: '#E8E8E8',
             textTransform: 'uppercase',
@@ -86,7 +86,7 @@ export default function QuickFacts({ title, rows }: QuickFactsProps) {
                     ))}
                   </div>
                 ) : (
-                  <span style={{ fontSize: '13px' }}>{row.value}</span>
+                  <span style={{ fontSize: '14px' }}>{row.value}</span>
                 )}
               </td>
             </tr>

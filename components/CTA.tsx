@@ -24,10 +24,10 @@ export default function CTA({
           borderRadius: '0 6px 6px 0',
         }}
       >
-        <p style={{ fontWeight: 600, color: '#F5C400', fontFamily: '"IBM Plex Mono", monospace', fontSize: '13px' }}>
+        <p style={{ fontWeight: 600, color: '#F5C400', fontFamily: '"IBM Plex Mono", monospace', fontSize: '14px' }}>
           {heading}
         </p>
-        <p style={{ fontSize: '13px', color: '#999999', marginTop: '4px' }}>{subheading}</p>
+        <p style={{ fontSize: '14px', color: '#999999', marginTop: '4px' }}>{subheading}</p>
         <Link
           href="https://slitterline.com"
           target="_blank"
@@ -80,10 +80,10 @@ export default function CTA({
         >
           50+ Years of Precision
         </p>
-        <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#E8E8E8', marginBottom: '8px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#E8E8E8', marginBottom: '8px' }}>
           {heading}
         </h2>
-        <p style={{ fontSize: '14px', color: '#999999', maxWidth: '480px' }}>{subheading}</p>
+        <p style={{ fontSize: '15px', color: '#999999', maxWidth: '480px' }}>{subheading}</p>
       </div>
       <Link
         href="https://slitterline.com"
