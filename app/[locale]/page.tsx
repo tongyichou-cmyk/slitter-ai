@@ -24,7 +24,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
       <SchemaScript schemas={[buildWebSiteSchema(), buildOrganizationSchema()]} />
 
       {/* Hero — full-width dark */}
-      <section className="bg-dark-900 relative overflow-hidden">
+      <section className="bg-ink-900 relative overflow-hidden">
         {/* subtle grid overlay */}
         <div
           className="absolute inset-0 opacity-5"
@@ -47,13 +47,13 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           <div className="flex gap-4 justify-center flex-wrap">
             <Link
               href={`${base}/wiki/slitter-knife`}
-              className="px-7 py-3 bg-gold-500 text-dark-900 font-semibold rounded hover:bg-gold-400 no-underline transition-colors"
+              className="px-7 py-3 bg-gold-500 text-ink-900 font-semibold rounded hover:bg-gold-400 no-underline transition-colors"
             >
               Explore Knowledge Base
             </Link>
             <Link
               href={`${base}/tools/clearance-calculator`}
-              className="px-7 py-3 border border-dark-400 text-gray-300 font-semibold rounded hover:border-gold-500 hover:text-gold-400 no-underline transition-colors"
+              className="px-7 py-3 border border-ink-400 text-gray-300 font-semibold rounded hover:border-gold-500 hover:text-gold-400 no-underline transition-colors"
             >
               Clearance Calculator
             </Link>
@@ -62,7 +62,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
       </section>
 
       {/* Stats bar */}
-      <section className="bg-dark-800 border-y border-dark-600">
+      <section className="bg-ink-800 border-y border-ink-600">
         <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { val: '50+', label: 'Years in Industry' },
