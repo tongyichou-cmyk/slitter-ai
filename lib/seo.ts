@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import type { Locale } from './i18n'
 
-const BASE_URL = 'https://slitter.ai'
+const BASE_URL = 'https://www.slitter.ai'
 
 export function buildMetadata({
   title,
@@ -25,7 +25,9 @@ export function buildMetadata({
     alternates: {
       canonical: url,
       languages: {
-        'en': `${BASE_URL}/en${path}`,
+        'en':      `${BASE_URL}/en${path}`,
+        'zh-TW':   `${BASE_URL}/zh-TW${path}`,
+        'zh-CN':   `${BASE_URL}/zh-CN${path}`,
         'x-default': `${BASE_URL}/en${path}`,
       },
     },
