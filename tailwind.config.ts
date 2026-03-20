@@ -10,9 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'Menlo', 'monospace'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        serif: ['"Libre Baskerville"', 'Georgia', 'serif'],
       },
       colors: {
+        // Legacy gold scale kept for backward compat with wiki/guide pages
         gold: {
           50:  '#FDFBF0',
           100: '#FAF3D0',
@@ -38,6 +41,21 @@ const config: Config = {
           600: '#B8960C',
           700: '#9A7D0A',
           900: '#3D3004',
+        },
+        // New design system
+        sl: {
+          black:    '#080808',
+          bg:       '#0E0E0E',
+          surface:  '#141414',
+          surface2: '#1A1A1A',
+          border:   '#242424',
+          border2:  '#2E2E2E',
+          yellow:   '#F5C400',
+          yellow2:  '#D4A800',
+          yellow3:  '#FFF0A0',
+          text:     '#E8E8E8',
+          text2:    '#999999',
+          text3:    '#555555',
         },
       },
     },

@@ -21,32 +21,79 @@ export default function Newsletter() {
   }
 
   return (
-    <div className="p-6 bg-brand-50 border border-brand-100 rounded-xl">
-      <h3 className="font-semibold text-brand-900">Industry Insights, Delivered</h3>
-      <p className="text-sm text-gray-600 mt-1">Get technical updates on slitting technology.</p>
+    <div
+      style={{
+        padding: '24px',
+        background: '#141414',
+        border: '1px solid #2E2E2E',
+        borderRadius: '6px',
+      }}
+    >
+      <h3
+        style={{
+          fontFamily: '"IBM Plex Sans", sans-serif',
+          fontWeight: 600,
+          fontSize: '15px',
+          color: '#E8E8E8',
+          marginBottom: '4px',
+        }}
+      >
+        Industry Insights, Delivered
+      </h3>
+      <p style={{ fontSize: '13px', color: '#999999', marginBottom: '0' }}>
+        Get technical updates on slitting technology.
+      </p>
+
       {status === 'success' ? (
-        <p className="mt-4 text-sm text-green-700 font-medium">Thank you! You're subscribed.</p>
+        <p style={{ marginTop: '16px', fontSize: '13px', color: '#F5C400', fontWeight: 500 }}>
+          Thank you! You&apos;re subscribed.
+        </p>
       ) : (
-        <form onSubmit={handleSubmit} className="mt-4 flex gap-2">
+        <form onSubmit={handleSubmit} style={{ marginTop: '16px', display: 'flex', gap: '8px' }}>
           <input
             type="email"
             required
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="your@email.com"
-            className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500"
+            style={{
+              flex: 1,
+              padding: '8px 12px',
+              fontSize: '13px',
+              fontFamily: '"IBM Plex Sans", sans-serif',
+              background: '#0E0E0E',
+              border: '1px solid #2E2E2E',
+              borderRadius: '3px',
+              color: '#E8E8E8',
+              outline: 'none',
+            }}
           />
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 disabled:opacity-50 transition-colors"
+            style={{
+              padding: '8px 16px',
+              background: '#F5C400',
+              color: '#080808',
+              fontSize: '12px',
+              fontWeight: 600,
+              fontFamily: '"IBM Plex Mono", monospace',
+              border: 'none',
+              borderRadius: '3px',
+              cursor: 'pointer',
+              opacity: status === 'loading' ? 0.6 : 1,
+              whiteSpace: 'nowrap',
+            }}
           >
             {status === 'loading' ? '...' : 'Subscribe'}
           </button>
         </form>
       )}
+
       {status === 'error' && (
-        <p className="mt-2 text-sm text-red-600">Something went wrong. Please try again.</p>
+        <p style={{ marginTop: '8px', fontSize: '12px', color: '#ff6b6b' }}>
+          Something went wrong. Please try again.
+        </p>
       )}
     </div>
   )

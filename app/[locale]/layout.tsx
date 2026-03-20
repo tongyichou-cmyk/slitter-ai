@@ -27,7 +27,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col bg-white text-gray-900">
+      <body className="min-h-screen flex flex-col bg-[#0E0E0E] text-[#E8E8E8]">
         {GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />

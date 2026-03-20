@@ -2,18 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+  --black:    #080808;
+  --bg:       #0E0E0E;
+  --surface:  #141414;
+  --surface2: #1A1A1A;
+  --border:   #242424;
+  --border2:  #2E2E2E;
+  --yellow:   #F5C400;
+  --yellow2:  #D4A800;
+  --yellow3:  #FFF0A0;
+  --text:     #E8E8E8;
+  --text2:    #999999;
+  --text3:    #555555;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; line-height: 1.6; }
+a { color: var(--yellow); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 @layer base {
-  html { font-family: 'Inter', system-ui, sans-serif; }
   h1 { @apply text-3xl font-bold tracking-tight; }
   h2 { @apply text-2xl font-bold; }
   h3 { @apply text-xl font-semibold; }
   p  { @apply leading-relaxed; }
-  a  { @apply text-gold-600; }
-  a:hover { @apply text-gold-500; }
 }
 
 @layer components {
   .prose-article {
-    @apply prose prose-gray max-w-none;
+    @apply prose prose-invert max-w-none;
   }
 }
