@@ -52,9 +52,9 @@ async function processImage({ filename, width, height, quality }) {
     <text
       x="${width - padding - approxTextWidth / 2}"
       y="${height - padding - fontSize * 0.2}"
-      font-family="monospace"
+      font-family="Arial, sans-serif"
       font-size="${fontSize}"
-      fill="rgba(245,196,0,0.9)"
+      fill="rgba(255,255,255,0.9)"
       text-anchor="middle"
       dominant-baseline="auto"
     >${WATERMARK_TEXT}</text>
