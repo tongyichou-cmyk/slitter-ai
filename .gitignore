@@ -6,3 +6,6 @@ node_modules/
 *.log
 
 .vercel
+
+# Raw input files — not deployed
+_input/
