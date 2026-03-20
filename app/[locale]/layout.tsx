@@ -7,6 +7,32 @@ import { locales, type Locale } from '@/lib/i18n'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import { Playfair_Display, Source_Serif_4, Inter, IBM_Plex_Mono } from 'next/font/google'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-ui',
+  display: 'swap',
+})
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+})
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? ''
 
@@ -27,7 +53,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col bg-[#0E0E0E] text-[#E8E8E8]">
+      <body className={`${playfair.variable} ${sourceSerif.variable} ${inter.variable} ${ibmPlexMono.variable} min-h-screen flex flex-col bg-[#F7F3EE] text-[#1A1512]`}>
         {GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />

@@ -10,34 +10,10 @@ interface QuickFactsProps {
 
 export default function QuickFacts({ title, rows }: QuickFactsProps) {
   return (
-    <aside
-      style={{
-        background: '#141414',
-        border: '1px solid #242424',
-        borderTop: '3px solid #F5C400',
-        borderRadius: '4px',
-        overflow: 'hidden',
-        fontSize: '13px',
-      }}
-    >
+    <aside style={{ background: '#1A1410', border: '1px solid #2A2018', borderTop: '3px solid #B8860B', borderRadius: '4px', overflow: 'hidden' }}>
       {/* Title bar */}
-      <div
-        style={{
-          background: '#1A1A1A',
-          padding: '10px 14px',
-          borderBottom: '1px solid #242424',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: '"IBM Plex Mono", monospace',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: '#E8E8E8',
-            textTransform: 'uppercase',
-            letterSpacing: '0.06em',
-          }}
-        >
+      <div style={{ background: '#120E0A', padding: '10px 14px', borderBottom: '1px solid #2A2018' }}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 600, color: '#B8860B', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           {title}
         </p>
       </div>
@@ -46,47 +22,21 @@ export default function QuickFacts({ title, rows }: QuickFactsProps) {
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <tbody>
           {rows.map((row, i) => (
-            <tr
-              key={i}
-              style={{ borderBottom: i < rows.length - 1 ? '1px solid #242424' : 'none' }}
-            >
-              <td
-                style={{
-                  padding: '8px 14px',
-                  fontFamily: '"IBM Plex Mono", monospace',
-                  fontSize: '11px',
-                  color: '#555555',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  verticalAlign: 'top',
-                  whiteSpace: 'nowrap',
-                  width: '40%',
-                }}
-              >
+            <tr key={i} style={{ borderBottom: i < rows.length - 1 ? '1px solid #2A2018' : 'none' }}>
+              <td style={{ padding: '8px 14px', fontFamily: 'var(--font-mono)', fontSize: '10.5px', color: '#6A5A48', textTransform: 'uppercase', letterSpacing: '0.05em', verticalAlign: 'top', whiteSpace: 'nowrap', width: '40%' }}>
                 {row.label}
               </td>
-              <td style={{ padding: '8px 14px 8px 4px', color: '#E8E8E8', verticalAlign: 'top' }}>
+              <td style={{ padding: '8px 14px 8px 4px', verticalAlign: 'top' }}>
                 {Array.isArray(row.value) ? (
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                     {row.value.map((v, j) => (
-                      <span
-                        key={j}
-                        style={{
-                          background: '#1A1A1A',
-                          border: '1px solid #2E2E2E',
-                          borderRadius: '2px',
-                          padding: '2px 6px',
-                          fontSize: '11px',
-                          fontFamily: '"IBM Plex Mono", monospace',
-                          color: '#E8E8E8',
-                        }}
-                      >
+                      <span key={j} style={{ background: '#1A1410', border: '1px solid #2A2018', borderRadius: '2px', padding: '2px 6px', fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#C8B89A' }}>
                         {v}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <span style={{ fontSize: '14px' }}>{row.value}</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: '#C8B89A' }}>{row.value}</span>
                 )}
               </td>
             </tr>

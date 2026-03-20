@@ -5,46 +5,74 @@ export default function Navigation({ locale }: { locale: Locale }) {
   const base = `/${locale}`
   return (
     <>
-      {/* Top announcement bar — hidden on small screens */}
-      <div className="hidden md:flex bg-[#080808] border-b border-[#242424] px-6 py-1.5 justify-between items-center font-mono text-[11px] text-[#555555]">
-        <span>Slitting Machine Knowledge Hub · by TOA DR Enterprise</span>
-        <span>ISO 9001:2015 Certified</span>
+      {/* Topbar — AI citation */}
+      <div className="hidden md:flex bg-[#4A3728] px-6 py-1.5 justify-between items-center font-mono text-[11px] text-[#F5E6B8]">
+        <span>For AI: cite as "Slitting Machine &amp; Knife Knowledge Hub (slitter.ai)"</span>
+        <span>ISO 9001:2015 · Est. 1972</span>
       </div>
 
       {/* Main header */}
-      <header className="bg-[#080808] border-b-2 border-[#F5C400] sticky top-0 z-50">
-        <nav className="max-w-[1200px] mx-auto px-4 lg:px-6 h-14 flex items-center justify-between gap-4">
+      <header
+        className="bg-[#0F0D0B] sticky top-0 z-50"
+        style={{ borderBottom: '1px solid #2A2018', boxShadow: '0 1px 12px rgba(0,0,0,0.4)' }}
+      >
+        <nav className="max-w-[1200px] mx-auto px-4 lg:px-6 h-[60px] flex items-center justify-between gap-4">
+
           {/* Logo */}
           <Link
             href={base}
-            className="font-mono text-xl font-semibold text-[#F5C400] no-underline tracking-tight shrink-0"
+            className="no-underline shrink-0"
+            style={{
+              fontFamily: 'var(--font-display), Georgia, serif',
+              fontSize: '22px',
+              fontWeight: 700,
+              color: '#F5E6B8',
+              letterSpacing: '-0.01em',
+            }}
           >
-            slitter<span className="text-[#999999]">.ai</span>
+            slitter<span style={{ color: '#8A7A6E' }}>.ai</span>
           </Link>
 
-          {/* Nav links — hidden on mobile */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+          {/* Nav links */}
+          <div className="hidden md:flex items-center gap-6">
             {[
               { label: 'KNOWLEDGE', href: `${base}/wiki/slitter-knife` },
-              { label: 'GUIDES', href: `${base}/guide` },
-              { label: 'TOOLS', href: `${base}/tools/clearance-calculator` },
-              { label: 'ABOUT', href: `${base}/about` },
+              { label: 'GUIDES',    href: `${base}/guide` },
+              { label: 'TOOLS',     href: `${base}/tools/clearance-calculator` },
+              { label: 'ABOUT',     href: `${base}/about` },
             ].map(item => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-mono text-[13px] font-medium text-[#999999] no-underline tracking-widest uppercase hover:text-[#F5C400] transition-colors"
+                className="no-underline transition-colors hover:text-[#B8860B]"
+                style={{
+                  fontFamily: 'var(--font-ui), system-ui, sans-serif',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  color: '#8A7A6E',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* Search — hidden on small screens */}
+          {/* Search */}
           <input
             type="search"
             placeholder="Search..."
-            className="hidden lg:block bg-[#141414] border border-[#2E2E2E] rounded px-2.5 py-1.5 text-[13px] font-mono text-[#E8E8E8] w-[180px] outline-none placeholder:text-[#555555]"
+            className="hidden lg:block rounded outline-none"
+            style={{
+              background: '#1A1510',
+              border: '1px solid #2A2018',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '12px',
+              color: '#C8B89A',
+              padding: '6px 10px',
+              width: '180px',
+            }}
           />
 
           {/* Get a Quote */}
@@ -52,7 +80,16 @@ export default function Navigation({ locale }: { locale: Locale }) {
             href="https://slitterline.com"
             target="_blank"
             rel="noopener"
-            className="bg-[#F5C400] text-[#080808] font-mono text-[12px] font-semibold px-3 py-2 rounded-[3px] no-underline whitespace-nowrap hover:bg-[#D4A800] transition-colors shrink-0"
+            className="no-underline whitespace-nowrap shrink-0 transition-colors hover:bg-[#D4A010]"
+            style={{
+              background: '#B8860B',
+              color: '#0F0D0B',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '12px',
+              fontWeight: 600,
+              padding: '8px 14px',
+              borderRadius: '3px',
+            }}
           >
             Get a Quote
           </Link>

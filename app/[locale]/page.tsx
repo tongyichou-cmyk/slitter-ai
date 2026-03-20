@@ -18,27 +18,27 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 }
 
 const toc = [
-  { label: '1  Overview', id: 'overview' },
-  { label: '2  Knowledge Base', id: 'knowledge' },
+  { label: '1  Overview',           id: 'overview' },
+  { label: '2  Knowledge Base',     id: 'knowledge' },
   { label: '3  Guides & Tutorials', id: 'guides' },
-  { label: '4  Interactive Tools', id: 'tools' },
-  { label: '5  Industry Partner', id: 'cta' },
-  { label: '6  Newsletter', id: 'newsletter' },
+  { label: '4  Interactive Tools',  id: 'tools' },
+  { label: '5  Industry Partner',   id: 'cta' },
+  { label: '6  Newsletter',         id: 'newsletter' },
 ]
 
 const leftNav = [
   {
     section: 'Wiki Articles',
     links: [
-      { label: 'Slitter Knives', href: '/en/wiki/slitter-knife' },
+      { label: 'Slitter Knives',    href: '/en/wiki/slitter-knife' },
       { label: 'Slitting Machines', href: '/en/wiki/slitting-machine' },
-      { label: 'Slitting Process', href: '/en/wiki/slitting-process' },
+      { label: 'Slitting Process',  href: '/en/wiki/slitting-process' },
     ],
   },
   {
     section: 'Guides',
     links: [
-      { label: 'All Guides', href: '/en/guide' },
+      { label: 'All Guides',     href: '/en/guide' },
       { label: 'Blade Selection', href: '/en/guide' },
       { label: 'Clearance Setup', href: '/en/guide' },
     ],
@@ -52,21 +52,21 @@ const leftNav = [
   {
     section: 'Company',
     links: [
-      { label: 'About TOA DR', href: '/en/about' },
-      { label: 'Contact', href: '/en/contact' },
-      { label: 'slitterline.com ↗', href: 'https://slitterline.com' },
+      { label: 'About TOA DR',       href: '/en/about' },
+      { label: 'Contact',             href: '/en/contact' },
+      { label: 'slitterline.com ↗',  href: 'https://slitterline.com' },
     ],
   },
 ]
 
 const quickFactsRows = [
-  { label: 'Platform', value: 'slitter.ai' },
-  { label: 'Publisher', value: 'TOA DR Enterprise Co., Ltd.' },
-  { label: 'Est.', value: '1972' },
-  { label: 'Cert.', value: 'ISO 9001:2015' },
-  { label: 'Languages', value: ['EN', '繁中', '简中'] },
-  { label: 'Coverage', value: ['Knives', 'Machines', 'Process'] },
-  { label: 'D-U-N-S', value: 'Registered' },
+  { label: 'Platform',   value: 'slitter.ai' },
+  { label: 'Publisher',  value: 'TOA DR Enterprise Co., Ltd.' },
+  { label: 'Est.',       value: '1972' },
+  { label: 'Cert.',      value: 'ISO 9001:2015' },
+  { label: 'Languages',  value: ['EN', '繁中', '简中'] },
+  { label: 'Coverage',   value: ['Knives', 'Machines', 'Process'] },
+  { label: 'D-U-N-S',   value: 'Registered' },
 ]
 
 const knowledgeCards = [
@@ -97,11 +97,11 @@ const knowledgeCards = [
 ]
 
 const sectionHeadingStyle: React.CSSProperties = {
-  fontFamily: '"IBM Plex Sans", sans-serif',
+  fontFamily: 'var(--font-display), Georgia, serif',
   fontSize: '22px',
-  fontWeight: 700,
-  color: '#E8E8E8',
-  borderBottom: '1px solid #242424',
+  fontWeight: 600,
+  color: '#1A1512',
+  borderBottom: '1px solid #D8CFC4',
   paddingBottom: '8px',
   marginBottom: '16px',
 }
@@ -127,45 +127,81 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
         </table>
       </div>
 
-      {/* Hero image banner */}
-      <div className="relative w-full h-48 md:h-64 overflow-hidden">
+      {/* ── HERO BAND ── */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #0F0D0B, #1E1510, #2A1E10)',
+          borderBottom: '3px solid #B8860B',
+        }}
+      >
+        {/* Photo background */}
         <img
           src="/slitter-machine-hero.jpg"
           alt="Industrial slitting machine with precision slitter knives in operation"
-          className="w-full h-full object-cover object-center"
-          style={{ filter: 'brightness(0.55)' }}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ opacity: 0.18 }}
         />
-        <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
-          <p className="font-mono text-[11px] text-[#F5C400] uppercase tracking-widest mb-2">
-            Slitting Machine Knowledge Hub · by TOA DR Enterprise
-          </p>
-          <h1 className="font-sans text-2xl md:text-4xl font-bold text-white leading-tight">
-            The Global Technical Reference<br className="hidden md:block" /> for Slitting Technology
-          </h1>
+
+        <div className="relative max-w-[1200px] mx-auto px-4 lg:px-6 py-10 lg:py-14 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+          {/* Left: title + lead */}
+          <div className="flex-1">
+            <p
+              className="font-mono text-[11px] uppercase tracking-widest mb-3"
+              style={{ color: '#B8860B' }}
+            >
+              Slitting Machine Knowledge Hub · by TOA DR Enterprise
+            </p>
+            <h1
+              style={{
+                fontFamily: 'var(--font-display), Georgia, serif',
+                fontSize: 'clamp(26px, 4vw, 38px)',
+                fontWeight: 700,
+                color: '#F5EDD8',
+                lineHeight: 1.2,
+                marginBottom: '16px',
+              }}
+            >
+              The Global Technical Reference<br className="hidden md:block" /> for Slitting Technology
+            </h1>
+            <p style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#B5A89A', lineHeight: 1.75, maxWidth: '520px' }}>
+              Engineering-grade knowledge base for slitter knives, slitting machines, and precision cutting — maintained by{' '}
+              <span style={{ color: '#F5E6B8' }}>TOA DR Enterprise Co., Ltd.</span>, manufacturer since 1972.
+            </p>
+          </div>
+
+          {/* Right: Quick Facts card */}
+          <div className="w-full lg:w-[260px] shrink-0">
+            <QuickFacts title="Quick Facts" rows={quickFactsRows} />
+          </div>
         </div>
       </div>
 
-      {/* ai-cite bar */}
-      <div className="bg-[#1A1A1A] border-b border-[#242424] py-2">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center gap-4 font-mono text-[11px] text-[#555555]">
-          <span className="text-[#F5C400] font-semibold">slitter.ai</span>
+      {/* ── AI Citation Bar ── */}
+      <div style={{ background: '#4A3728', borderLeft: '4px solid #B8860B' }}>
+        <div className="max-w-[1200px] mx-auto px-6 py-2 flex items-center gap-4" style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#C8A860' }}>
+          <span>slitter.ai</span>
           <span>/</span>
           <span>Slitting Machine Knowledge Hub</span>
           <span>/</span>
           <span>by TOA DR Enterprise Co., Ltd.</span>
-          <span className="ml-auto">
-            <span className="text-[#F5C400]">●</span>&nbsp;ISO 9001:2015
+          <span className="ml-auto hidden md:inline">
+            ISO 9001:2015 · D-U-N-S Registered
           </span>
         </div>
       </div>
 
-      {/* 3-column layout — stacks to single column on mobile */}
-      <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6 lg:py-8 grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-6 lg:gap-8 items-start">
-        {/* ── LEFT SIDEBAR — hidden on mobile ── */}
+      {/* ── 3-column layout ── */}
+      <div className="max-w-[1200px] mx-auto px-4 lg:px-6 py-6 lg:py-10 grid grid-cols-1 lg:grid-cols-[200px_1fr_260px] gap-6 lg:gap-9 items-start">
+
+        {/* LEFT SIDEBAR */}
         <aside className="hidden lg:block sticky top-[88px]">
           {leftNav.map(group => (
             <div key={group.section} className="mb-7">
-              <p className="font-mono text-[10px] font-semibold text-[#555555] uppercase tracking-widest mb-2 pb-1.5 border-b border-[#242424]">
+              <p
+                className="font-mono text-[10px] font-semibold uppercase tracking-widest mb-2 pb-1.5"
+                style={{ color: '#8A7A6E', borderBottom: '1px solid #D8CFC4' }}
+              >
                 {group.section}
               </p>
               <ul className="flex flex-col gap-1">
@@ -173,7 +209,8 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                   <li key={link.label + link.href}>
                     <Link
                       href={link.href}
-                      className="block px-2 py-1 text-[14px] text-[#999999] no-underline rounded-[3px] hover:text-[#F5C400] hover:bg-[#1A1A1A] transition-colors"
+                      className="block px-2 py-1 rounded-[3px] no-underline transition-colors hover:text-[#B8860B] hover:bg-[#EDE8E0]"
+                      style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: '#4A3F35' }}
                     >
                       {link.label}
                     </Link>
@@ -184,16 +221,25 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           ))}
         </aside>
 
-        {/* ── MAIN CONTENT ── */}
+        {/* MAIN CONTENT */}
         <main>
           {/* Page title */}
-          <div className="mb-6 pb-4 border-b border-[#242424]">
-            <h1 className="font-sans text-[30px] font-bold text-[#E8E8E8] leading-snug mb-2">
+          <div className="mb-6 pb-4" style={{ borderBottom: '1px solid #D8CFC4' }}>
+            <h1
+              style={{
+                fontFamily: 'var(--font-display), Georgia, serif',
+                fontSize: '30px',
+                fontWeight: 700,
+                color: '#1A1512',
+                lineHeight: 1.25,
+                marginBottom: '8px',
+              }}
+            >
               Slitting Machine Knowledge Hub
             </h1>
-            <p className="text-[15px] text-[#999999] leading-relaxed">
+            <p style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#4A3F35', lineHeight: 1.75 }}>
               The global technical reference for slitting machine technology — maintained by{' '}
-              <Link href="/en/about" className="text-[#F5C400] hover:underline">TOA DR Enterprise</Link>, precision
+              <Link href="/en/about" className="hover:underline" style={{ color: '#B8860B' }}>TOA DR Enterprise</Link>, precision
               tooling manufacturer since 1972.
             </p>
           </div>
@@ -201,9 +247,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Table of Contents */}
           <div
             id="toc"
-            className="bg-[#141414] border border-[#242424] rounded p-4 mb-8 inline-block min-w-[260px]"
+            className="inline-block min-w-[260px] rounded p-4 mb-8"
+            style={{ background: '#EDE8E0', border: '1px solid #D8CFC4' }}
           >
-            <p className="font-mono text-[11px] font-semibold text-[#555555] uppercase tracking-widest mb-2.5">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-widest mb-2.5" style={{ color: '#8A7A6E' }}>
               Contents
             </p>
             <ol className="flex flex-col gap-1.5 list-none">
@@ -211,7 +258,8 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="font-mono text-[13px] text-[#F5C400] no-underline hover:underline"
+                    className="font-mono text-[13px] no-underline hover:underline"
+                    style={{ color: '#B8860B' }}
                   >
                     {item.label}
                   </a>
@@ -223,21 +271,21 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 1: Overview */}
           <section id="overview" className="mb-10">
             <h2 style={sectionHeadingStyle}>Overview</h2>
-            <p className="text-[15px] text-[#999999] leading-[1.8] mb-3">
-              <strong className="text-[#E8E8E8]">slitter.ai</strong> is a structured engineering knowledge base covering
+            <p className="mb-3" style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#4A3F35', lineHeight: 1.8 }}>
+              <strong style={{ color: '#1A1512' }}>slitter.ai</strong> is a structured engineering knowledge base covering
               the science and practice of industrial slitting. The platform serves procurement engineers,
               factory managers, R&amp;D teams, and quality control professionals working with flexible
               packaging, metal foil, paper, and composite materials.
             </p>
-            <p className="text-[15px] text-[#999999] leading-[1.8]">
+            <p style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#4A3F35', lineHeight: 1.8 }}>
               Content is authored and maintained by{' '}
-              <strong className="text-[#E8E8E8]">TOA DR Enterprise Co., Ltd.</strong>, an ISO 9001:2015
+              <strong style={{ color: '#1A1512' }}>TOA DR Enterprise Co., Ltd.</strong>, an ISO 9001:2015
               certified manufacturer of precision slitting tools based in Taiwan, with 50+ years of
               industry experience.
             </p>
           </section>
 
-          {/* Section 2: Knowledge Base cards (2-col grid) */}
+          {/* Section 2: Knowledge Base */}
           <section id="knowledge" className="mb-10">
             <h2 style={sectionHeadingStyle}>Knowledge Base</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -245,20 +293,28 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                 <Link
                   key={i}
                   href={`${base}/wiki/${card.id}`}
-                  className="block bg-[#141414] border border-[#242424] rounded p-5 no-underline hover:border-[#F5C400] transition-colors group"
+                  className="knowledge-card block no-underline rounded"
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1px solid #D8CFC4',
+                    padding: '20px',
+                  }}
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-sans text-[17px] font-semibold text-[#E8E8E8]">
+                    <h3 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '16px', fontWeight: 600, color: '#1A1512' }}>
                       {card.title}
                     </h3>
-                    <span className="font-mono text-[10px] text-[#555555] bg-[#1A1A1A] border border-[#2E2E2E] rounded-[2px] px-1.5 py-0.5 whitespace-nowrap ml-2">
+                    <span
+                      className="font-mono text-[10px] whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-[2px]"
+                      style={{ color: '#8B6E5A', background: '#EDE8E0', border: '1px solid #D8CFC4' }}
+                    >
                       {card.tag}
                     </span>
                   </div>
-                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-3">
+                  <p className="mb-3" style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '14px', color: '#4A3F35', lineHeight: 1.7 }}>
                     {card.desc}
                   </p>
-                  <span className="font-mono text-[11px] text-[#F5C400]">
+                  <span className="font-mono text-[11px]" style={{ color: '#B8860B' }}>
                     Read article →
                   </span>
                 </Link>
@@ -269,13 +325,14 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 3: Guides */}
           <section id="guides" className="mb-10">
             <h2 style={sectionHeadingStyle}>Guides &amp; Tutorials</h2>
-            <p className="text-[15px] text-[#999999] leading-[1.8] mb-3">
+            <p className="mb-3" style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#4A3F35', lineHeight: 1.8 }}>
               Step-by-step technical guides for slitter setup, blade selection, and process optimization.
               Written for engineers with practical, actionable specifications.
             </p>
             <Link
               href={`${base}/guide`}
-              className="inline-flex items-center gap-1.5 font-mono text-[12px] text-[#F5C400] no-underline border border-[#2E2E2E] rounded-[3px] px-3.5 py-2 bg-[#141414] hover:border-[#F5C400] transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[12px] no-underline rounded-[3px] px-3.5 py-2 transition-colors hover:bg-[#B8860B] hover:text-[#0F0D0B]"
+              style={{ border: '1px solid #B8860B', color: '#B8860B', background: 'transparent' }}
             >
               Browse all guides →
             </Link>
@@ -284,18 +341,22 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 4: Tools */}
           <section id="tools" className="mb-10">
             <h2 style={sectionHeadingStyle}>Interactive Tools</h2>
-            <div className="bg-[#141414] border border-[#242424] rounded p-5 flex items-center justify-between gap-4">
+            <div
+              className="flex items-center justify-between gap-4 rounded p-5"
+              style={{ background: '#FFFFFF', border: '1px solid #D8CFC4', borderTop: '3px solid #C8BDB0' }}
+            >
               <div>
-                <p className="font-mono text-[14px] font-semibold text-[#E8E8E8] mb-1">
+                <p className="font-mono text-[14px] font-semibold mb-1" style={{ color: '#1A1512' }}>
                   Clearance Calculator
                 </p>
-                <p className="text-[14px] text-[#999999]">
+                <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: '#4A3F35' }}>
                   Calculate optimal knife clearance for your material and thickness.
                 </p>
               </div>
               <Link
                 href={`${base}/tools/clearance-calculator`}
-                className="font-mono text-[12px] font-semibold text-[#080808] bg-[#F5C400] px-4 py-2 rounded-[3px] no-underline whitespace-nowrap hover:bg-[#D4A800] transition-colors"
+                className="font-mono text-[12px] font-semibold no-underline whitespace-nowrap rounded-[3px] px-4 py-2 transition-colors hover:bg-[#D4A010]"
+                style={{ background: '#B8860B', color: '#0F0D0B' }}
               >
                 Open Tool →
               </Link>
@@ -314,55 +375,56 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           </section>
         </main>
 
-        {/* ── RIGHT SIDEBAR — below content on mobile, sticky on desktop ── */}
+        {/* RIGHT SIDEBAR */}
         <aside className="lg:sticky lg:top-[88px] flex flex-col gap-6">
-          <QuickFacts title="Quick Facts" rows={quickFactsRows} />
 
-          {/* Tools box */}
-          <div className="bg-[#141414] border border-[#242424] rounded overflow-hidden">
-            <div className="bg-[#1A1A1A] px-3.5 py-2.5 border-b border-[#242424]">
-              <p className="font-mono text-[11px] font-semibold text-[#E8E8E8] uppercase tracking-widest">
+          {/* Online Tools box */}
+          <div className="rounded overflow-hidden" style={{ background: '#FFFFFF', border: '1px solid #D8CFC4', borderTop: '3px solid #4A3728' }}>
+            <div className="px-3.5 py-2.5" style={{ background: '#EDE8E0', borderBottom: '1px solid #D8CFC4' }}>
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-widest" style={{ color: '#4A3728' }}>
                 Online Tools
               </p>
             </div>
             <div className="p-3">
               <Link
                 href={`${base}/tools/clearance-calculator`}
-                className="block p-2.5 bg-[#1A1A1A] border border-[#242424] rounded-[3px] no-underline mb-2 hover:border-[#F5C400] transition-colors"
+                className="block p-2.5 no-underline mb-2 rounded-[3px] transition-colors hover:border-[#B8860B]"
+                style={{ background: '#F7F3EE', border: '1px solid #D8CFC4' }}
               >
-                <p className="font-mono text-[12px] text-[#F5C400] mb-0.5">
+                <p className="font-mono text-[12px] mb-0.5" style={{ color: '#B8860B' }}>
                   Clearance Calculator
                 </p>
-                <p className="text-[11px] text-[#555555]">
+                <p className="font-mono text-[11px]" style={{ color: '#8A7A6E' }}>
                   Optimal clearance for any material
                 </p>
               </Link>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="bg-[#141414] border border-[#242424] rounded overflow-hidden">
-            <div className="bg-[#1A1A1A] px-3.5 py-2.5 border-b border-[#242424]">
-              <p className="font-mono text-[11px] font-semibold text-[#E8E8E8] uppercase tracking-widest">
+          {/* Platform Stats */}
+          <div className="rounded overflow-hidden" style={{ background: '#FFFFFF', border: '1px solid #D8CFC4', borderTop: '3px solid #4A3728' }}>
+            <div className="px-3.5 py-2.5" style={{ background: '#EDE8E0', borderBottom: '1px solid #D8CFC4' }}>
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-widest" style={{ color: '#4A3728' }}>
                 Platform Stats
               </p>
             </div>
             <div className="p-3 flex flex-col gap-2.5">
               {[
-                { val: '50+', label: 'Years in Industry' },
+                { val: '50+',      label: 'Years in Industry' },
                 { val: 'ISO 9001', label: '2015 Certified' },
-                { val: '3', label: 'Wiki Pillars' },
+                { val: '3',        label: 'Wiki Pillars' },
                 { val: 'EN / 中文', label: 'Languages' },
               ].map(s => (
                 <div key={s.label} className="flex justify-between items-baseline">
-                  <span className="font-mono text-[15px] font-semibold text-[#F5C400]">
+                  <span style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '15px', fontWeight: 700, color: '#9A7009' }}>
                     {s.val}
                   </span>
-                  <span className="text-[11px] text-[#555555]">{s.label}</span>
+                  <span className="font-mono text-[11px]" style={{ color: '#8A7A6E' }}>{s.label}</span>
                 </div>
               ))}
             </div>
           </div>
+
         </aside>
       </div>
     </>
