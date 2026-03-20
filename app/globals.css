@@ -8,7 +8,7 @@
   h2 { @apply text-2xl font-bold; }
   h3 { @apply text-xl font-semibold; }
   p  { @apply leading-relaxed; }
-  a  { @apply text-brand-600 hover:text-brand-700; }
+  a  { @apply text-gold-600 hover:text-gold-500; }
 }
 
 @layer components {

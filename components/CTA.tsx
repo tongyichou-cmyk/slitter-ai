@@ -15,14 +15,14 @@ export default function CTA({
 }: CTAProps) {
   if (variant === 'inline') {
     return (
-      <div className="my-8 p-4 border-l-4 border-brand-600 bg-brand-50 rounded-r-lg">
-        <p className="font-semibold text-brand-900">{heading}</p>
-        <p className="text-sm text-gray-600 mt-1">{subheading}</p>
+      <div className="my-8 p-4 border-l-4 border-gold-500 bg-dark-700 rounded-r-lg">
+        <p className="font-semibold text-gold-400">{heading}</p>
+        <p className="text-sm text-gray-400 mt-1">{subheading}</p>
         <Link
           href="https://slitterline.com"
           target="_blank"
           rel="noopener"
-          className="inline-block mt-3 px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded hover:bg-brand-700 transition-colors"
+          className="inline-block mt-3 px-4 py-2 bg-gold-500 text-dark-900 text-sm font-semibold rounded hover:bg-gold-400 transition-colors no-underline"
         >
           {buttonText}
         </Link>
@@ -31,14 +31,15 @@ export default function CTA({
   }
 
   return (
-    <section className="my-12 p-8 bg-brand-900 text-white rounded-xl text-center">
-      <h2 className="text-2xl font-bold mb-2">{heading}</h2>
-      <p className="text-brand-100 mb-6 max-w-xl mx-auto">{subheading}</p>
+    <section className="my-12 bg-dark-800 border border-dark-500 rounded-xl p-10 text-center">
+      <p className="text-xs font-semibold tracking-widest text-gold-600 uppercase mb-3">50+ Years of Precision</p>
+      <h2 className="text-2xl font-bold text-white mb-3">{heading}</h2>
+      <p className="text-gray-400 mb-8 max-w-xl mx-auto">{subheading}</p>
       <Link
         href="https://slitterline.com"
         target="_blank"
         rel="noopener"
-        className="inline-block px-6 py-3 bg-white text-brand-900 font-semibold rounded-lg hover:bg-brand-50 transition-colors"
+        className="inline-block px-8 py-3 bg-gold-500 text-dark-900 font-semibold rounded hover:bg-gold-400 transition-colors no-underline"
       >
         {buttonText}
       </Link>

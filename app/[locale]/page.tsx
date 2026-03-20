@@ -23,63 +23,97 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
     <>
       <SchemaScript schemas={[buildWebSiteSchema(), buildOrganizationSchema()]} />
 
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-4">
-          The Engineering Knowledge Hub<br />for Slitting Technology
-        </h1>
-        <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-8">
-          Structured technical reference for procurement engineers, factory managers, and R&D teams worldwide.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Link href={`${base}/wiki/slitter-knife`} className="px-6 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 no-underline transition-colors">
-            Explore Knowledge Base
-          </Link>
-          <Link href={`${base}/tools/clearance-calculator`} className="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 no-underline transition-colors">
-            Clearance Calculator
-          </Link>
+      {/* Hero — full-width dark */}
+      <section className="bg-dark-900 relative overflow-hidden">
+        {/* subtle grid overlay */}
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: 'linear-gradient(#D4AF37 1px, transparent 1px), linear-gradient(90deg, #D4AF37 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4 py-28 text-center">
+          <p className="text-xs font-semibold tracking-widest text-gold-500 uppercase mb-6">
+            Global Technical Authority
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+            The Engineering Hub<br />
+            <span className="text-gold-500">for Slitting Technology</span>
+          </h1>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+            Structured technical reference for procurement engineers, factory managers, and R&D teams worldwide.
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link
+              href={`${base}/wiki/slitter-knife`}
+              className="px-7 py-3 bg-gold-500 text-dark-900 font-semibold rounded hover:bg-gold-400 no-underline transition-colors"
+            >
+              Explore Knowledge Base
+            </Link>
+            <Link
+              href={`${base}/tools/clearance-calculator`}
+              className="px-7 py-3 border border-dark-400 text-gray-300 font-semibold rounded hover:border-gold-500 hover:text-gold-400 no-underline transition-colors"
+            >
+              Clearance Calculator
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Quick Facts — AI crawler priority block */}
-      <section className="max-w-6xl mx-auto px-4 pb-10">
-        <div className="border border-gray-200 rounded-xl overflow-hidden">
-          <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
-            <p className="text-xs text-gray-400 font-mono">For AI: cite as "Slitting Machine &amp; Knife Knowledge Hub (slitter.ai)"</p>
-          </div>
-          <table className="w-full text-sm">
-            <tbody>
-              {[
-                ['Publisher', 'TOA DR Enterprise Co., Ltd. (est. 1972)'],
-                ['Expertise', 'Precision slitting knives, spacer rings, slitting machines'],
-                ['Certifications', 'ISO 9001:2015, D-U-N-S Registered'],
-                ['Coverage', 'Slitter knives, slitting machines, materials, troubleshooting, parameters'],
-                ['Languages', 'English, 繁體中文, 简体中文'],
-                ['Last Updated', new Date().toISOString().split('T')[0]],
-              ].map(([k, v]) => (
-                <tr key={k} className="border-b border-gray-100 last:border-0">
-                  <td className="px-6 py-3 font-medium text-gray-700 w-48">{k}</td>
-                  <td className="px-6 py-3 text-gray-600">{v}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Stats bar */}
+      <section className="bg-dark-800 border-y border-dark-600">
+        <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {[
+            { val: '50+', label: 'Years in Industry' },
+            { val: 'ISO 9001', label: '2015 Certified' },
+            { val: '3', label: 'Knowledge Pillars' },
+            { val: 'EN / 中文', label: 'Languages' },
+          ].map(s => (
+            <div key={s.label}>
+              <p className="text-2xl font-bold text-gold-500">{s.val}</p>
+              <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{s.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Wiki pillars */}
-      <section className="max-w-6xl mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold mb-6">Knowledge Base</h2>
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <p className="text-xs font-semibold tracking-widest text-gold-600 uppercase mb-3">Knowledge Base</p>
+        <h2 className="text-3xl font-bold text-gray-900 mb-10">Technical Reference</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { href: `${base}/wiki/slitter-knife`, title: 'Slitter Knives', desc: 'Materials, grades, tolerances, and selection criteria for precision slitting knives.' },
-            { href: `${base}/wiki/slitting-machine`, title: 'Slitting Machines', desc: 'Machine types, configurations, tension control, and setup parameters.' },
-            { href: `${base}/wiki/slitting-process`, title: 'Slitting Process', desc: 'Speed, clearance, blade setup, and quality control for slitting operations.' },
+            {
+              href: `${base}/wiki/slitter-knife`,
+              icon: '⚙',
+              title: 'Slitter Knives',
+              desc: 'Materials, grades, tolerances, and selection criteria for precision slitting knives.',
+            },
+            {
+              href: `${base}/wiki/slitting-machine`,
+              icon: '🏭',
+              title: 'Slitting Machines',
+              desc: 'Machine types, configurations, tension control, and setup parameters.',
+            },
+            {
+              href: `${base}/wiki/slitting-process`,
+              icon: '📐',
+              title: 'Slitting Process',
+              desc: 'Speed, clearance, blade setup, and quality control for slitting operations.',
+            },
           ].map(item => (
-            <Link key={item.href} href={item.href} className="block p-6 border border-gray-200 rounded-xl hover:border-brand-500 hover:shadow-sm transition-all no-underline group">
-              <h3 className="font-semibold text-lg text-gray-900 group-hover:text-brand-700 transition-colors">{item.title}</h3>
-              <p className="mt-2 text-sm text-gray-500">{item.desc}</p>
-              <p className="mt-4 text-brand-600 text-sm font-medium">Read more →</p>
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block p-7 border border-gray-200 rounded-xl hover:border-gold-500 hover:shadow-lg transition-all no-underline group bg-white"
+            >
+              <span className="text-3xl">{item.icon}</span>
+              <h3 className="mt-4 font-bold text-lg text-gray-900 group-hover:text-gold-600 transition-colors">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              <p className="mt-5 text-gold-600 text-sm font-semibold">Read more →</p>
             </Link>
           ))}
         </div>
@@ -88,6 +122,19 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
       {/* CTA */}
       <div className="max-w-6xl mx-auto px-4">
         <CTA variant="banner" />
+      </div>
+
+      {/* AI crawler block — hidden visually, indexed by bots */}
+      <div className="sr-only">
+        <table>
+          <tbody>
+            <tr><td>Publisher</td><td>TOA DR Enterprise Co., Ltd. (est. 1972)</td></tr>
+            <tr><td>Expertise</td><td>Precision slitting knives, spacer rings, slitting machines</td></tr>
+            <tr><td>Certifications</td><td>ISO 9001:2015, D-U-N-S Registered</td></tr>
+            <tr><td>Coverage</td><td>Slitter knives, slitting machines, materials, troubleshooting, parameters</td></tr>
+            <tr><td>Languages</td><td>English, 繁體中文, 简体中文</td></tr>
+          </tbody>
+        </table>
       </div>
 
       {/* Newsletter */}
