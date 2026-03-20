@@ -6,26 +6,30 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const publicDir = join(__dirname, '..', 'public')
 
+const SOURCE = 'slitter-machine-hero-src.jpg'  // master source — never overwritten
+
 // Output specs per image
 const targets = [
   {
+    src: SOURCE,
     filename: 'slitter-machine-hero.jpg',
-    width: 1920,   // full-bleed banner, up to 2x retina 960px display
-    height: 640,   // ~h-48 md:h-64 banner aspect ratio
+    width: 1920,   // full-bleed banner, 2× retina
+    height: 640,   // banner aspect ratio
     quality: 82,
   },
   {
+    src: SOURCE,
     filename: 'og-default.jpg',
-    width: 1200,   // OG image spec
-    height: 630,   // OG image spec
+    width: 1200,   // OG spec
+    height: 630,   // OG spec
     quality: 85,
   },
 ]
 
 const WATERMARK_TEXT = 'www.slitterline.com'
 
-async function processImage({ filename, width, height, quality }) {
-  const inputPath = join(publicDir, filename)
+async function processImage({ src, filename, width, height, quality }) {
+  const inputPath = join(publicDir, src)
   const outputPath = join(publicDir, filename)
 
   if (!existsSync(inputPath)) {
@@ -34,6 +38,7 @@ async function processImage({ filename, width, height, quality }) {
   }
 
   const beforeSize = statSync(inputPath).size
+  if (!existsSync(outputPath)) { /* first run, no before-size from output */ }
 
   // Build SVG overlay sized to OUTPUT dimensions
   const fontSize = Math.max(14, Math.round(width * 0.018))
