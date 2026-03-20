@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
     ],
-    sitemap: 'https://slitter.ai/sitemap.xml',
+    sitemap: 'https://www.slitter.ai/sitemap.xml',
   }
 }

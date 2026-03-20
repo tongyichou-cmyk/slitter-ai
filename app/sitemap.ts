@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://slitter.ai'
+const BASE_URL = 'https://www.slitter.ai'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
