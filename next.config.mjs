@@ -16,6 +16,9 @@ const withMDX = createMDX({
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: { remotePatterns: [] },
+  experimental: {
+    browsersListForSwc: true,
+  },
 }
 
 export default withNextIntl(withMDX(nextConfig))
