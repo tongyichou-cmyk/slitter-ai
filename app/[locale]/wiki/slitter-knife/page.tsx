@@ -1,5 +1,5 @@
 import { buildMetadata } from '@/lib/seo'
-import { buildArticleSchema, buildFAQSchema, buildBreadcrumbSchema } from '@/lib/schema'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema'
 import SchemaScript from '@/components/SchemaScript'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQ from '@/components/FAQ'
@@ -37,7 +37,6 @@ export default function SlitterKnifePage({ params: { locale } }: { params: { loc
           datePublished: '2026-03-01',
           dateModified: '2026-03-19',
         }),
-        buildFAQSchema(faqs),
         buildBreadcrumbSchema([
           { name: 'Home', url: `https://slitter.ai/${locale}` },
           { name: 'Knowledge Base', url: `https://slitter.ai/${locale}/wiki/slitter-knife` },
