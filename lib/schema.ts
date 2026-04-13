@@ -1,3 +1,5 @@
+export const SCHEMA_BASE_URL = 'https://www.slitter.ai'
+
 export type SchemaObject = Record<string, unknown>
 
 export function buildOrganizationSchema(): SchemaObject {

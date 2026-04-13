@@ -1,5 +1,5 @@
 import { buildMetadata } from '@/lib/seo'
-import { buildArticleSchema, buildBreadcrumbSchema } from '@/lib/schema'
+import { buildArticleSchema, buildBreadcrumbSchema, SCHEMA_BASE_URL } from '@/lib/schema'
 import SchemaScript from '@/components/SchemaScript'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQ from '@/components/FAQ'
@@ -33,14 +33,13 @@ export default function SlitterKnifePage({ params: { locale } }: { params: { loc
         buildArticleSchema({
           title: 'Slitter Knives — Complete Engineering Guide',
           description: 'Comprehensive technical reference for slitter knives.',
-          url: `https://slitter.ai/${locale}/wiki/slitter-knife`,
+          url: `${SCHEMA_BASE_URL}/${locale}/wiki/slitter-knife`,
           datePublished: '2026-03-01',
           dateModified: '2026-03-19',
         }),
         buildBreadcrumbSchema([
-          { name: 'Home', url: `https://slitter.ai/${locale}` },
-          { name: 'Knowledge Base', url: `https://slitter.ai/${locale}/wiki/slitter-knife` },
-          { name: 'Slitter Knives', url: `https://slitter.ai/${locale}/wiki/slitter-knife` },
+          { name: 'Home',          url: `${SCHEMA_BASE_URL}/${locale}` },
+          { name: 'Slitter Knives', url: `${SCHEMA_BASE_URL}/${locale}/wiki/slitter-knife` },
         ]),
       ]} />
 
