@@ -26,44 +26,56 @@ const toc = [
   { label: '6  Newsletter',         id: 'newsletter' },
 ]
 
-const leftNav = [
-  {
-    section: 'Wiki Articles',
-    links: [
-      { label: 'All Articles ↗',         href: '/en/wiki' },
-      { label: 'Slitter Knives',         href: '/en/wiki/slitter-knife' },
-      { label: 'Slitting Machines',      href: '/en/wiki/slitting-machine' },
-      { label: 'Slitting Process',       href: '/en/wiki/slitting-process' },
-      { label: 'Machine Selection',      href: '/en/wiki/slitting-machine-selection-guide' },
-      { label: 'Knife Materials',        href: '/en/wiki/slitter-knife-material-comparison' },
-      { label: 'Spacer Specs',           href: '/en/wiki/precision-spacer-specifications' },
-      { label: 'Troubleshooting',        href: '/en/wiki/slitting-machine-troubleshooting' },
-      { label: 'Coil Slitting Process',  href: '/en/wiki/coil-slitting-process' },
-    ],
-  },
-  {
-    section: 'Guides',
-    links: [
-      { label: 'All Guides',     href: '/en/guide' },
-      { label: 'Blade Selection', href: '/en/guide' },
-      { label: 'Clearance Setup', href: '/en/guide' },
-    ],
-  },
-  {
-    section: 'Tools',
-    links: [
-      { label: 'Clearance Calculator', href: '/en/tools/clearance-calculator' },
-    ],
-  },
-  {
-    section: 'Company',
-    links: [
-      { label: 'About TOA DR',       href: '/en/about' },
-      { label: 'Contact',             href: '/en/contact' },
-      { label: 'slitterline.com ↗',  href: 'https://slitterline.com' },
-    ],
-  },
-]
+function buildLeftNav(base: string, isZh: boolean) {
+  return [
+    {
+      section: isZh ? '知識庫文章' : 'Wiki Articles',
+      links: isZh ? [
+        { label: '所有文章 ↗',    href: `${base}/wiki` },
+        { label: '金屬分條機',    href: `${base}/wiki/metal-slitting-machine` },
+        { label: '分條刀指南',    href: `${base}/wiki/slitter-knife-guide` },
+        { label: '間隙設定',      href: `${base}/wiki/slitting-clearance-guide` },
+        { label: '間隔環指南',    href: `${base}/wiki/arbor-spacer-guide` },
+        { label: '輕量vs標準間隔環', href: `${base}/wiki/lightweight-vs-standard-spacers` },
+        { label: '剪切環指南',    href: `${base}/wiki/stripper-rings-guide` },
+        { label: '液壓螺母',      href: `${base}/wiki/hydraulic-nut-guide` },
+        { label: '研磨服務',      href: `${base}/wiki/knife-regrinding-guide` },
+        { label: '問題診斷',      href: `${base}/wiki/slitting-defects-diagnosis` },
+        { label: '刀具安裝',      href: `${base}/wiki/tooling-installation-guide` },
+      ] : [
+        { label: 'All Articles ↗',        href: `${base}/wiki` },
+        { label: 'Slitter Knives',        href: `${base}/wiki/slitter-knife` },
+        { label: 'Slitting Machines',     href: `${base}/wiki/slitting-machine` },
+        { label: 'Slitting Process',      href: `${base}/wiki/slitting-process` },
+        { label: 'Machine Selection',     href: `${base}/wiki/slitting-machine-selection-guide` },
+        { label: 'Knife Materials',       href: `${base}/wiki/slitter-knife-material-comparison` },
+        { label: 'Spacer Specs',          href: `${base}/wiki/precision-spacer-specifications` },
+        { label: 'Troubleshooting',       href: `${base}/wiki/slitting-machine-troubleshooting` },
+        { label: 'Coil Slitting Process', href: `${base}/wiki/coil-slitting-process` },
+      ],
+    },
+    {
+      section: isZh ? '指南' : 'Guides',
+      links: [
+        { label: isZh ? '所有指南' : 'All Guides', href: `${base}/guide` },
+      ],
+    },
+    {
+      section: isZh ? '工具' : 'Tools',
+      links: [
+        { label: isZh ? '間隙計算機' : 'Clearance Calculator', href: `${base}/tools/clearance-calculator` },
+      ],
+    },
+    {
+      section: isZh ? '公司' : 'Company',
+      links: [
+        { label: isZh ? '關於道德煜' : 'About TOA DR', href: `${base}/about` },
+        { label: isZh ? '聯絡我們' : 'Contact',        href: `${base}/contact` },
+        { label: 'slitterline.com ↗',                  href: 'https://slitterline.com' },
+      ],
+    },
+  ]
+}
 
 const quickFactsRows = [
   { label: 'Platform',   value: 'slitter.ai' },
@@ -75,54 +87,117 @@ const quickFactsRows = [
   { label: 'D-U-N-S',   value: 'Registered' },
 ]
 
-const knowledgeCards = [
+const enKnowledgeCards = [
   {
     id: 'slitter-knife',
     title: 'Slitter Knives',
     tag: 'Materials & Grades',
-    desc: 'Comprehensive reference covering tool steel grades, carbide coatings, tolerance specifications, and selection criteria for precision slitting knives across paper, film, foil, and metal applications.',
+    desc: 'Comprehensive reference covering tool steel grades, carbide coatings, tolerance specifications, and selection criteria for precision slitting knives.',
   },
   {
     id: 'slitting-machine',
     title: 'Slitting Machines',
     tag: 'Machine Types',
-    desc: 'Technical overview of log slitters, rewind slitters, and duplex machines. Covers tension control systems, rewind shafts, scoring vs. shear cut configurations, and setup parameters.',
-  },
-  {
-    id: 'slitting-process',
-    title: 'Slitting Process',
-    tag: 'Parameters & QC',
-    desc: 'Operational knowledge on blade clearance, knife overlap, speed-to-tension ratios, burr formation causes, and quality control checkpoints for high-speed slitting operations.',
+    desc: 'Technical overview of log slitters, rewind slitters, and duplex machines. Covers tension control, rewind shafts, scoring vs. shear cut configurations.',
   },
   {
     id: 'slitting-machine-selection-guide',
     title: 'Machine Selection Guide',
     tag: 'Machine Selection',
-    desc: 'How to select the right slitting machine for your application — log slitter, rewind slitter, or duplex. Covers load capacity, rewind specs, drive types, and acquisition cost factors.',
+    desc: 'How to select the right slitting machine — log slitter, rewind slitter, or duplex. Covers load capacity, rewind specs, drive types, and cost factors.',
   },
   {
     id: 'slitter-knife-material-comparison',
     title: 'Knife Material Comparison',
     tag: 'Knife Materials',
-    desc: 'Side-by-side comparison of D2, M2, M42, and tungsten carbide slitter knives. Hardness, wear resistance, toughness, regrind life, and cost per linear meter analyzed.',
+    desc: 'Side-by-side comparison of D2, M2, M42, and carbide slitter knives: hardness, wear resistance, regrind life, and cost per linear meter.',
   },
   {
     id: 'precision-spacer-specifications',
     title: 'Precision Spacer Specs',
     tag: 'Spacers',
-    desc: 'Engineering specifications for arbor spacers: tolerance classes, materials, bore fits, and stack calculation methodology for achieving target strip widths within ±0.05 mm.',
+    desc: 'Engineering specs for arbor spacers: tolerance classes, materials, bore fits, and stack calculation for achieving strip widths within ±0.05 mm.',
   },
   {
     id: 'slitting-machine-troubleshooting',
     title: 'Troubleshooting Guide',
     tag: 'Defects & Fixes',
-    desc: 'Systematic root-cause analysis for burrs, edge curl, width variation, coil telescoping, strip breaks, and vibration — with specific corrective actions for each defect.',
+    desc: 'Root-cause analysis for burrs, edge curl, width variation, coil telescoping, strip breaks, and vibration — with corrective actions.',
   },
   {
     id: 'coil-slitting-process',
     title: 'Coil Slitting Process',
     tag: 'Process',
-    desc: 'End-to-end process guide: entry section setup, slitter head configuration, looping pit, rewind tension profiles, coil handling, and quality inspection checkpoints.',
+    desc: 'End-to-end process guide: entry setup, slitter head config, looping pit, rewind tension profiles, coil handling, and quality checkpoints.',
+  },
+  {
+    id: 'slitting-process',
+    title: 'Slitting Process Parameters',
+    tag: 'Parameters & QC',
+    desc: 'Blade clearance, knife overlap, speed-to-tension ratios, burr formation causes, and quality control checkpoints for high-speed slitting.',
+  },
+]
+
+const zhKnowledgeCards = [
+  {
+    id: 'metal-slitting-machine',
+    title: '金屬分條機完全指南',
+    tag: '分條機',
+    desc: '金屬分條機類型、規格選型、驅動系統、張力控制，以及設備採購評估完整技術參考。',
+  },
+  {
+    id: 'slitter-knife-guide',
+    title: '分條刀完全指南',
+    tag: '分條刀',
+    desc: '分條刀材質、硬度等級、公差規格、使用壽命與選型建議，涵蓋鋼材、不鏽鋼、鋁箔等材料。',
+  },
+  {
+    id: 'slitting-clearance-guide',
+    title: '分條刀間隙設定指南',
+    tag: '間隙設定',
+    desc: '各材質間隙百分比計算、間隙對毛邊與邊緣品質的影響，以及現場快速調整方法。',
+  },
+  {
+    id: 'arbor-spacer-guide',
+    title: '刀軸間隔環指南',
+    tag: '間隔環',
+    desc: '間隔環規格、公差等級、材質選擇，以及刀軸堆疊計算確保分條寬度精度。',
+  },
+  {
+    id: 'lightweight-vs-standard-spacers',
+    title: '輕量 vs 標準間隔環比較',
+    tag: '間隔環比較',
+    desc: '輕量化間隔環與標準間隔環在重量、剛性、熱膨脹與成本上的完整比較分析。',
+  },
+  {
+    id: 'stripper-rings-guide',
+    title: '分條機剪切環指南',
+    tag: '剪切環',
+    desc: '剪切環功能、材質選擇、安裝規範，以及常見問題診斷與更換週期建議。',
+  },
+  {
+    id: 'hydraulic-nut-guide',
+    title: '刀軸液壓螺母指南',
+    tag: '液壓螺母',
+    desc: '液壓螺母操作原理、壓力設定、安裝程序，以及與傳統機械螺母的比較。',
+  },
+  {
+    id: 'knife-regrinding-guide',
+    title: '分條刀研磨服務指南',
+    tag: '研磨服務',
+    desc: '分條刀研磨標準、研磨次數管理、送磨時機判斷，以及研磨品質驗收規範。',
+  },
+  {
+    id: 'slitting-defects-diagnosis',
+    title: '分條加工問題診斷',
+    tag: '問題診斷',
+    desc: '毛邊、邊緣捲曲、寬度偏差、捲料望遠鏡效應、斷帶等常見缺陷的根本原因與解決方案。',
+  },
+  {
+    id: 'tooling-installation-guide',
+    title: '分條線刀具組裝實務',
+    tag: '刀具安裝',
+    desc: '刀具組裝順序、刀軸鎖緊扭矩、重疊量設定，以及組裝後品質確認檢查要點。',
   },
 ]
 
@@ -139,6 +214,9 @@ const sectionHeadingStyle: React.CSSProperties = {
 export default function HomePage({ params: { locale } }: { params: { locale: Locale } }) {
   setRequestLocale(locale)
   const base = `/${locale}`
+  const isZh = locale === 'zh-TW' || locale === 'zh-CN'
+  const leftNav = buildLeftNav(base, isZh)
+  const knowledgeCards = isZh ? zhKnowledgeCards : enKnowledgeCards
 
   return (
     <>
