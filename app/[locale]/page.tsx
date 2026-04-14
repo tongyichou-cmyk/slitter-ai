@@ -30,9 +30,15 @@ const leftNav = [
   {
     section: 'Wiki Articles',
     links: [
-      { label: 'Slitter Knives',    href: '/en/wiki/slitter-knife' },
-      { label: 'Slitting Machines', href: '/en/wiki/slitting-machine' },
-      { label: 'Slitting Process',  href: '/en/wiki/slitting-process' },
+      { label: 'All Articles ↗',         href: '/en/wiki' },
+      { label: 'Slitter Knives',         href: '/en/wiki/slitter-knife' },
+      { label: 'Slitting Machines',      href: '/en/wiki/slitting-machine' },
+      { label: 'Slitting Process',       href: '/en/wiki/slitting-process' },
+      { label: 'Machine Selection',      href: '/en/wiki/slitting-machine-selection-guide' },
+      { label: 'Knife Materials',        href: '/en/wiki/slitter-knife-material-comparison' },
+      { label: 'Spacer Specs',           href: '/en/wiki/precision-spacer-specifications' },
+      { label: 'Troubleshooting',        href: '/en/wiki/slitting-machine-troubleshooting' },
+      { label: 'Coil Slitting Process',  href: '/en/wiki/coil-slitting-process' },
     ],
   },
   {
@@ -89,10 +95,34 @@ const knowledgeCards = [
     desc: 'Operational knowledge on blade clearance, knife overlap, speed-to-tension ratios, burr formation causes, and quality control checkpoints for high-speed slitting operations.',
   },
   {
-    id: 'slitter-knife',
-    title: 'Troubleshooting',
+    id: 'slitting-machine-selection-guide',
+    title: 'Machine Selection Guide',
+    tag: 'Machine Selection',
+    desc: 'How to select the right slitting machine for your application — log slitter, rewind slitter, or duplex. Covers load capacity, rewind specs, drive types, and acquisition cost factors.',
+  },
+  {
+    id: 'slitter-knife-material-comparison',
+    title: 'Knife Material Comparison',
+    tag: 'Knife Materials',
+    desc: 'Side-by-side comparison of D2, M2, M42, and tungsten carbide slitter knives. Hardness, wear resistance, toughness, regrind life, and cost per linear meter analyzed.',
+  },
+  {
+    id: 'precision-spacer-specifications',
+    title: 'Precision Spacer Specs',
+    tag: 'Spacers',
+    desc: 'Engineering specifications for arbor spacers: tolerance classes, materials, bore fits, and stack calculation methodology for achieving target strip widths within ±0.05 mm.',
+  },
+  {
+    id: 'slitting-machine-troubleshooting',
+    title: 'Troubleshooting Guide',
     tag: 'Defects & Fixes',
-    desc: 'Systematic defect analysis for common slitting issues including feathering, burr formation, telescoping, and lane drift — with root-cause mapping and corrective actions.',
+    desc: 'Systematic root-cause analysis for burrs, edge curl, width variation, coil telescoping, strip breaks, and vibration — with specific corrective actions for each defect.',
+  },
+  {
+    id: 'coil-slitting-process',
+    title: 'Coil Slitting Process',
+    tag: 'Process',
+    desc: 'End-to-end process guide: entry section setup, slitter head configuration, looping pit, rewind tension profiles, coil handling, and quality inspection checkpoints.',
   },
 ]
 
@@ -319,6 +349,15 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
                   </span>
                 </Link>
               ))}
+            </div>
+            <div className="mt-5">
+              <Link
+                href={`${base}/wiki`}
+                className="inline-flex items-center gap-1.5 font-mono text-[12px] no-underline rounded-[3px] px-3.5 py-2 transition-colors hover:bg-[#B8860B] hover:text-[#0F0D0B]"
+                style={{ border: '1px solid #B8860B', color: '#B8860B', background: 'transparent' }}
+              >
+                View all articles →
+              </Link>
             </div>
           </section>
 
