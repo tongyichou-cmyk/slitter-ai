@@ -1,0 +1,356 @@
+---
+title: "Coil Slitting Process: Complete Technical Guide from Setup to Quality Control"
+description: "End-to-end technical guide to the coil slitting process: line setup, tooling preparation, parameter selection, material handling, and quality inspection for metal coil slitting operations."
+keywords: ["coil slitting process", "metal coil slitting", "slitting line setup", "coil slitting guide", "steel coil slitting process"]
+canonical: "https://www.slitter.ai/en/wiki/coil-slitting-process"
+lastModified: "2026-04-13"
+---
+
+# Coil Slitting Process: Complete Technical Guide from Setup to Quality Control
+
+Coil slitting is a precision manufacturing process that converts wide master coils into narrower slit strips for downstream forming, stamping, roll forming, and fabrication operations. The process appears straightforward—unwind, cut, rewind—but achieving consistent strip width, edge quality, and coil geometry across thousands of meters of material requires systematic process control at every stage. This guide covers the complete coil slitting process from incoming material verification through final coil inspection.
+
+---
+
+## Process Overview
+
+A complete coil slitting line processes material through the following sequential stages:
+
+1. **Incoming coil verification** — confirm material meets specification before loading
+2. **Coil loading** — transfer coil to uncoiler mandrel and center to line centerline
+3. **Threading** — feed leading edge through straightener, slitter head, and scrap system to recoiler
+4. **Tooling setup** — mount and align knife/spacer assembly, set clearance and overlap
+5. **Parameter entry** — set line speed, entry tension, exit tension, and tension taper
+6. **Test run** — run 5–10 meters at 20% of target speed; inspect before proceeding
+7. **Production run** — ramp to target speed and run to completion
+8. **Coil removal and strapping** — unload, strap, label, and transfer to staging
+9. **Quality inspection** — measure strip widths, edge quality, and coil geometry
+
+---
+
+## Stage 1: Incoming Coil Verification
+
+Before loading any coil, verify the following against the work order and material certificate:
+
+### Coil Identification
+- Heat number / coil number matches material certificate
+- Material grade, temper, and surface condition match specification
+- Coil dimensions: outside diameter, inside diameter (bore), width
+
+### Material Certificate Review
+- Mechanical properties: tensile strength, yield strength, elongation
+- Chemical composition (for alloy-critical applications)
+- Surface quality grade (applies to pre-painted and galvanized)
+- Thickness tolerance compliance
+
+### Physical Inspection
+- Check for telescope damage, edge damage, or damaged OD wraps
+- Inspect for corrosion, surface rust, or moisture under the coil wrapping
+- Verify coil weight is within the uncoiler capacity limit
+
+Coils that fail incoming inspection should be quarantined and returned before any attempt to process. Processing an out-of-spec coil risks tooling damage and produces reject material that wastes production capacity.
+
+---
+
+## Stage 2: Tooling Preparation
+
+Tooling preparation should be completed off-machine and ready before the coil is loaded. Knife changeout is always the longest part of a product changeover — pre-staging the tooling set eliminates this time from the production schedule.
+
+### Knife Set Preparation
+
+**Step 1: Select knife material grade** based on material type and thickness. Refer to the material-to-grade matrix: carbide for stainless, electrical steel, and copper foil; HSS M42 for high-alloy steel; HSS M2 for mild carbon steel and aluminum.
+
+**Step 2: Inspect knives** before mounting. Check each knife for:
+- Chips or damage on the cutting edge (visual under good lighting)
+- Measured diameter and thickness within ±0.005 mm of spec
+- Clean bore — no burrs or corrosion
+
+**Step 3: Calculate clearance** for the material being processed:
+```
+clearance (mm) = material thickness × clearance percentage
+```
+
+Example: 1.5 mm 304 stainless × 8% = 0.12 mm clearance per side
+
+Clearance is set by the width difference between upper and lower spacers at each knife position, or by axial offset of the lower arbor.
+
+### Spacer Set Assembly
+
+Assemble and verify the spacer set for the target strip widths before mounting:
+
+1. List target strip widths from the work order
+2. Select spacer combinations that sum to each target width
+3. Measure each spacer with a calibrated micrometer and calculate actual expected widths
+4. Record all measured widths on the tooling setup sheet
+5. Check accumulated tolerance — ensure worst-case width at the last strip position is within specification
+
+### Arbor Mounting Sequence
+
+Mount knives and spacers in the correct sequence for each arbor:
+
+1. Clean the arbor shaft and all mounting faces
+2. Slide knives and spacers in order, alternating as required by the tooling layout
+3. Verify that the knife pair at each strip position is correctly aligned (upper knife face aligned with lower knife face)
+4. Torque the arbor nut or activate hydraulic clamping to the specified clamping force
+5. Measure arbor runout at each knife position — maximum 0.010 mm for standard, 0.005 mm for precision
+6. Record runout measurements on the tooling setup sheet
+
+---
+
+## Stage 3: Line Threading
+
+Threading the material through the line is a safety-critical operation. Follow your facility's LOTO (lockout/tagout) procedure before entering any guarded area of the line.
+
+### Uncoiler Setup
+1. Load coil onto the uncoiler mandrel using the coil car
+2. Expand the mandrel to grip the coil ID
+3. Center the coil to the line centerline using the coil car traverse
+4. Rotate the coil to peel the leading edge away from the OD wraps
+
+### Straightener/Leveler Threading
+1. Feed the leading edge into the entry pinch rolls
+2. Engage the straightener/leveler rollers to the specified engagement for material thickness and grade
+3. For heavy-gauge material, use the powered feed mode to advance through the straightener
+
+### Slitter Head Threading
+1. Ensure knives are retracted or opened (where applicable) before threading
+2. Feed the leading edge between the knife arbors
+3. Lower the upper arbor to running position
+4. Feed through the scrap chopper or scrap winder as applicable
+
+### Recoiler Threading
+1. Distribute strip ends across the recoiler mandrel, spacing them as close as practical to the final coil spacing
+2. Attach strips to the mandrel using the threading clamps or tape
+3. Take up slack manually before engaging the recoiler drive
+
+---
+
+## Stage 4: Process Parameters
+
+### Line Speed
+
+Select line speed based on material type, thickness, and strip quality requirements:
+
+| Material | Thickness | Recommended Speed Range |
+|----------|-----------|------------------------|
+| Carbon steel (mild) | 0.5–2.0 mm | 100–300 m/min |
+| Carbon steel (mild) | 2.0–6.0 mm | 50–150 m/min |
+| Stainless 304/316 | 0.5–2.0 mm | 60–200 m/min |
+| Stainless 304/316 | 2.0–5.0 mm | 30–100 m/min |
+| Aluminum alloy | 0.5–3.0 mm | 100–400 m/min |
+| Copper foil | 0.05–0.3 mm | 30–100 m/min |
+| Electrical steel | 0.2–0.5 mm | 50–150 m/min |
+
+Always start at 20% of target speed for the first 10 meters of a new setup. Inspect the edge before ramping to production speed.
+
+### Tension Settings
+
+**Entry tension (uncoiler):** The back-tension that keeps the strip taut between the uncoiler and the slitter head. Too low causes strip flutter and tracking problems; too high causes excessive elongation or breaks.
+
+Reference values (strip cross-sectional area basis):
+- Mild steel: 15–25 N/mm²
+- Stainless steel: 20–35 N/mm²
+- Aluminum: 8–15 N/mm²
+- Copper: 10–20 N/mm²
+
+**Exit tension (recoiler):** The tension that winds the strip onto the recoiler mandrel. Determines coil hardness and geometry. Higher tension = tighter wind but risk of core crushing or strip necking on thin material.
+
+**Tension taper:** Recoiler torque is reduced as coil diameter grows to maintain approximately constant strip tension as the lever arm increases. Set taper at 20–30% reduction from core OD to final OD.
+
+### Knife Parameters
+
+**Clearance:** Set during tooling setup. Do not adjust running clearance without stopping the line.
+
+**Overlap (vertical engagement):** Typically 0.5–2.0 mm depending on material thickness. Light-gauge: 0.5–1.0 mm. Medium-gauge: 1.0–1.5 mm. Heavy-gauge: 1.5–2.5 mm.
+
+---
+
+## Stage 5: Test Run and Inspection
+
+Run 5–10 meters at 20% of target speed. Stop the line before the test strip reaches the recoiler. Inspect the test strip before proceeding.
+
+### Edge Quality Inspection
+
+**Visual inspection:**
+- Burrs: any visible raised metal along the slit edge
+- Tears: rough, irregular edge profile (indicates clearance too large or dull knives)
+- Rollover: edge material folded over (indicates clearance too small)
+- Chips from knife chipping: regular-interval notches
+
+**Gauge measurement:**
+- Burr height: measure with a burr comparator or profilometer. Typical specification: ≤0.05 mm for general applications, ≤0.01 mm for precision (battery foil, fine copper)
+- Edge rollover depth: measure the depth of any edge rollover with a profile gauge
+
+### Strip Width Measurement
+
+Measure each strip width at 3 or more locations along the test strip. Calculate the range (max – min) for each strip. Compare measured widths to target widths.
+
+Acceptance criteria: All strip widths within ±0.1 mm of target (standard applications) or ±0.05 mm (precision applications).
+
+If any strip is outside tolerance, stop and investigate before running production. Do not adjust by "averaging out" — find the root cause.
+
+### Coil Geometry at Early Recoiler
+
+After 5 meters on the recoiler, inspect:
+- Are coil layers tracking evenly, or is the strip walking to one side?
+- Is the first layer sitting flat on the mandrel or showing wrinkles?
+
+Walking or wrinkles at this stage indicate tension, alignment, or camber issues that will worsen as the coil builds.
+
+---
+
+## Stage 6: Production Run
+
+With the test strip accepted, ramp to production speed. Monitor the following during running:
+
+**Continuous monitoring:**
+- Strip tension indicators (if fitted) — alert on tension excursions
+- Coil diameter on recoiler — verify build rate is consistent with material spec
+- Any unusual noise (see Troubleshooting guide for noise diagnosis)
+
+**Periodic checks (every 30–60 minutes):**
+- Visual edge quality check from the operator station
+- Coil geometry — check for telescoping or loose wrap formation
+
+**At coil joints:**
+- Reduce speed before the end-of-coil tail passes through the slitter head
+- Inspect the last meters of a coil for quality — end-of-coil edge effects are common as back-tension drops
+
+---
+
+## Stage 7: Final Inspection and Documentation
+
+### Strip Width and Tolerance Audit
+
+After rewinding, select one coil per product width for measurement audit:
+- Cut a sample from the outer wrap (at least 200 mm long)
+- Measure each strip width at 5 locations along the sample length
+- Calculate Cpk if SPC is in use
+
+### Edge Quality Final Check
+
+Inspect the edge on the sample cuts:
+- Burr height at 3 locations per strip
+- Compare to start-of-run measurements to quantify any change (indicates knife wear rate)
+
+### Coil Geometry
+
+Measure and record:
+- Slit coil OD (verify within customer spec)
+- Slit coil weight (verify against work order quantity)
+- Coil hardness (hand-tap test or Shore D for soft materials)
+- Edge alignment (telescoping measurement if required by specification)
+
+### Labeling
+
+Each slit coil label must include at minimum:
+- Material grade and heat number
+- Slit width and thickness
+- Coil weight and footage (if required)
+- Work order number and production date
+- Operator or line identification
+
+---
+
+## Common Process Deviations and Responses
+
+| Observation | Immediate Response | Root Cause Investigation |
+|-------------|-------------------|-------------------------|
+| Burr appears during run | Mark coil position, continue if within spec; reduce speed | Knife wear, clearance drift |
+| Strip width drift | Check spacer clamping, measure running arbor temp | Spacer migration, thermal expansion |
+| Telescoping developing | Increase rewind tension; check taper setting | Tension, camber, alignment |
+| Line noise increases | Reduce speed; inspect knives and bearings | Bearing wear, knife chip |
+| Strip break | Stop, re-thread, reduce tension | Tension too high, edge cracks, splice |
+
+---
+
+## Related Products
+
+For precision coil slitting results, TOA DR Engineering supplies complete tooling solutions:
+
+- [Slitter knives — all grades, ±0.002 mm tolerance](https://www.slitterline.com/en/products/slitter-knives)
+- [Precision arbor spacers](https://www.slitterline.com/en/products/spacers) — consistent strip width from first coil to last
+- [Complete slitting machine lines](https://www.slitterline.com/en/products/slitting-machines) — light to heavy gauge, with full process support
+
+---
+
+## FAQ
+
+<script type="application/ld+json">{`
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the coil slitting process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The coil slitting process converts wide master coils of metal (or film/foil) into multiple narrower slit strips by unwinding the master coil, passing it through a set of rotating circular knife pairs that cut it longitudinally, and rewinding each slit strip into an individual coil. The process is continuous and runs at speeds from 30 m/min for thick steel to over 600 m/min for light-gauge aluminum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is knife clearance set for coil slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Knife clearance is set during tooling preparation before the line is threaded. The clearance is the horizontal gap between the cutting faces of the upper and lower knives at each knife pair. It is expressed as a percentage of material thickness: 5-8% for mild steel, 6-10% for stainless steel, 3-5% for aluminum. Clearance is built into the spacer set width difference between upper and lower arbors, or set by axial offset of the lower arbor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes strip width variation in coil slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strip width variation during a coil slitting run is most commonly caused by knife/spacer migration — the tooling shifting axially due to insufficient arbor clamping force or loose/worn spacers. Thermal expansion of the arbor during warmup can cause gradual width drift of 0.01-0.03 mm until the line reaches equilibrium. Consistently off-target widths (all strips offset from nominal) usually indicate a spacer calculation or assembly error."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tension should be used for metal coil slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entry tension (uncoiler) for mild steel is typically 15-25 N/mm² of strip cross-section; stainless steel 20-35 N/mm²; aluminum 8-15 N/mm². Rewind tension is set higher than entry tension to create the strip tension between the two, with a tension taper of 20-30% reduction as the coil builds. Correct tension keeps strips from buckling while avoiding over-tensioning that causes necking or breaks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you inspect edge quality in coil slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Edge quality inspection includes: (1) visual check for burrs, tears, rollover, and knife-chip notches; (2) burr height measurement with a burr comparator or profilometer (typical spec: ≤0.05 mm for general applications); (3) cross-section examination under magnification for precision materials. Always run a test strip at 20% of target speed and inspect before committing to production. Burr height trending across a long run indicates knife wear rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is tension taper in coil slitting and why is it needed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tension taper is a programmed reduction in recoiler torque as the slit coil builds in diameter. Because the torque-to-tension relationship depends on the coil radius (tension = torque / radius), if torque is held constant as diameter increases, strip tension decreases. Without taper correction, inner wraps are wound tightly and outer wraps are loose. Tension taper — typically 20-30% reduction from core to final OD — maintains approximately constant strip tension throughout the coil build."
+      }
+    }
+  ]
+}
+`}</script>
+
+**Q: What is the coil slitting process?**
+Converting wide master coils into narrower strips by unwinding through rotating circular knife pairs and rewinding each strip individually. Runs from 30 m/min (thick steel) to 600+ m/min (light-gauge aluminum).
+
+**Q: How is knife clearance set?**
+During tooling prep, before threading. Set as a percentage of material thickness (5–8% mild steel, 6–10% stainless, 3–5% aluminum) via spacer width difference or lower arbor axial offset.
+
+**Q: What causes strip width variation?**
+Most commonly knife/spacer migration from insufficient clamping force. Thermal expansion during warmup causes 0.01–0.03 mm drift. Consistent off-target widths = spacer calculation error.
+
+**Q: What tension should be used?**
+Entry tension: mild steel 15–25 N/mm², stainless 20–35 N/mm², aluminum 8–15 N/mm². Apply 20–30% tension taper as the rewind coil builds diameter.
+
+**Q: How do you inspect edge quality?**
+Visual check for burrs/tears, burr height measurement (≤0.05 mm general spec), and magnification check for precision materials. Always inspect a 20%-speed test strip before production.
+
+**Q: What is tension taper?**
+Programmed recoiler torque reduction as coil diameter increases, maintaining constant strip tension throughout the coil build. Without taper, inner wraps are tight and outer wraps are loose.
+
+---
+
+*See also: [Slitting Machine Selection Guide](/en/wiki/slitting-machine-selection-guide) · [Slitter Knife Material Comparison](/en/wiki/slitter-knife-material-comparison) · [Slitting Machine Troubleshooting](/en/wiki/slitting-machine-troubleshooting)*

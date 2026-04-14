@@ -1,0 +1,342 @@
+---
+title: "Slitting Machine Troubleshooting: Diagnosing and Fixing Common Problems"
+description: "Systematic troubleshooting guide for slitting machine problems: burrs, edge curl, width variation, coil telescoping, strip breaks, and tension faults. Root cause analysis and corrective actions."
+keywords: ["slitting machine troubleshooting", "slitter burr problem", "slitting edge quality", "strip width variation", "slitting machine faults"]
+canonical: "https://www.slitter.ai/en/wiki/slitting-machine-troubleshooting"
+lastModified: "2026-04-13"
+---
+
+# Slitting Machine Troubleshooting: Diagnosing and Fixing Common Problems
+
+When a slitting line produces out-of-spec strip, the root cause can lie in the tooling, the material, the machine, or the process parameters—or in a combination of all four. Systematic diagnosis avoids the most common response to slitting problems: changing one variable without verifying the root cause, then being unable to reproduce the fix when the problem recurs. This guide provides a structured diagnostic framework and specific corrective actions for the problems most frequently encountered in industrial slitting operations.
+
+---
+
+## Before You Start: Diagnostic Protocol
+
+Every troubleshooting session should follow the same discipline:
+
+1. **Define the defect precisely.** "Bad edge" is not a problem definition. "Burr height exceeds 0.05 mm on the drive-side of strips 3 and 7" is a problem definition.
+2. **Determine when it started.** Did it appear at line startup, after a coil change, after a knife change, or gradually over time?
+3. **Identify what changed.** Material supplier, material thickness, coil width, line speed, knife set, spacer set, operator.
+4. **Change one variable at a time.** Multiple simultaneous adjustments make it impossible to determine which change resolved the problem.
+5. **Document findings.** Record the defect, the variable changed, and the result. This builds the institutional knowledge that prevents recurrence.
+
+---
+
+## Problem 1: Burrs on Slit Edge
+
+### Symptoms
+Raised metal along one or both edges of the slit strip. May be detectable visually, by touch, or only by gauge measurement. Burrs may be consistent across the coil or localized to specific strip positions.
+
+### Root Causes and Corrective Actions
+
+**Knife clearance too large**
+The most common cause. With excessive clearance, the material fractures rather than shears cleanly, leaving a burr on the lower face of the strip.
+
+*Corrective action:* Reduce clearance by 1–2% of material thickness and re-run test strip. Refer to material clearance table: typically 5–8% for mild steel, 6–10% for stainless, 3–5% for aluminum.
+
+**Dull knives**
+Worn knives lose cutting sharpness and begin to tear material rather than shear it. Burr increases gradually over a production run as knives wear.
+
+*Corrective action:* Replace or regrind knife set. Compare burr height at start vs. end of production run — progressive increase confirms knife wear as the cause.
+
+**Knife misalignment (horizontal)**
+If upper and lower knife pairs are not co-planar (the upper knife face does not align directly with the lower knife face), effective clearance varies across the knife face width, creating inconsistent burrs.
+
+*Corrective action:* Verify spacer stack. Check for worn or out-of-tolerance spacers at the affected knife positions. Measure spacer widths with a micrometer and compare upper vs. lower stack.
+
+**Knife misalignment (radial — runout)**
+Arbor runout causes the knife cutting circle to wobble. The knife alternately engages more and less deeply per revolution, creating a cyclical burr pattern.
+
+*Corrective action:* Measure arbor runout with a dial indicator. Maximum acceptable runout at the knife face: 0.005 mm for precision applications, 0.010 mm for standard. If runout exceeds limit, inspect for arbor damage, loose arbor bearings, or damaged knife/spacer faces.
+
+**Knife overlap insufficient**
+If knives do not engage sufficiently (inadequate vertical penetration), the material is stretched and torn at the cut point rather than sheared.
+
+*Corrective action:* Increase knife overlap by 0.2–0.5 mm. Check that upper and lower arbors are at the correct vertical relationship.
+
+**Hard inclusions in material**
+Occasional micro-bursts of burr at random positions can indicate hard inclusions in the material (carbides, scale, weld marks) that momentarily shock the cutting edge.
+
+*Corrective action:* Examine coil at the corresponding length position. Inspect for surface scale, welds, or material grade irregularity. Consider upgrading to carbide knives if the material consistently contains inclusions.
+
+---
+
+## Problem 2: Edge Curl
+
+### Symptoms
+Strip edges curl upward (away from the recoiler) or downward (toward the recoiler) after slitting. Curl may be symmetric on both edges of a strip or asymmetric.
+
+### Root Causes and Corrective Actions
+
+**Knife clearance too small**
+Insufficient clearance compresses the material at the cut point, introducing residual stress that causes the edge to curl as it leaves the cut zone.
+
+*Corrective action:* Increase clearance by 1–2% of material thickness. Re-run test strip and measure curl height.
+
+**Knife overlap excessive**
+Too much vertical engagement creates a wiping action on the edge that rolls the strip material.
+
+*Corrective action:* Reduce knife overlap by 0.2–0.5 mm increments.
+
+**Asymmetric residual stress in master coil**
+Some master coils have residual stress distributions from the rolling mill that cause all slit strips to curl in the same direction regardless of cutting parameters.
+
+*Corrective action:* Run a test with the leveler/straightener engaged at higher correction force. If curl reduces, the material is the primary cause. Report to material supplier.
+
+**Upper vs. lower knife speed differential**
+If the upper and lower arbors are not synchronized precisely in speed, one knife applies more drag than the other, creating a consistent edge curl.
+
+*Corrective action:* Verify arbor drive synchronization. Check for worn drive belts or gear backlash.
+
+---
+
+## Problem 3: Strip Width Variation
+
+### Symptoms
+Strips measure within tolerance at the cut point but vary in width along the length of the coil, or strips are consistently off-width compared to the target.
+
+### Root Causes and Corrective Actions
+
+**Loose or worn spacers**
+Spacers that are worn thinner than nominal allow knife pairs to shift axially during running, changing strip width as the run progresses.
+
+*Corrective action:* Measure all spacers in the affected positions. Replace any spacer worn more than 0.005 mm from nominal. After replacement, torque arbor nut to spec to prevent knife migration.
+
+**Spacer stack calculation error**
+If the nominal spacer stack does not sum to the correct target width, all strips will be consistently offset.
+
+*Corrective action:* Calculate expected strip widths from measured spacer dimensions (not nominal). Build a tolerance stack analysis before mounting the tooling set.
+
+**Knife migration under load**
+If the arbor clamping force is insufficient, knives and spacers can shift axially under cutting loads. Migration is progressive — width drift increases over the run.
+
+*Corrective action:* Increase arbor clamping force to specification. Check hydraulic nut pressure if hydraulic clamping is used. Inspect nut threads for wear.
+
+**Material width variation**
+If the master coil has variable width (common in older or lower-grade coils), strip widths vary proportionally.
+
+*Corrective action:* Measure master coil width at intervals. Confirm whether width variation in strips tracks master coil width variation.
+
+**Thermal expansion**
+On long production runs, arbor temperature rises, causing thermal expansion that shifts knife positions. Effect is typically 0.01–0.03 mm total over a full warm-up cycle.
+
+*Corrective action:* Allow the line to reach thermal equilibrium before measuring critical-tolerance production. Use temperature-compensated spacers for ultra-precision applications.
+
+---
+
+## Problem 4: Coil Telescoping and Winding Defects
+
+### Symptoms
+Wound slit coils have offset layers ("telescoping"), loose outer wraps, tight inner wraps causing core crushing, or alternating tight/loose layers ("bananas").
+
+### Root Causes and Corrective Actions
+
+**Insufficient rewind tension**
+Low rewind tension allows strips to accumulate slack between the slitter head and the recoiler, causing loose, irregular winding.
+
+*Corrective action:* Increase rewind tension to the appropriate value for material and gauge. General reference: light-gauge steel 0.3–0.8 N/mm² of cross-section. Apply 20–30% tension taper (decreasing tension as coil OD grows) to prevent core crushing while maintaining outer-wrap tightness.
+
+**Tension taper not set**
+Constant tension as coil diameter increases creates progressively higher wrapping force on inner layers.
+
+*Corrective action:* Enable and configure tension taper. Set taper at 20–30% reduction from core to final OD.
+
+**Strip camber**
+Strip that has a consistent arc (camber) winds into coils with offset layers because the strip continuously tracks toward one side of the winding core.
+
+*Corrective action:* Inspect strip for camber by laying a slit strip on a flat surface. Camber above 1 mm per meter typically causes visible telescoping. Root cause is usually uneven knife wear or asymmetric material stress. Replace worn knives; check that left and right knife pairs are cutting at equal depths.
+
+**Entry tension too low**
+Insufficient unwind tension allows the master coil to unwind in surges, creating tension fluctuations that propagate to the recoiler.
+
+*Corrective action:* Increase unwind (entry) tension. The ratio of rewind to unwind tension determines the strip elongation between the uncoiler and recoiler — keep this consistent and within material elastic limits.
+
+**Misaligned winding mandrel**
+If the recoiler mandrel is not perfectly aligned with the strip path, strips track to one side, telescoping the coil.
+
+*Corrective action:* Check recoiler alignment with a laser level or dial gauge. Adjust as required.
+
+---
+
+## Problem 5: Strip Breaks
+
+### Symptoms
+The slit strip breaks during running, requiring line stop, thread-up, and restart. Breaks may occur consistently at the same strip position or randomly across different strips.
+
+### Root Causes and Corrective Actions
+
+**Rewind tension too high**
+Excessive rewind tension places the strip in tension beyond its yield strength, particularly on thin or narrow strips.
+
+*Corrective action:* Reduce rewind tension to material limits. For thin strips (<0.5 mm), tension should be well below 50% of ultimate tensile strength.
+
+**Edge crack propagation**
+Poor edge quality (excessive burr, edge work hardening from incorrect clearance) creates micro-cracks that propagate under rewind tension, causing breaks.
+
+*Corrective action:* Inspect edge quality before attributing breaks to tension. Correct the edge quality problem first, then verify whether breaks persist.
+
+**Material splices**
+Welded or taped splices in the master coil create weak points. Breaks at consistent coil lengths that correspond to typical splice intervals confirm this cause.
+
+*Corrective action:* Reduce line speed when approaching known or likely splice positions. Mark splice locations on the coil label at receipt if the material supplier provides this data.
+
+**Notched edge from knife chipping**
+A chipped knife creates a notch in the slit edge at every revolution of the knife. Under rewind tension, notches act as stress concentrators and initiate breaks.
+
+*Corrective action:* Inspect strip edge under magnification for regular-interval notches. Replace knife set if chipping is found.
+
+---
+
+## Problem 6: Noise and Vibration
+
+### Symptoms
+Unusual noise during cutting: hammering, chatter, squealing. Vibration visible in the strip between the slitter head and recoiler.
+
+### Root Causes and Corrective Actions
+
+**Incorrect clearance (too tight)**
+Very low clearance causes a compressive "squeal" as material is forced through the cut zone.
+
+*Corrective action:* Verify clearance setting against material specification. Increase if below recommended minimum.
+
+**Arbor bearing wear**
+Worn bearings allow the arbor to oscillate, creating a rhythmic hammering sound.
+
+*Corrective action:* Check arbor bearing condition. Grease or replace as required. Bearing wear accelerates on dirty or poorly lubricated lines.
+
+**Strip flutter (high speed)**
+At speeds above 300 m/min, unsupported strip between the slitter head and tension bridge can flutter, creating an oscillating noise and visible vibration.
+
+*Corrective action:* Reduce strip unsupported length. Add guide rollers or air-jet strip support. Verify that strip tension is sufficient to suppress flutter at running speed.
+
+---
+
+## Diagnostic Summary Table
+
+| Defect | First Check | Second Check | Third Check |
+|--------|------------|--------------|-------------|
+| Burrs | Knife clearance | Knife sharpness | Spacer alignment |
+| Edge curl | Knife clearance | Overlap setting | Material stress |
+| Width variation | Spacer wear | Clamping force | Stack calculation |
+| Telescoping | Rewind tension | Tension taper | Strip camber |
+| Strip breaks | Rewind tension | Edge quality | Material splices |
+| Noise / vibration | Clearance | Bearing condition | Strip flutter |
+
+---
+
+## Preventive Maintenance Schedule
+
+Reactive troubleshooting is more expensive than systematic prevention. A minimum PM program for slitting lines:
+
+**Daily:**
+- Visual inspection of knife condition at line startup
+- Check cutting edge for visible chips or excessive wear
+- Verify tension settings against setup sheet
+
+**Weekly:**
+- Measure burr height on a sample of slit strips
+- Inspect arbor clamping hardware for looseness
+- Clean knife arbor and spacer faces of accumulated fines
+
+**Monthly:**
+- Full knife set measurement (width, diameter, runout)
+- Spacer set measurement (width, bore, face flatness)
+- Arbor bearing lubrication per manufacturer schedule
+- Verify arbor runout with dial indicator
+
+**Annually:**
+- Full tooling set inspection and documentation
+- Arbor bearing replacement if operating hours exceed manufacturer recommendation
+- Review strip width logs for drift trends that indicate spacer or knife wear
+
+---
+
+## Related Products
+
+TOA DR Engineering supplies precision tooling and replacement components:
+
+- [Slitter knives — D2, M2, M42, and tungsten carbide](https://www.slitterline.com/en/products/slitter-knives)
+- [Precision arbor spacers — ±0.002 mm tolerance](https://www.slitterline.com/en/products/spacers)
+- [Complete slitting machine systems](https://www.slitterline.com/en/products/slitting-machines) — light to heavy gauge
+
+---
+
+## FAQ
+
+<script type="application/ld+json">{`
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What causes burrs in slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Burrs in slitting are most commonly caused by knife clearance set too large, dull or worn knives, or knife misalignment. Clearance too large is the most frequent cause: the material tears rather than shears cleanly at the cut point. Dull knives show progressive burr increase over the production run. Misalignment (from worn spacers or arbor runout) creates positional burr variation across the coil width."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my slit strip have width variation along the coil length?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Width variation along the coil length is usually caused by knife migration — knives and spacers shifting axially during running due to insufficient arbor clamping force or worn spacers. Check that clamping force meets specification and measure spacer widths for wear. Thermal expansion of the arbor during warmup can also cause 0.01-0.03 mm width drift until the line reaches thermal equilibrium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fix telescoping in slit coils?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Telescoping (offset layers in the wound coil) is primarily caused by: (1) insufficient rewind tension — strips accumulate slack and wind loose; (2) no tension taper — constant tension as coil diameter grows causes tight inner wraps; (3) strip camber — a curved strip tracks to one side during winding. Check strip for camber by laying on a flat surface. Set tension taper at 20-30% reduction from core to final diameter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check when slit strips break during running?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with rewind tension — excessive tension is the most common cause. Then inspect edge quality: poor edges with burrs, micro-cracks, or notches (from chipped knives) act as stress concentrators. If breaks occur at regular coil-length intervals, suspect material splices. A chipped knife creates notches at regular intervals equal to the knife circumference; inspect edge under magnification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should slitter knives be replaced or reground?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Replacement interval depends on material, speed, and acceptable edge quality. Monitor burr height as the primary indicator: when burr height exceeds your specification limit, regrind or replace. As a starting point: mild carbon steel, HSS M2 knives — regrind every 50,000-100,000 m. Stainless steel — every 30,000-60,000 m for M2, 80,000-150,000 m for M42, 200,000-400,000 m for carbide. Track your own line data and set a limit based on when burr exceeds spec."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the correct knife clearance for stainless steel slitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For austenitic stainless (304/316), recommended knife clearance is 6-10% of material thickness. For martensitic grades (420/440), use 8-12%. Clearance too low on stainless causes edge curl and accelerated knife wear. Clearance too high leaves excessive burr. Start at the middle of the range and adjust based on edge inspection. Use HSS M42 minimum — carbide preferred for volume production."
+      }
+    }
+  ]
+}
+`}</script>
+
+**Q: What causes burrs in slitting?**
+Most commonly: knife clearance too large, dull knives, or knife misalignment. Clearance too large is the most frequent cause — material tears rather than shears cleanly. Dull knives show progressive burr increase over the run.
+
+**Q: Why does my slit strip have width variation?**
+Usually knife migration — knives shifting axially under load due to insufficient clamping force or worn spacers. Also check for thermal expansion drift during warmup.
+
+**Q: How do I fix coil telescoping?**
+Check rewind tension (insufficient = loose winding), set tension taper at 20–30%, and inspect strips for camber by laying on a flat surface.
+
+**Q: What should I check when strips break during running?**
+Start with rewind tension. Then inspect edge quality for micro-cracks or notches from chipped knives. Breaks at regular coil-length intervals suggest material splices.
+
+**Q: How often should slitter knives be replaced?**
+Track burr height — regrind or replace when it exceeds your specification limit. Starting benchmark: mild steel, M2 HSS — regrind every 50,000–100,000 m.
+
+---
+
+*See also: [Slitter Knife Material Comparison](/en/wiki/slitter-knife-material-comparison) · [Precision Spacer Specifications](/en/wiki/precision-spacer-specifications) · [Coil Slitting Process Guide](/en/wiki/coil-slitting-process)*
