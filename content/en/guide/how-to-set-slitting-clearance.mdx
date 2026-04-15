@@ -1,0 +1,210 @@
+---
+title: "How to Set Slitting Clearance: A Step-by-Step Engineering Guide"
+description: "Master slitting clearance setup with this hands-on engineering guide. Learn the correct clearance range for your material, how to measure and verify clearance in the field, and how to systematically eliminate burr, rollover, and edge defects."
+publishedAt: "2026-04-15"
+updatedAt: "2026-04-15"
+author: "Slitter.ai Engineering Team"
+tags: ["clearance", "setup", "knife", "process engineering", "quality"]
+---
+
+# How to Set Slitting Clearance: A Step-by-Step Engineering Guide
+
+Getting slitting clearance right is the single most impactful setup decision on the line. Too tight and you get excessive rollover and tool wear. Too loose and you get burr and rough edges. This guide gives you the practical methodology to find and lock in the correct clearance for each material you run.
+
+---
+
+## What Is Slitting Clearance?
+
+Slitting clearance is the **lateral gap between the upper and lower knife edges** as they interlock during cutting. It is expressed as a percentage of material thickness:
+
+```
+Clearance % = (Total gap / Material thickness) × 100%
+```
+
+When a 1.0mm steel coil is slit with a 0.02mm clearance per side (0.04mm total), the clearance is 4%.
+
+The clearance determines how the fracture propagates through the material cross-section. Correct clearance produces a clean, controlled fracture with minimal burr, minimal rollover, and a predictable burnish-to-fracture ratio.
+
+---
+
+## Step 1: Look Up the Starting Clearance Range
+
+Use material type and thickness to determine the correct clearance range. These are engineering starting points — final clearance is confirmed by edge quality inspection.
+
+| Material | Thickness | Clearance (% of thickness) |
+|----------|-----------|---------------------------|
+| Mild steel (SPCC/SPCD) | 0.3–0.8mm | 5–8% |
+| Mild steel | 0.8–2.0mm | 7–10% |
+| Mild steel | 2.0–4.0mm | 9–12% |
+| High-strength steel (HSLA) | Any | +1–2% vs mild steel |
+| Advanced high-strength (AHSS) | Any | +2–4% vs mild steel (springback) |
+| Stainless steel (304/316) | 0.3–1.5mm | 4–7% |
+| Stainless steel | 1.5–4.0mm | 6–9% |
+| Aluminum | 0.5–2.0mm | 6–10% |
+| Copper / brass | 0.3–1.5mm | 5–8% |
+| Silicon steel (electrical) | Any | 4–6% (minimize edge stress) |
+| Galvanized steel | +0.5–1% vs base metal |
+
+**For materials not listed:** Start at 8% and adjust based on edge inspection.
+
+---
+
+## Step 2: Calculate the Physical Clearance
+
+Convert the percentage to a physical dimension:
+
+```
+Clearance per side (mm) = Material thickness × (Clearance % / 100) / 2
+```
+
+**Example:**
+- Material: 1.5mm mild steel
+- Target clearance: 8%
+- Physical clearance per side = 1.5 × 0.08 / 2 = **0.060mm per side**
+
+This is the gap you set between the upper knife and the lower knife on each side of the strip.
+
+---
+
+## Step 3: Set the Clearance on the Arbor
+
+### Screwdriver Method (Traditional)
+
+Most slitting lines use spacers and bushings on the arbor to set horizontal knife position. To adjust clearance:
+
+1. Loosen the hydraulic nut or locking nut to release the knife stack
+2. Insert or remove clearance shims between the knife and adjacent spacer
+3. Re-tighten to spec and verify with a feeler gauge at the knife engagement zone
+
+**Feeler gauge verification:** With the knives meshed at operating depth, insert the feeler gauge laterally at the point of engagement. The gauge should slide in with light resistance at the target clearance value.
+
+### Arbor Positioning Method (CNC Lines)
+
+On numerically controlled slitting lines, clearance is set by positioning the upper and lower arbors horizontally. Input the target clearance per side; the controller moves the arbors to achieve the correct engagement geometry.
+
+**Verify by physical measurement** regardless of CNC readout — thermal expansion and bearing wear can introduce offset.
+
+---
+
+## Step 4: Set Penetration Depth
+
+Penetration depth (how far the knife edge enters the material) works together with clearance. Typical starting values:
+
+| Material thickness | Penetration depth |
+|-------------------|-------------------|
+| < 0.5mm | 15–25% of thickness |
+| 0.5–1.5mm | 20–35% of thickness |
+| 1.5–3.0mm | 25–40% of thickness |
+| > 3.0mm | 30–45% of thickness |
+
+**Too shallow** (< 15%): Incomplete fracture, tearing, high burr  
+**Too deep** (> 50%): Excessive knife face contact, scoring, accelerated wear
+
+---
+
+## Step 5: Run a Sample and Inspect Edge Quality
+
+Run 2–3 meters at slow speed (10–20% of normal line speed). Stop the line and inspect the slit edge against these quality benchmarks:
+
+### Burr Height
+Use a burr height gauge or surface profilometer. Acceptable burr height:
+- Cold-rolled steel: ≤ 5% of material thickness (e.g., ≤ 0.075mm for 1.5mm stock)
+- Stainless steel: ≤ 7% (harder to control due to work hardening)
+- Aluminum: ≤ 8%
+
+### Burnish-to-Fracture Ratio
+A correctly slit edge shows a smooth burnished zone (bright, reflective) in the top 30–50% of the cross-section, with a fractured zone below. The ideal ratio:
+
+| Material | Burnish ratio | Fracture ratio |
+|----------|--------------|----------------|
+| Soft steel | 40–60% | 40–60% |
+| Hard steel | 25–40% | 60–75% |
+| Aluminum | 50–70% | 30–50% |
+
+### Rollover Depth
+The rollover (the radius at the edge entry zone) should be:
+- < 15% of material thickness for standard applications
+- < 10% for precision applications (motor laminations, seals)
+
+---
+
+## Step 6: Diagnose and Adjust
+
+Use the inspection results to adjust clearance systematically:
+
+### Burr on the bottom edge
+**Cause:** Clearance too large  
+**Fix:** Decrease clearance by 1–1.5% and re-test
+
+### Burr on the top edge
+**Cause:** Clearance too small  
+**Fix:** Increase clearance by 1% and re-test
+
+### Large rollover, crushed edge
+**Cause:** Clearance too small (knives being forced apart rather than shearing)  
+**Fix:** Increase clearance 1–2%
+
+### Tearing, rough fracture zone
+**Cause:** Clearance too large or penetration too shallow  
+**Fix:** First decrease clearance. If unchanged, increase penetration depth.
+
+### Wavy edge, camber on strip
+**Cause:** Uneven clearance left vs. right, or knife runout  
+**Fix:** Check clearance symmetry; verify knife runout (TIR ≤ 0.01mm recommended)
+
+---
+
+## Step 7: Lock In and Document
+
+Once edge quality is confirmed:
+
+1. **Record the setup:** Material grade, thickness, clearance %, physical dimension, penetration depth, line speed at test
+2. **Mark the spacer/shim set** — use a tag on the arbor toolset bag
+3. **Add to your setup sheet** — if you have a setup log by material/thickness, add this run's result
+4. **Take a photo of the edge cross-section** — useful for future troubleshooting comparison
+
+A well-documented setup can be re-produced in minutes on the next order for the same material.
+
+---
+
+## Special Considerations
+
+### Stainless Steel
+Stainless work-hardens rapidly as the knife penetrates. Use knife grades of M42 or carbide, keep clearance on the lower end of the range (4–6%), and ensure you have adequate coolant/oil at the cut zone to prevent seizure.
+
+### AHSS (Advanced High-Strength Steel)
+Springback causes the slit edge to press back toward the knife after cutting. Use **2–4% more clearance** than equivalent mild steel thickness to compensate. Inadequate clearance on AHSS leads to premature knife edge chipping.
+
+### Silicon Steel (Electrical)
+The abrasive silicon particles accelerate knife wear. Use carbide knives when possible. Keep clearance tight (4–6%) to minimize edge stress concentration — loose clearance causes microcracks that propagate during stamping.
+
+---
+
+## Quick-Reference Diagnostic Matrix
+
+| Symptom | Too tight | Too loose | Too shallow | Too deep | Knife worn |
+|---------|-----------|-----------|-------------|----------|------------|
+| Top burr | ✓ | | | | |
+| Bottom burr | | ✓ | | | |
+| Large rollover | ✓ | | | | ✓ |
+| Tearing/rough fracture | | ✓ | ✓ | | |
+| Edge scoring | | | | ✓ | ✓ |
+| Wavy strip | | | | | ✓ |
+| Camber/bow | | | | | |
+
+---
+
+## Summary Checklist
+
+- [ ] Looked up clearance range for material type and thickness
+- [ ] Calculated physical clearance per side
+- [ ] Set clearance with feeler gauge verification
+- [ ] Set penetration depth to starting value
+- [ ] Ran sample at slow speed
+- [ ] Inspected burr height, burnish ratio, rollover
+- [ ] Adjusted and re-tested until edge quality is within spec
+- [ ] Documented final setup parameters
+
+---
+
+*Related: [Slitting Clearance Theory](/en/wiki/slitting-clearance-guide) · [Knife Selection Guide](/en/wiki/slitter-knife-guide) · [Slitting Defect Diagnosis](/en/wiki/slitting-defects-diagnosis)*

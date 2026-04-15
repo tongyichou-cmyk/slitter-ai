@@ -1,0 +1,208 @@
+---
+title: "Slitting Line Changeover Guide: Reduce Setup Time from 90 to 25 Minutes"
+description: "A systematic guide to slitting line changeover — from pre-staging tooling and arbor teardown to final setup verification. Follow this framework to cut your average changeover from 90+ minutes down to 25 minutes or less."
+publishedAt: "2026-04-15"
+updatedAt: "2026-04-15"
+author: "Slitter.ai Engineering Team"
+tags: ["changeover", "setup", "efficiency", "SMED", "tooling"]
+---
+
+# Slitting Line Changeover Guide: Reduce Setup Time from 90 to 25 Minutes
+
+A slitting line changeover is a direct cost. Every minute the line is stopped is production capacity that can never be recovered. On a line running 300 m/min with 3 changeovers per shift, each minute saved across those 3 changeovers adds up to real throughput.
+
+This guide applies SMED (Single Minute Exchange of Die) principles to slitting line changeover, with concrete actions for each phase.
+
+---
+
+## Understanding Where Time Goes
+
+Before improving, measure. A typical 90-minute changeover breaks down roughly like this:
+
+| Phase | Typical time | Reducible to |
+|-------|-------------|--------------|
+| Waiting for tools / paperwork | 15 min | 0 min (pre-stage) |
+| Deceleration, threading out old strip | 5 min | 4 min |
+| Unlocking and removing arbor tooling | 20 min | 5 min (hydraulic nut) |
+| Cleaning arbor, measuring | 8 min | 6 min |
+| Building new knife stack | 20 min | 8 min (offline pre-build) |
+| Installing and locking knife stack | 12 min | 4 min (hydraulic nut) |
+| Rethreading, tension setup | 8 min | 5 min |
+| First-piece inspection and adjustment | 12 min | 8 min |
+| **Total** | **100 min** | **~40 min internal + 0 wait = ~40 min** |
+
+The biggest gains come from converting **internal** activities (done while line is stopped) to **external** activities (done while line is still running).
+
+---
+
+## Phase 0: Pre-Stage While the Line Is Still Running
+
+This is the highest-leverage phase. Everything here happens while the current coil is finishing.
+
+### What to do while the line runs:
+1. **Pull the next job's setup sheet** — confirm material grade, thickness, finished widths, number of strips, coil OD/ID
+2. **Pull the knife set** — locate the correct knife diameter, thickness, and quantity from the toolroom
+3. **Pull the spacer set** — calculate the spacer stack for the new width configuration; physically gather and verify
+4. **Pre-assemble the knife stack offline** — using a dedicated assembly mandrel, build the complete knife-and-spacer stack for both upper and lower arbors
+5. **Check knife condition** — verify knife sharpness, edge integrity, and runout on the offline mandrel before bringing to the machine
+6. **Stage hydraulic pump** — position the hydraulic pump next to the machine; verify oil level and connector condition
+7. **Confirm clearance target** — calculate and document the physical clearance per side for the new material
+8. **Prepare the new coil** — have it at the uncoiler, ID ready for the mandrel
+
+**Target: everything in this list completed before the line stops.**
+
+---
+
+## Phase 1: Line Stop and Arbor Teardown (Target: 9 min)
+
+### Step 1: Decelerate and thread out (3 min)
+- Decelerate the line on the tail end of the current coil
+- Thread the strip tail completely out through the slitter and recoiler
+- Clear loose scrap and trimmings from the cut zone
+
+### Step 2: Release hydraulic nut (1 min)
+- Connect the hydraulic pump to the hydraulic nut
+- Open the bleed valve — pressure drops to zero
+- Disconnect the pump; unscrew the hydraulic nut by hand (no tools needed)
+
+### Step 3: Slide off tooling (5 min)
+- Slide the complete knife-and-spacer stack off both arbors as a unit
+- Set aside for post-run inspection
+- Wipe the arbor surface and taper seat with a clean cloth
+
+---
+
+## Phase 2: Arbor Inspection and Preparation (Target: 5 min)
+
+Do not skip this phase — debris or scoring on the arbor will cause repeatability problems in the new setup.
+
+### Check arbor surface (2 min)
+- Visual inspection for nicks, burrs, or scoring marks on the arbor OD
+- Use a fine file or emery paper to remove raised burrs if present
+- Wipe with anti-corrosion oil
+
+### Check arbor runout (2 min)
+- Place a dial indicator on the arbor OD near the tooling zone
+- Rotate the arbor by hand; TIR should be ≤ 0.01mm
+- If TIR exceeds 0.02mm, investigate before proceeding (bent arbor or worn bearing)
+
+### Measure arbor length (1 min)
+- Verify the arbor tooling zone length matches the expected total stack width
+- This catches any spacer arithmetic errors before installation
+
+---
+
+## Phase 3: Install Pre-Built Knife Stack (Target: 7 min)
+
+Because the knife stack was pre-built offline, installation is sliding and locking only.
+
+### Step 1: Slide the pre-built stack onto the arbor (2 min)
+- Confirm orientation — upper vs. lower knives, correct interleave sequence
+- Slide the full stack onto the arbor in one motion
+
+### Step 2: Verify stack alignment (2 min)
+- Use a dial indicator to confirm knife runout (TIR ≤ 0.010mm per knife position)
+- Check lateral knife position against the target spacing (use a width gage or set block)
+
+### Step 3: Install and pressurize the hydraulic nut (1 min)
+- Thread the hydraulic nut on by hand — no torque tool needed
+- Connect the hydraulic pump
+- Slowly pressurize to the manufacturer-specified setpoint
+- Close the shutoff valve; disconnect the pump
+
+### Step 4: Confirm seating (2 min)
+- Verify the pressure gauge holds steady (no pressure drop within 1 min = no leak)
+- Check that all knife faces are seated flush against the spacers
+
+---
+
+## Phase 4: Set Clearance and Verify (Target: 5 min)
+
+### Step 1: Set arbor horizontal clearance (2 min)
+- For mechanical clearance adjustment: use the clearance shim from the setup sheet
+- For CNC arbor positioning: enter the target clearance per side; jog to position
+- Verify with a feeler gauge at the engagement zone
+
+### Step 2: Set penetration depth (1 min)
+- Lower the upper arbor to the target penetration depth
+- Verify with the penetration gauge or dial indicator reference
+
+### Step 3: Verify with a feeler gauge pass (2 min)
+- Check clearance at 3 knife positions across the arbor width
+- Variation across positions should be ≤ 0.005mm
+
+---
+
+## Phase 5: Thread New Strip and First-Piece Inspection (Target: 9 min)
+
+### Step 1: Thread the new coil (4 min)
+- Mount the new coil on the uncoiler
+- Thread the strip through the entry guide, slitter, separator, and recoiler
+- Set tension per the job setup sheet
+
+### Step 2: Slow-speed trial cut (2 min)
+- Run 2–3 meters at 10–15% of normal line speed
+- Stop the line
+
+### Step 3: Edge quality inspection (3 min)
+- Inspect burr height on slit edges (target ≤ 5% of thickness for steel)
+- Inspect rollover depth
+- Measure slit width on 2–3 strips with a calibrated tape or width gauge
+- If any strip is out of tolerance, adjust clearance or spacer and re-test
+
+---
+
+## Phase 6: Run-Up to Full Speed (Target: 2 min)
+
+- Accelerate in controlled steps: 25% → 50% → 75% → 100%
+- Monitor tension at each step; adjust if strip wanders or sags
+- Confirm at full speed: no vibration, no edge tracking issues, no strip wander
+
+**Total elapsed time: ~37 minutes internal + 0 wait = under 40 minutes.**  
+With team practice and pre-staged tooling, 25 minutes is achievable.
+
+---
+
+## The Offline Tooling Assembly Station
+
+The single biggest enabler of fast changeover is an **offline tooling assembly mandrel** — a spare shaft that matches the arbor diameter, mounted on a bench stand. This lets one person build the entire knife-and-spacer stack while the line is running, while another operator handles the current coil.
+
+### What the station needs:
+- A hardened shaft matching arbor diameter (tolerance ± 0.002mm)
+- Bench stand with rotation capability
+- Dial indicator arm for runout verification
+- Set of all spacer sizes for typical job mix
+- Dedicated storage for assembled knife sets (labeled by job/material)
+
+Cost: typically $300–800 to build in-house. Payback: recoverable on the first week of changeovers.
+
+---
+
+## Changeover Time Tracking
+
+Log every changeover:
+
+| Date | Material | Thickness | Widths | Knives | Changeover time | Notes |
+|------|----------|-----------|--------|--------|----------------|-------|
+| 2026-04-01 | SPCC | 1.2mm | 6×50mm | M2-HSS | 42 min | First time with hydro nut |
+| 2026-04-03 | SUS304 | 0.8mm | 8×38mm | Carbide | 38 min | — |
+
+Track the trend. Visible improvement is motivating for the crew and helps identify specific bottlenecks.
+
+---
+
+## Summary: SMED Levers Ranked by Impact
+
+| Lever | Time saved | Investment |
+|-------|-----------|-----------|
+| Pre-stage tooling offline | 15–20 min | $0 (process only) |
+| Offline assembly mandrel | 15 min | Low ($500–$1,000) |
+| Hydraulic nut (vs manual) | 15–20 min | Medium ($2,000–$5,000) |
+| Pre-calculated setup sheets | 5–10 min | $0 (process only) |
+| Dedicated tooling carts | 5 min | Low ($200–$500) |
+
+The biggest gains are free — they require only process discipline, not capital.
+
+---
+
+*Related: [Hydraulic Nut Guide](/en/wiki/hydraulic-nut-guide) · [Tooling Installation Guide](/en/wiki/tooling-installation-guide) · [Arbor Spacer Guide](/en/wiki/arbor-spacer-guide)*
