@@ -2,16 +2,16 @@
 import { useState } from 'react'
 
 const MATERIALS: Record<string, { hardness: string; recommendedClearance: string; notes: string }> = {
-  'steel-mild':        { hardness: '120–180 HB', recommendedClearance: '5–8%',  notes: 'Suitable for standard HSS or carbide knives.' },
-  'steel-stainless':   { hardness: '180–240 HB', recommendedClearance: '6–10%', notes: 'Use carbide knives. Higher clearance reduces edge chipping.' },
-  'steel-hsla':        { hardness: '200–280 HB', recommendedClearance: '7–11%', notes: 'High-strength steel — add 1–2% vs mild steel baseline.' },
-  'steel-ahss':        { hardness: '280–450 HB', recommendedClearance: '9–14%', notes: 'AHSS springback requires extra clearance. Carbide mandatory.' },
-  'aluminum':          { hardness: '40–100 HB',  recommendedClearance: '6–10%', notes: 'Low clearance maintains edge quality. Use coated knives.' },
-  'copper-foil':       { hardness: '40–80 HB',   recommendedClearance: '5–8%',  notes: 'Ultra-low clearance for burr-free edges. Precision grind required.' },
-  'silicon-steel':     { hardness: '160–200 HB', recommendedClearance: '4–6%',  notes: 'Abrasive material — carbide knives mandatory. Tight clearance minimises edge stress.' },
-  'pet-film':          { hardness: 'N/A',         recommendedClearance: '0–2%',  notes: 'Near-zero clearance. Shear angle critical.' },
-  'lithium-separator': { hardness: 'N/A',         recommendedClearance: '0–1%',  notes: 'Precision carbide knives mandatory. Zero tolerance for burrs.' },
-  'paper':             { hardness: 'N/A',         recommendedClearance: '3–6%',  notes: 'Standard HSS acceptable for low volumes.' },
+  'steel-mild':        { hardness: '120–180 HB', recommendedClearance: '5–8%',  notes: 'HSS M2 works well for general runs. Carbide extends tool life on high-volume lines. Start at the lower end of the range and increase if burr appears on the bottom edge.' },
+  'steel-stainless':   { hardness: '180–240 HB', recommendedClearance: '6–10%', notes: 'Stainless work-hardens quickly during cutting. Higher clearance (toward 10%) reduces edge stress on harder grades (316, 2205). Lower clearance (toward 6%) suits thin gauges where edge finish matters. HSS M42 is a cost-effective option for moderate volumes; carbide preferred for continuous high-speed running.' },
+  'steel-hsla':        { hardness: '200–280 HB', recommendedClearance: '7–11%', notes: 'Higher yield strength means more springback — clearance should be 1–2% above what you would use for the same thickness in mild steel. Verify edge quality by checking that the fracture zone is clean, not torn.' },
+  'steel-ahss':        { hardness: '280–450 HB', recommendedClearance: '9–14%', notes: 'Advanced high-strength steels (DP, CP, Martensitic) have significant springback after cutting. Insufficient clearance causes the cut edge to press back against the knife, leading to rapid wear or chipping. Start at 11–12% and adjust based on edge inspection. Knife grade selection depends on your volume and budget — consult your knife supplier.' },
+  'aluminum':          { hardness: '40–100 HB',  recommendedClearance: '6–10%', notes: 'Softer alloys (1xxx, 3xxx) are forgiving — mid-range clearance works well. Harder alloys (5xxx, 6xxx) need tighter clearance to control rollover. TiN-coated knives reduce built-up edge (BUE) if aluminum sticks to the knife face.' },
+  'copper-foil':       { hardness: '40–80 HB',   recommendedClearance: '5–8%',  notes: 'Copper is ductile and prone to rollover at the top edge. Keep clearance tight and verify knife runout (TIR ≤ 0.01mm) — any wobble shows directly in the slit edge. Freshly ground knives make a measurable difference.' },
+  'silicon-steel':     { hardness: '160–200 HB', recommendedClearance: '4–6%',  notes: 'Silicon particles in the material are highly abrasive. Tight clearance is needed to minimise edge stress concentration, which causes microcracks that propagate during downstream stamping. Knife wear rate will be higher than for carbon steel — factor this into your regrind schedule.' },
+  'pet-film':          { hardness: 'N/A',         recommendedClearance: '0–2%',  notes: 'Film slitting requires near-zero clearance and precise shear angle. Clearance above 2% produces a rough edge and possible film tearing. Knife sharpness has more influence on edge quality than clearance alone — inspect knife edge condition before each run.' },
+  'lithium-separator': { hardness: 'N/A',         recommendedClearance: '0–1%',  notes: 'Extremely tight tolerance application. Even small burrs or particles cause cell short circuits. Knife flatness, TIR, and surface finish are as critical as clearance. This application typically requires dedicated knife sets that are tracked, logged, and replaced on a fixed interval regardless of apparent condition.' },
+  'paper':             { hardness: 'N/A',         recommendedClearance: '3–6%',  notes: 'Paper is forgiving on clearance. Edge quality is more sensitive to knife sharpness and moisture content of the paper than to precise clearance setting. Wider clearance (toward 6%) reduces dust generation on coated stocks.' },
 }
 
 export default function Calculator() {
