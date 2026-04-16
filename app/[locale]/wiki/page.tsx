@@ -16,36 +16,20 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   })
 }
 
-const enArticles = [
-  { slug: 'slitting-machine-selection-guide',  tag: 'Machine Selection' },
-  { slug: 'slitter-knife-material-comparison', tag: 'Knife Materials' },
-  { slug: 'precision-spacer-specifications',   tag: 'Spacers' },
-  { slug: 'slitting-machine-troubleshooting',  tag: 'Troubleshooting' },
-  { slug: 'coil-slitting-process',             tag: 'Process' },
-  { slug: 'slitter-knife',                     tag: 'Knife Guide' },
-  { slug: 'slitting-machine',                  tag: 'Machines' },
-  { slug: 'slitting-process',                  tag: 'Process' },
-]
-
-const zhArticles = [
-  { slug: 'metal-slitting-machine',         tag: '分條機' },
-  { slug: 'slitter-knife-guide',            tag: '分條刀' },
-  { slug: 'slitting-clearance-guide',       tag: '間隙設定' },
-  { slug: 'arbor-spacer-guide',             tag: '間隔環' },
-  { slug: 'lightweight-vs-standard-spacers', tag: '間隔環比較' },
-  { slug: 'stripper-rings-guide',           tag: '剪切環' },
-  { slug: 'hydraulic-nut-guide',            tag: '液壓螺母' },
-  { slug: 'knife-regrinding-guide',         tag: '研磨服務' },
-  { slug: 'slitting-defects-diagnosis',     tag: '問題診斷' },
-  { slug: 'tooling-installation-guide',     tag: '刀具安裝' },
-]
-
 export default function WikiIndexPage({ params: { locale } }: { params: { locale: Locale } }) {
   setRequestLocale(locale)
   const base = `/${locale}`
   const isZh = locale === 'zh-TW' || locale === 'zh-CN'
 
-  const articleList = isZh ? zhArticles : enArticles
+  // Dynamically load all articles for this locale
+  const slugs = getAllWikiSlugs(locale)
+  const articles = slugs
+    .map(slug => {
+      const wiki = getWikiContent(locale, slug)
+      if (!wiki) return null
+      return { slug, frontmatter: wiki.frontmatter }
+    })
+    .filter(Boolean) as { slug: string; frontmatter: { title: string; description: string; keywords?: string[] } }[]
 
   return (
     <>
@@ -71,11 +55,13 @@ export default function WikiIndexPage({ params: { locale } }: { params: { locale
             : 'Complete technical reference for slitting machines, slitter knives, spacers, and process parameters — maintained by TOA DR Engineering Team.'}
         </p>
 
+        <p className="text-sm mb-6 font-mono" style={{ color: '#8B6E5A' }}>
+          {articles.length} {isZh ? '篇文章' : 'articles'}
+        </p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {articleList.map(({ slug, tag }) => {
-            const wiki = getWikiContent(locale, slug)
-            if (!wiki) return null
-            const { frontmatter } = wiki
+          {articles.map(({ slug, frontmatter }) => {
+            const tag = frontmatter.keywords?.[0] ?? ''
             return (
               <Link
                 key={slug}
@@ -87,12 +73,14 @@ export default function WikiIndexPage({ params: { locale } }: { params: { locale
                   <h2 style={{ fontFamily: 'var(--font-display), Georgia, serif', fontSize: '15px', fontWeight: 600, color: '#1A1512', lineHeight: 1.35 }}>
                     {frontmatter.title}
                   </h2>
-                  <span
-                    className="font-mono text-[10px] whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-[2px] shrink-0"
-                    style={{ color: '#8B6E5A', background: '#EDE8E0', border: '1px solid #D8CFC4' }}
-                  >
-                    {tag}
-                  </span>
+                  {tag && (
+                    <span
+                      className="font-mono text-[10px] whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-[2px] shrink-0"
+                      style={{ color: '#8B6E5A', background: '#EDE8E0', border: '1px solid #D8CFC4' }}
+                    >
+                      {tag}
+                    </span>
+                  )}
                 </div>
                 <p className="text-sm mb-3" style={{ color: '#4A3F35', lineHeight: 1.65 }}>
                   {frontmatter.description.slice(0, 100)}…
