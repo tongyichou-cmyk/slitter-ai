@@ -347,7 +347,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
             </h1>
             <p style={{ fontFamily: 'var(--font-body), Georgia, serif', fontSize: '15px', color: '#4A3F35', lineHeight: 1.75 }}>
               The global technical reference for slitting machine technology — maintained by{' '}
-              <Link href="/en/about" className="hover:underline" style={{ color: '#B8860B' }}>TOA DR Enterprise</Link>, precision
+              <Link href={`${base}/about`} className="hover:underline" style={{ color: '#B8860B' }}>TOA DR Enterprise</Link>, precision
               tooling manufacturer since 1972.
             </p>
           </div>
