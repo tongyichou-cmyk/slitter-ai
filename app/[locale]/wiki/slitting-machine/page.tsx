@@ -45,7 +45,7 @@ export default function SlittingMachinePage({ params: { locale } }: { params: { 
       <article className="max-w-4xl mx-auto px-4 py-12">
         <Breadcrumb items={[
           { name: 'Home', href: base },
-          { name: 'Knowledge Base' },
+          { name: 'Knowledge Base', href: `${base}/wiki` },
           { name: 'Slitting Machines' },
         ]} />
 

@@ -30,7 +30,7 @@ export default function CalculatorPage({ params: { locale } }: { params: { local
       <div className="max-w-4xl mx-auto px-4 py-12">
         <Breadcrumb items={[
           { name: 'Home', href: base },
-          { name: 'Tools' },
+          { name: 'Tools', href: `${base}/tools` },
           { name: 'Clearance Calculator' },
         ]} />
 
