@@ -25,6 +25,11 @@ const config: Config = {
         gold:          '#B8860B',
         gold2:         '#9A7009',
         'gold-light':  '#F5E6B8',
+        brand: {
+          500: '#D4A010',
+          600: '#B8860B',
+          700: '#9A7009',
+        },
         mocha:         '#4A3728',
         mocha2:        '#6B4F3A',
         'mocha-light': '#8B6E5A',
