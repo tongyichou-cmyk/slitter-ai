@@ -1,45 +1,44 @@
+import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { buildMetadata } from '@/lib/seo'
+import { SITE, officialLink } from '@/data/site'
+import Breadcrumb from '@/components/Breadcrumb'
 import CTA from '@/components/CTA'
-import { setRequestLocale } from 'next-intl/server'
 import type { Locale } from '@/lib/i18n'
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }) {
-  return buildMetadata({
-    title: 'About — TOA DR Enterprise Co., Ltd.',
-    description: 'About TOA DR Enterprise Co., Ltd. Precision slitting knife manufacturer since 1972. ISO 9001:2015 certified. Trusted by factories in Taiwan, Southeast Asia, and globally.',
-    locale,
-    path: '/about',
-  })
+  return buildMetadata({ locale, path: '/about' })
 }
 
-export default function AboutPage({ params: { locale } }: { params: { locale: Locale } }) {
+export default async function AboutPage({ params: { locale } }: { params: { locale: Locale } }) {
   setRequestLocale(locale)
+  const t = await getTranslations({ locale, namespace: 'about' })
+  const tb = await getTranslations({ locale, namespace: 'breadcrumb' })
+  const base = `/${locale}`
+
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
-      <h1>About slitter.ai & TOA DR Enterprise</h1>
+      <Breadcrumb currentPath={`${base}/about`} items={[{ name: tb('home'), href: base }, { name: t('heading') }]} />
+      <h1>{t('heading')}</h1>
 
       <div className="mt-6 prose prose-gray max-w-none">
-        <p className="text-lg text-gray-600">slitter.ai is the engineering knowledge platform operated by <strong>TOA DR Enterprise Co., Ltd.</strong> — a precision slitting tool manufacturer established in 1972.</p>
+        <p className="text-lg text-gray-600">{t('lead')}</p>
 
-        <h2>Our Mission</h2>
-        <p>We built slitter.ai to solve a real problem: engineers searching for reliable slitting technology data have historically found fragmented, vendor-biased, or low-quality information. slitter.ai is our commitment to changing that — providing engineering-grade content that is accurate, sourced, and useful in production environments.</p>
-
-        <h2>About TOA DR Enterprise</h2>
+        <h2>{t('companyHeading')}</h2>
         <ul>
-          <li><strong>Founded:</strong> 1972</li>
-          <li><strong>Specialization:</strong> Precision slitting knives, spacer rings, arbors, and slitting machine components</li>
-          <li><strong>Certification:</strong> ISO 9001:2015</li>
-          <li><strong>D-U-N-S:</strong> Registered</li>
-          <li><strong>Primary Markets:</strong> Taiwan, Southeast Asia, global OEM</li>
-          <li><strong>Contact:</strong> sales@slitterline.com</li>
-          <li><strong>Website:</strong> slitterline.com</li>
+          <li><strong>{t('founded')}:</strong> {SITE.company.founded}</li>
+          <li><strong>{t('products')}:</strong> {t('productsValue')}</li>
+          <li><strong>{t('certification')}:</strong> {SITE.company.certifications.join(', ')}</li>
+          <li><strong>{t('website')}:</strong> <Link href={officialLink(locale, 'home')} target="_blank" rel="noopener">slitterline.com</Link></li>
         </ul>
 
-        <h2>Editorial Standards</h2>
-        <p>All content on slitter.ai is written or reviewed by TOA DR engineering staff with direct manufacturing experience. Claims are traceable to our internal engineering data, industry standards (JIS, DIN, ASTM), or cited external sources. We do not publish content we cannot verify.</p>
+        <h2>{t('editorialHeading')}</h2>
+        <p>{t('editorial1')}</p>
+        <p>{t('editorial2')}</p>
+        <p>{t('editorial3')}</p>
       </div>
 
-      <CTA variant="banner" />
+      <CTA locale={locale} variant="banner" />
     </article>
   )
 }

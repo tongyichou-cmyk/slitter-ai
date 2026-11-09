@@ -2,16 +2,14 @@ import Link from 'next/link'
 import SchemaScript from './SchemaScript'
 import { buildBreadcrumbSchema } from '@/lib/schema'
 
+// href 是含語系的站內路徑；最後一項是目前頁面，不需要 href
 interface BreadcrumbItem {
   name: string
   href?: string
 }
 
-export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
-  const schemaItems = items.map(item => ({
-    name: item.name,
-    url: item.href ? `https://slitter.ai${item.href}` : 'https://slitter.ai',
-  }))
+export default function Breadcrumb({ items, currentPath }: { items: BreadcrumbItem[]; currentPath: string }) {
+  const schemaItems = items.map(item => ({ name: item.name, path: item.href ?? currentPath }))
 
   return (
     <>
@@ -26,9 +24,7 @@ export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
                   {item.name}
                 </Link>
               ) : (
-                <span className={i === items.length - 1 ? 'text-gray-900 font-medium' : ''}>
-                  {item.name}
-                </span>
+                <span className={i === items.length - 1 ? 'text-gray-900 font-medium' : ''}>{item.name}</span>
               )}
             </li>
           ))}

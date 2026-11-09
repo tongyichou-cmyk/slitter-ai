@@ -1,18 +1,190 @@
 {
+  "pages": {
+    "home": {
+      "title": "分條機與分條刀技術知識庫",
+      "description": "金屬分條機、分條刀、刀軸鋼套、間隙設定與缺陷診斷的技術文章，由 1972 年成立的台灣製造商道德煜企業撰寫。"
+    },
+    "wiki": {
+      "title": "知識庫",
+      "description": "分條機、分條刀、刀軸鋼套與分條缺陷的技術文章。"
+    },
+    "guide": {
+      "title": "操作指南",
+      "description": "分條間隙設定與換線作業的步驟說明。"
+    },
+    "tools": {
+      "title": "工具",
+      "description": "依 slitter.ai 間隙數據表計算的分條線設定工具。"
+    },
+    "calculator": {
+      "title": "分條刀間隙計算機",
+      "description": "輸入材料與厚度，依 slitter.ai 間隙數據表算出起始刀具間隙範圍。"
+    },
+    "clearanceData": {
+      "title": "分條間隙數據表",
+      "description": "依材料與厚度列出起始刀具間隙範圍，並標示每個數值的來源與審核狀態。"
+    },
+    "about": {
+      "title": "關於 slitter.ai 與道德煜企業",
+      "description": "slitter.ai 由道德煜企業有限公司發行。道德煜企業成立於 1972 年，是台灣的分條機、分條刀與精密鋼套製造商。"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "分條刀、鋼套與分條機的報價或技術問題，歡迎聯絡道德煜企業。"
+    }
+  },
   "nav": {
     "wiki": "知識庫",
     "guide": "指南",
     "tools": "工具",
+    "data": "數據",
     "about": "關於",
-    "contact": "聯絡"
+    "quote": "詢價",
+    "languages": "語言",
+    "homeOf": "{language}首頁"
   },
-  "cta": {
-    "heading": "需要精密裁刀？",
-    "subheading": "道德煜企業自1972年起供應精密裁切工具。",
-    "button": "立即詢價 →"
+  "breadcrumb": {
+    "home": "首頁",
+    "wiki": "知識庫",
+    "guide": "指南",
+    "tools": "工具",
+    "data": "數據"
   },
   "footer": {
-    "tagline": "全球裁切機技術知識中心。",
-    "copyright": "© {year} 道德煜企業有限公司"
+    "tagline": "金屬分條技術知識庫，由道德煜企業發行。",
+    "knowledge": "知識庫",
+    "resources": "指南與工具",
+    "company": "公司",
+    "allArticles": "所有文章",
+    "allGuides": "所有指南",
+    "calculator": "間隙計算機",
+    "clearanceData": "間隙數據表",
+    "about": "關於我們",
+    "contact": "聯絡我們",
+    "officialSite": "道德煜企業官網",
+    "copyright": "© {year} 道德煜企業有限公司",
+    "certifications": "ISO 9001:2015 認證・D-U-N-S 登錄・1972 年成立"
+  },
+  "cta": {
+    "eyebrow": "1972 年成立的製造商",
+    "heading": "需要分條刀或鋼套嗎？",
+    "subheading": "道德煜企業生產厚度公差 ±0.001 mm 的分條刀，以及配合機台的精密鋼套。",
+    "button": "立即詢價"
+  },
+  "article": {
+    "published": "發布日期",
+    "updated": "更新日期",
+    "faq": "常見問題",
+    "readArticle": "閱讀文章",
+    "articleCount": "{count} 篇文章"
+  },
+  "author": {
+    "name": "道德煜企業技術團隊",
+    "role": "分條刀具製造商",
+    "bio": "道德煜企業有限公司自 1972 年起在台灣製造分條機、分條刀與精密鋼套。"
+  },
+  "home": {
+    "eyebrow": "slitter.ai・道德煜企業",
+    "heading": "分條機與分條刀技術知識庫",
+    "intro": "金屬分條機、分條刀、刀軸鋼套、間隙設定與缺陷診斷的技術文章，由 1972 年起在台灣製造分條刀具的道德煜企業撰寫。",
+    "knowledgeHeading": "知識庫",
+    "guidesHeading": "操作指南",
+    "guidesIntro": "可以在產線上照著做的步驟說明。",
+    "toolsHeading": "工具與數據",
+    "calculatorTitle": "間隙計算機",
+    "calculatorDesc": "依材料與厚度算出起始刀具間隙。",
+    "dataTitle": "間隙數據表",
+    "dataDesc": "本站使用的所有間隙數值與來源。",
+    "viewAll": "查看所有文章",
+    "browseGuides": "查看所有指南",
+    "open": "開啟",
+    "factsTitle": "基本資料",
+    "factPublisher": "發行者",
+    "factFounded": "成立",
+    "factCertification": "認證",
+    "factLanguages": "語言",
+    "factLanguagesValue": "英文、繁體中文"
+  },
+  "wikiIndex": {
+    "heading": "知識庫",
+    "intro": "分條機、分條刀、刀軸鋼套與分條缺陷的技術文章。"
+  },
+  "guideIndex": {
+    "heading": "操作指南",
+    "intro": "分條線設定的步驟說明。",
+    "empty": "這個語言目前還沒有指南。"
+  },
+  "toolsIndex": {
+    "heading": "工具",
+    "intro": "依 slitter.ai 間隙數據表計算的分條線設定工具。",
+    "tag": "計算工具",
+    "open": "開啟工具"
+  },
+  "calculator": {
+    "heading": "分條刀間隙計算機",
+    "intro": "輸入材料與厚度，取得起始間隙範圍。最終設定請以切口檢查結果確認。",
+    "material": "材料",
+    "selectMaterial": "請選擇材料",
+    "thickness": "材料厚度（mm）",
+    "placeholder": "例如 1.2",
+    "calculate": "計算間隙",
+    "errorMissing": "請選擇材料並輸入厚度。",
+    "errorInvalid": "請輸入大於 0 的厚度。",
+    "outOfRange": "數據表沒有這個厚度的數值。這種材料的資料範圍是 {min}–{max} mm。",
+    "result": "每側起始間隙",
+    "pctOfThickness": "材料厚度的 {min}–{max}%",
+    "basis": "依據間隙數據表中 {min}–{max} mm 這一列。",
+    "seeData": "查看數據表",
+    "disclaimer": "這只是起始值。實際適合的間隙還會受機台、刀具狀態與材料批次影響。",
+    "ctaHeading": "需要針對特定設定的建議嗎？",
+    "ctaSubheading": "告訴我們材料、厚度與需要的切口品質。"
+  },
+  "materials": {
+    "mild-steel": "低碳鋼（冷軋）",
+    "stainless-steel": "不鏽鋼（304/316）",
+    "aluminum": "鋁",
+    "copper": "銅與黃銅"
+  },
+  "data": {
+    "heading": "分條間隙數據表",
+    "intro": "這是 slitter.ai 全站使用的起始間隙範圍，間隙計算機也使用同一份數據。間隙是上下刀之間的水平距離，以每側占材料厚度的百分比表示。",
+    "material": "材料",
+    "thickness": "厚度（mm）",
+    "clearance": "每側間隙",
+    "source": "來源",
+    "version": "數據版本",
+    "reviewedOn": "審核日期：{date}",
+    "pendingReview": "工程師審核中。目前數值是草案，可能會調整。",
+    "sourceTypes": {
+      "company-practice": "道德煜實務",
+      "standard": "標準",
+      "publication": "文獻"
+    }
+  },
+  "about": {
+    "heading": "關於 slitter.ai 與道德煜企業",
+    "lead": "slitter.ai 是金屬分條技術知識庫，由 1972 年成立的台灣製造商道德煜企業有限公司發行。",
+    "companyHeading": "關於道德煜企業",
+    "founded": "成立",
+    "products": "產品",
+    "productsValue": "分條機、分條刀、精密鋼套、分條刀研磨",
+    "certification": "認證",
+    "website": "官網",
+    "editorialHeading": "我們怎麼寫",
+    "editorial1": "文章由道德煜企業技術團隊依製造與客戶服務經驗撰寫。",
+    "editorial2": "會出現在多個頁面的數字，例如刀具間隙，都來自同一份數據表，並標示來源與審核狀態。",
+    "editorial3": "我們正逐篇補上具名審稿人、資料來源與照片。如果發現錯誤，請寄信到 sales@slitterline.com。"
+  },
+  "contact": {
+    "heading": "聯絡我們",
+    "lead": "報價、規格與技術問題，請聯絡道德煜企業業務團隊。",
+    "quoteHeading": "報價與規格",
+    "quoteText": "請提供材料、厚度、機台型號與需求數量。",
+    "quoteButton": "到道德煜企業官網詢價",
+    "directHeading": "直接聯絡",
+    "email": "Email",
+    "phone": "電話",
+    "whatsapp": "WhatsApp",
+    "line": "LINE"
   }
 }

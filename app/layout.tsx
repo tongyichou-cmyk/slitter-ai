@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'slitter.ai — Slitting Machine Knowledge Hub',
-  description: 'The global authority platform for slitting machine technology, slitter knives, and precision slitting processes.',
+  metadataBase: new URL('https://www.slitter.ai'),
+  title: 'slitter.ai',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

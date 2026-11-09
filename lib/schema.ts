@@ -1,66 +1,69 @@
-export const SCHEMA_BASE_URL = 'https://www.slitter.ai'
+import type { Locale } from './i18n'
+import { SITE } from '@/data/site'
+import type { FaqItem } from './content/registry'
+
+export const SCHEMA_BASE_URL = SITE.url
 
 export type SchemaObject = Record<string, unknown>
 
-export function buildOrganizationSchema(): SchemaObject {
+function organization(locale: Locale = 'en'): SchemaObject {
   return {
-    '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'TOA DR Enterprise Co., Ltd.',
-    url: 'https://slitterline.com',
-    foundingDate: '1972',
-    description: 'Precision slitting knives, spacer rings, and slitting machine components.',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: 'sales@slitterline.com',
-      contactType: 'sales',
-    },
+    name: SITE.company.name[locale],
+    alternateName: locale === 'en' ? SITE.company.name['zh-TW'] : SITE.company.name.en,
+    url: SITE.company.website,
+    foundingDate: String(SITE.company.founded),
+    email: SITE.contact.email,
+    telephone: SITE.contact.phone,
+    sameAs: [SITE.company.website],
   }
 }
 
-export function buildWebSiteSchema(): SchemaObject {
+export function buildOrganizationSchema(locale: Locale = 'en'): SchemaObject {
+  return { '@context': 'https://schema.org', ...organization(locale) }
+}
+
+export function buildWebSiteSchema(locale: Locale = 'en'): SchemaObject {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'slitter.ai',
-    url: 'https://slitter.ai',
-    description: 'The global knowledge hub for slitting machine technology.',
-    publisher: buildOrganizationSchema(),
+    name: SITE.name,
+    url: `${SITE.url}/${locale}`,
+    inLanguage: locale,
+    publisher: organization(locale),
   }
 }
 
 export function buildArticleSchema({
+  locale,
   title,
   description,
-  url,
-  datePublished,
-  dateModified,
-  authorName,
+  path,
+  publishedAt,
+  updatedAt,
 }: {
+  locale: Locale
   title: string
   description: string
-  url: string
-  datePublished: string
-  dateModified?: string
-  authorName?: string
+  path: string
+  publishedAt: string
+  updatedAt: string
 }): SchemaObject {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
     description,
-    url,
-    datePublished,
-    dateModified: dateModified ?? datePublished,
-    author: {
-      '@type': 'Person',
-      name: authorName ?? 'TOA DR Engineering Team',
-    },
-    publisher: buildOrganizationSchema(),
+    url: `${SITE.url}/${locale}${path}`,
+    inLanguage: locale,
+    datePublished: publishedAt,
+    dateModified: updatedAt,
+    author: organization(locale),
+    publisher: organization(locale),
   }
 }
 
-export function buildFAQSchema(items: { q: string; a: string }[]): SchemaObject {
+export function buildFAQSchema(items: FaqItem[]): SchemaObject {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -72,17 +75,44 @@ export function buildFAQSchema(items: { q: string; a: string }[]): SchemaObject 
   }
 }
 
-export function buildBreadcrumbSchema(
-  items: { name: string; url: string }[]
-): SchemaObject {
+// path 是含語系的站內路徑，例如 '/zh-TW/wiki/slitter-knife'
+export function buildBreadcrumbSchema(items: { name: string; path: string }[]): SchemaObject {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map(({ name, url }, i) => ({
+    itemListElement: items.map(({ name, path }, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name,
-      item: url,
+      item: `${SITE.url}${path}`,
     })),
+  }
+}
+
+export function buildDatasetSchema({
+  locale,
+  name,
+  description,
+  path,
+  version,
+  reviewedAt,
+}: {
+  locale: Locale
+  name: string
+  description: string
+  path: string
+  version: string
+  reviewedAt: string | null
+}): SchemaObject {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name,
+    description,
+    url: `${SITE.url}/${locale}${path}`,
+    inLanguage: locale,
+    version,
+    ...(reviewedAt ? { dateModified: reviewedAt } : {}),
+    creator: organization(locale),
   }
 }

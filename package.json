@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "watermark": "node scripts/watermark.mjs"
+    "watermark": "node scripts/watermark.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "generate:redirects": "tsx scripts/generate-redirects.ts",
+    "predev": "npm run generate:redirects",
+    "prebuild": "npm run generate:redirects"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -34,6 +39,8 @@
     "postcss": "^8",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5"
+    "tsx": "^4.19.2",
+    "typescript": "^5",
+    "vitest": "^2.1.8"
   }
 }

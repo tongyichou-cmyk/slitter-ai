@@ -1,18 +1,190 @@
 {
+  "pages": {
+    "home": {
+      "title": "Slitting Machine and Slitter Knife Knowledge Base",
+      "description": "Technical articles on metal slitting machines, slitter knives, arbor spacers, clearance and defect diagnosis, published by TOA DR Enterprise, a Taiwanese manufacturer founded in 1972."
+    },
+    "wiki": {
+      "title": "Knowledge Base",
+      "description": "Technical articles on slitting machines, slitter knives, arbor spacers and slitting defects."
+    },
+    "guide": {
+      "title": "Guides",
+      "description": "Step-by-step procedures for setting slitting clearance and changing over a slitting line."
+    },
+    "tools": {
+      "title": "Tools",
+      "description": "Calculators for slitting line setup, based on the slitter.ai clearance data table."
+    },
+    "calculator": {
+      "title": "Slitter Knife Clearance Calculator",
+      "description": "Enter the material and thickness to get the starting knife clearance range from the slitter.ai clearance data table."
+    },
+    "clearanceData": {
+      "title": "Slitting Clearance Data Table",
+      "description": "Starting knife clearance ranges by material and thickness, with the source and review status of every value."
+    },
+    "about": {
+      "title": "About slitter.ai and TOA DR Enterprise",
+      "description": "slitter.ai is published by TOA DR Enterprise Co., Ltd., a Taiwanese manufacturer of slitting machines, slitter knives and precision spacers founded in 1972."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact TOA DR Enterprise for slitter knife, spacer and slitting machine quotes or technical questions."
+    }
+  },
   "nav": {
     "wiki": "Knowledge Base",
     "guide": "Guides",
     "tools": "Tools",
+    "data": "Data",
     "about": "About",
-    "contact": "Contact"
+    "quote": "Request a Quote",
+    "languages": "Languages",
+    "homeOf": "{language} home"
   },
-  "cta": {
-    "heading": "Need Precision Slitter Knives?",
-    "subheading": "TOA DR Enterprise has supplied precision slitting tools since 1972.",
-    "button": "Request a Quote →"
+  "breadcrumb": {
+    "home": "Home",
+    "wiki": "Knowledge Base",
+    "guide": "Guides",
+    "tools": "Tools",
+    "data": "Data"
   },
   "footer": {
-    "tagline": "The global knowledge hub for slitting machine technology.",
-    "copyright": "© {year} TOA DR Enterprise Co., Ltd."
+    "tagline": "Technical knowledge base on metal slitting, published by TOA DR Enterprise.",
+    "knowledge": "Knowledge Base",
+    "resources": "Guides and Tools",
+    "company": "Company",
+    "allArticles": "All articles",
+    "allGuides": "All guides",
+    "calculator": "Clearance calculator",
+    "clearanceData": "Clearance data table",
+    "about": "About",
+    "contact": "Contact",
+    "officialSite": "slitterline.com",
+    "copyright": "© {year} TOA DR Enterprise Co., Ltd.",
+    "certifications": "ISO 9001:2015 certified · D-U-N-S registered · Founded 1972"
+  },
+  "cta": {
+    "eyebrow": "Manufacturer since 1972",
+    "heading": "Need slitter knives or spacers?",
+    "subheading": "TOA DR Enterprise makes slitter knives with a thickness tolerance of ±0.001 mm, and precision spacers for your machine.",
+    "button": "Request a quote"
+  },
+  "article": {
+    "published": "Published",
+    "updated": "Updated",
+    "faq": "Frequently Asked Questions",
+    "readArticle": "Read article",
+    "articleCount": "{count, plural, one {# article} other {# articles}}"
+  },
+  "author": {
+    "name": "TOA DR Engineering Team",
+    "role": "Slitting tooling manufacturer",
+    "bio": "TOA DR Enterprise Co., Ltd. has made slitting machines, slitter knives and precision spacers in Taiwan since 1972."
+  },
+  "home": {
+    "eyebrow": "slitter.ai · by TOA DR Enterprise",
+    "heading": "Slitting Machine and Slitter Knife Knowledge Base",
+    "intro": "Technical articles on metal slitting machines, slitter knives, arbor spacers, clearance and defect diagnosis. Written by TOA DR Enterprise, a slitting tooling manufacturer in Taiwan since 1972.",
+    "knowledgeHeading": "Knowledge Base",
+    "guidesHeading": "Guides",
+    "guidesIntro": "Step-by-step procedures you can follow on the line.",
+    "toolsHeading": "Tools and Data",
+    "calculatorTitle": "Clearance calculator",
+    "calculatorDesc": "Starting knife clearance for your material and thickness.",
+    "dataTitle": "Clearance data table",
+    "dataDesc": "Every clearance value used on this site, with its source.",
+    "viewAll": "View all articles",
+    "browseGuides": "Browse all guides",
+    "open": "Open",
+    "factsTitle": "Quick Facts",
+    "factPublisher": "Publisher",
+    "factFounded": "Founded",
+    "factCertification": "Certification",
+    "factLanguages": "Languages",
+    "factLanguagesValue": "English, Traditional Chinese"
+  },
+  "wikiIndex": {
+    "heading": "Knowledge Base",
+    "intro": "Technical articles on slitting machines, slitter knives, arbor spacers and slitting defects."
+  },
+  "guideIndex": {
+    "heading": "Guides",
+    "intro": "Step-by-step procedures for slitting line setup.",
+    "empty": "No guides in this language yet."
+  },
+  "toolsIndex": {
+    "heading": "Tools",
+    "intro": "Calculators for slitting line setup, based on the slitter.ai clearance data table.",
+    "tag": "Calculator",
+    "open": "Open tool"
+  },
+  "calculator": {
+    "heading": "Slitter Knife Clearance Calculator",
+    "intro": "Enter the material and thickness to get the starting clearance range. Confirm the final setting by inspecting the slit edge.",
+    "material": "Material",
+    "selectMaterial": "Select a material",
+    "thickness": "Material thickness (mm)",
+    "placeholder": "e.g. 1.2",
+    "calculate": "Calculate clearance",
+    "errorMissing": "Select a material and enter the thickness.",
+    "errorInvalid": "Enter a thickness greater than 0.",
+    "outOfRange": "The data table has no value for this thickness. It covers {min}–{max} mm for this material.",
+    "result": "Starting clearance per side",
+    "pctOfThickness": "{min}–{max}% of material thickness",
+    "basis": "Based on the row for {min}–{max} mm in the clearance data table.",
+    "seeData": "See the data table",
+    "disclaimer": "A starting point only. The right clearance also depends on the machine, the knife condition and the material batch.",
+    "ctaHeading": "Need help with a specific setup?",
+    "ctaSubheading": "Tell us the material, thickness and edge quality you need."
+  },
+  "materials": {
+    "mild-steel": "Mild steel (cold rolled)",
+    "stainless-steel": "Stainless steel (304/316)",
+    "aluminum": "Aluminum",
+    "copper": "Copper and brass"
+  },
+  "data": {
+    "heading": "Slitting Clearance Data Table",
+    "intro": "These are the starting clearance ranges used across slitter.ai, including the calculator. Clearance is the horizontal gap between the upper and lower knife, per side, as a percentage of material thickness.",
+    "material": "Material",
+    "thickness": "Thickness (mm)",
+    "clearance": "Clearance per side",
+    "source": "Source",
+    "version": "Data version",
+    "reviewedOn": "Reviewed on {date}",
+    "pendingReview": "Pending engineer review. These values are a draft and may change.",
+    "sourceTypes": {
+      "company-practice": "TOA DR practice",
+      "standard": "Standard",
+      "publication": "Publication"
+    }
+  },
+  "about": {
+    "heading": "About slitter.ai and TOA DR Enterprise",
+    "lead": "slitter.ai is a technical knowledge base on metal slitting, published by TOA DR Enterprise Co., Ltd., a Taiwanese manufacturer founded in 1972.",
+    "companyHeading": "About TOA DR Enterprise",
+    "founded": "Founded",
+    "products": "Products",
+    "productsValue": "Slitting machines, slitter knives, precision spacers, knife regrinding",
+    "certification": "Certification",
+    "website": "Website",
+    "editorialHeading": "How we write",
+    "editorial1": "Articles are written by the TOA DR engineering team from our manufacturing and customer support experience.",
+    "editorial2": "Numbers that appear on more than one page, such as knife clearance, come from a single data table that shows its source and review status.",
+    "editorial3": "We are adding named reviewers, sources and photos to each article. If you find an error, email sales@slitterline.com."
+  },
+  "contact": {
+    "heading": "Contact",
+    "lead": "For quotes, specifications and technical questions, contact the TOA DR sales team.",
+    "quoteHeading": "Quotes and specifications",
+    "quoteText": "Send us your material, thickness, machine model and required quantity.",
+    "quoteButton": "Request a quote on slitterline.com",
+    "directHeading": "Direct contact",
+    "email": "Email",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "line": "LINE"
   }
 }

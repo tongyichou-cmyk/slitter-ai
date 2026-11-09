@@ -2,58 +2,45 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-const LOCALES = [
-  { code: 'en',    label: 'EN' },
-  { code: 'zh-TW', label: '繁中' },
-  { code: 'zh-CN', label: '简中' },
-] as const
+export type LocaleOption = {
+  code: string
+  label: string
+  // 對應語系沒有本頁時，連到該語系首頁，並用這段文字說明
+  homeLabel: string
+  // 該語系實際存在的頁面路徑（不含語系前綴）
+  paths: string[]
+}
 
-export default function LocaleSwitcher({ locale }: { locale: string }) {
+export default function LocaleSwitcher({ locale, options }: { locale: string; options: LocaleOption[] }) {
   const pathname = usePathname()
-
-  function buildHref(targetLocale: string) {
-    // pathname is like /en/wiki/slitter-knife → replace first segment with targetLocale
-    const segments = pathname.split('/')
-    segments[1] = targetLocale
-    return segments.join('/')
-  }
+  const rest = pathname.replace(/^\/[^/]+/, '')
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-      {LOCALES.map(({ code, label }, i) => (
-        <span key={code} style={{ display: 'flex', alignItems: 'center' }}>
-          {i > 0 && (
-            <span style={{ color: '#3A2E22', marginRight: '2px', fontSize: '11px' }}>·</span>
-          )}
-          {code === locale ? (
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#B8860B',
-              letterSpacing: '0.05em',
-            }}>
-              {label}
-            </span>
-          ) : (
-            <Link
-              href={buildHref(code)}
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                fontWeight: 400,
-                color: '#6A5A48',
-                textDecoration: 'none',
-                letterSpacing: '0.05em',
-                transition: 'color 0.15s',
-              }}
-              className="hover:text-[#B8860B]"
-            >
-              {label}
-            </Link>
-          )}
-        </span>
-      ))}
+      {options.map(({ code, label, homeLabel, paths }, i) => {
+        const exists = paths.includes(rest)
+        const href = exists ? `/${code}${rest}` : `/${code}`
+        return (
+          <span key={code} style={{ display: 'flex', alignItems: 'center' }}>
+            {i > 0 && <span style={{ color: '#3A2E22', marginRight: '2px', fontSize: '11px' }}>·</span>}
+            {code === locale ? (
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, color: '#B8860B', letterSpacing: '0.05em' }}>
+                {label}
+              </span>
+            ) : (
+              <Link
+                href={href}
+                hrefLang={code}
+                title={exists ? undefined : homeLabel}
+                className="hover:text-[#B8860B]"
+                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#6A5A48', textDecoration: 'none', letterSpacing: '0.05em', transition: 'color 0.15s' }}
+              >
+                {exists ? label : homeLabel}
+              </Link>
+            )}
+          </span>
+        )
+      })}
     </div>
   )
 }

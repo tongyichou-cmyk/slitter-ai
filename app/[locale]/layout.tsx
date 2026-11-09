@@ -1,9 +1,8 @@
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { setRequestLocale } from 'next-intl/server'
-import { locales, type Locale } from '@/lib/i18n'
+import { locales, isLocale, type Locale } from '@/lib/i18n'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
@@ -47,9 +46,11 @@ export default async function LocaleLayout({
   children: React.ReactNode
   params: { locale: Locale }
 }) {
-  if (!locales.includes(locale)) notFound()
+  if (!isLocale(locale)) notFound()
   setRequestLocale(locale)
-  const messages = await getMessages()
+  // 只把客戶端元件需要的文字送到瀏覽器，避免另一語系或其他頁面的文字出現在頁面原始碼
+  const { calculator, materials } = await getMessages()
+  const messages = { calculator, materials }
 
   return (
     <html lang={locale}>
