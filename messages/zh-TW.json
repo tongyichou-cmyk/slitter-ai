@@ -22,7 +22,7 @@
     },
     "clearanceData": {
       "title": "分條間隙數據表",
-      "description": "依材料與厚度列出起始刀具間隙範圍，並標示每個數值的來源與審核狀態。"
+      "description": "依材料與厚度列出起始刀具間隙範圍，以及依用途的毛邊高度上限。全部是參考值，並標示來源。"
     },
     "about": {
       "title": "關於 slitter.ai 與道德煜企業",
@@ -153,12 +153,34 @@
     "clearance": "每側間隙",
     "source": "來源",
     "version": "數據版本",
-    "reviewedOn": "審核日期：{date}",
-    "pendingReview": "工程師審核中。目前數值是草案，可能會調整。",
+    "updatedOn": "更新日期：{date}",
+    "reference": "參考值：這是起始設定，實際間隙請以試切結果調整。",
     "sourceTypes": {
       "company-practice": "道德煜實務",
       "standard": "標準",
       "publication": "文獻"
+    },
+    "anyThickness": "任何厚度",
+    "ruleDelta": "比同厚度{basis} +{min}–{max}%",
+    "basis": {
+      "mild-steel": "低碳鋼",
+      "base-metal": "基材"
+    },
+    "rules": {
+      "hsla": "高強度低合金鋼（HSLA）",
+      "ahss": "先進高強度鋼（AHSS）",
+      "galvanized": "鍍鋅鋼板",
+      "silicon-steel": "矽鋼（電磁鋼）"
+    },
+    "burrHeading": "毛邊高度上限",
+    "burrIntro": "依產品用途列出常見的毛邊高度上限，以占材料厚度的百分比表示。實際上限以客戶規格為準。",
+    "application": "用途",
+    "burrMax": "毛邊高度上限",
+    "applications": {
+      "general": "一般結構與建築用鋼",
+      "automotive": "汽車沖壓件",
+      "electrical-steel": "馬達與變壓器矽鋼片",
+      "battery-electrode": "電池極片"
     }
   },
   "about": {

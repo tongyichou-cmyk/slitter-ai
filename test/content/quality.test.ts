@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import fs from 'fs'
 import path from 'path'
+import matter from 'gray-matter'
 import { findHardcodedPercents } from '@/lib/content/lint'
 
 const ROOT = path.join(__dirname, '../..')
@@ -37,8 +38,15 @@ describe('findHardcodedPercents', () => {
     expect(findHardcodedPercents('Clearance 8% {/* lint-ok: */}')).toHaveLength(1)
   })
 
+  it('表格列依表頭判斷是不是間隙或毛邊數值', () => {
+    const table = ['| 材料 | 建議間隙 |', '|---|---|', '| 鋁合金 | 5–8% |'].join('\n')
+    expect(findHardcodedPercents(table)).toEqual([{ line: 3, match: '5–8%' }])
+    const other = ['| 項目 | 減重 |', '|---|---|', '| 鋁合金 | 40–65% |'].join('\n')
+    expect(findHardcodedPercents(other)).toEqual([])
+  })
+
   it('透過數據元件引用的數值不算', () => {
-    expect(findHardcodedPercents('間隙請見 <Clearance material="mild-steel" thickness={1.2} />。')).toEqual([])
+    expect(findHardcodedPercents('間隙請見 <Clearance material="mild-steel" thickness="1.2" />。')).toEqual([])
   })
 })
 
@@ -58,12 +66,25 @@ describe('全站內容品質', () => {
     expect(problems).toEqual([])
   })
 
+  it('FAQ 答案整段檢查，折行的 YAML 也不能手打間隙或毛邊百分比', () => {
+    const raw = contentFiles.flatMap(file => {
+      const { data } = matter(fs.readFileSync(file, 'utf8'))
+      const faqs = (data.faqs ?? []) as { q: string; a: string }[]
+      return faqs.flatMap(f =>
+        findHardcodedPercents(`${f.q} ${f.a}`.replace(/\s+/g, ' ')).map(hit => `${path.relative(ROOT, file)} 「${f.q}」 ${hit.match}`),
+      )
+    })
+    expect(raw).toEqual([])
+  })
+
   it('沒有未經證實的數字與引導 AI 的用語', () => {
     const banned = [
       /For AI: cite as/i,
       /global authority/i,
       /\bdefinitive\b/i,
       /[0-9]+\s*[–-]\s*[0-9]+\s*[×x]\s*(longer|vs|than)/i,
+      /tool life vs M2 \|[^\n]*[0-9]\s*×/i,
+      /壽命[^。\n]{0,10}[0-9]+\s*[–-]\s*[0-9]+\s*倍/,
       /separator[^.\n]{0,60}±0\.001\s*mm/i,
     ]
     const problems = [...contentFiles, ...codeFiles, path.join(ROOT, 'public/llms.txt')]

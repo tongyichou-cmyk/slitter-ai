@@ -95,14 +95,14 @@ export function buildDatasetSchema({
   description,
   path,
   version,
-  reviewedAt,
+  updatedAt,
 }: {
   locale: Locale
   name: string
   description: string
   path: string
   version: string
-  reviewedAt: string | null
+  updatedAt: string
 }): SchemaObject {
   return {
     '@context': 'https://schema.org',
@@ -112,7 +112,7 @@ export function buildDatasetSchema({
     url: `${SITE.url}/${locale}${path}`,
     inLanguage: locale,
     version,
-    ...(reviewedAt ? { dateModified: reviewedAt } : {}),
+    dateModified: updatedAt,
     creator: organization(locale),
   }
 }

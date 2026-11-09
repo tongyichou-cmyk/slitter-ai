@@ -2,6 +2,7 @@ import { registry as defaultRegistry, type Registry, type PageEntry } from './co
 import type { Locale } from './i18n'
 import { absoluteUrl } from './seo'
 import { SITE } from '@/data/site'
+import { renderDataComponents } from './content/data-text'
 
 const SECTION_HEADINGS: Record<Locale, string> = { en: '## English', 'zh-TW': '## 繁體中文' }
 
@@ -34,8 +35,9 @@ export function buildLlmsTxt(reg: Registry = defaultRegistry): string {
 }
 
 // 把 MDX 轉成純文字：移除 JSX 元件、HTML 標籤與 Markdown 連結語法
-export function mdxToText(body: string): string {
-  return body
+export function mdxToText(body: string, locale: Locale): string {
+  return renderDataComponents(body, locale)
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
     .replace(/<[A-Z][\s\S]*?\/>/g, '')
     .replace(/<\/?[a-zA-Z][^>]*>/g, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
@@ -47,6 +49,6 @@ export function mdxToText(body: string): string {
 export function buildLlmsFull(locale: Locale, reg: Registry = defaultRegistry): string {
   const pages = reg.listPages(locale).filter(p => p.body)
   return pages
-    .map(p => [`# ${p.title}`, '', `URL: ${absoluteUrl(locale, p.path)}`, `Updated: ${p.updatedAt}`, '', mdxToText(p.body!)].join('\n'))
+    .map(p => [`# ${p.title}`, '', `URL: ${absoluteUrl(locale, p.path)}`, `Updated: ${p.updatedAt}`, '', mdxToText(p.body!, locale)].join('\n'))
     .join('\n\n---\n\n') + '\n'
 }

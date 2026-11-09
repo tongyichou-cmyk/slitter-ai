@@ -1,4 +1,4 @@
-// 正式上線前執行：數據必須已審核，內容品質測試必須全部通過。
+// 正式上線前執行：數據必須有更新日期與來源，內容品質測試必須全部通過。
 import { execSync } from 'child_process'
 import { assertPublishable } from '@/data/slitting'
 

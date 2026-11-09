@@ -56,8 +56,10 @@ faqs:
       based on when burr exceeds spec.
   - q: What is the correct knife clearance for stainless steel slitting?
     a: >-
-      For austenitic stainless (304/316), recommended knife clearance is 6-10%
-      of material thickness. For martensitic grades (420/440), use 8-12%.
+      For austenitic stainless (304/316), the reference starting clearance is
+      {{clearance:stainless-steel:1.0}} of material thickness for 0.3–1.5 mm and
+      {{clearance:stainless-steel:2.0}} for 1.5–4.0 mm. Martensitic grades
+      (420/440) are not in the data table; confirm them by test slitting.
       Clearance too low on stainless causes edge curl and accelerated knife
       wear. Clearance too high leaves excessive burr. Start at the middle of the
       range and adjust based on edge inspection. Use HSS M42 minimum — carbide
@@ -92,7 +94,7 @@ Raised metal along one or both edges of the slit strip. May be detectable visual
 **Knife clearance too large**
 The most common cause. With excessive clearance, the material fractures rather than shears cleanly, leaving a burr on the lower face of the strip.
 
-*Corrective action:* Reduce clearance by 1–2% of material thickness and re-run test strip. Refer to material clearance table: typically 5–8% for mild steel, 6–10% for stainless, 3–5% for aluminum.
+*Corrective action:* Reduce clearance by 1–2% of material thickness and re-run test strip. {/* lint-ok: adjustment step, not a recommended value */} Check the starting values in the [clearance data table](/en/data/slitting-clearance).
 
 **Dull knives**
 Worn knives lose cutting sharpness and begin to tear material rather than shear it. Burr increases gradually over a production run as knives wear.
@@ -131,7 +133,7 @@ Strip edges curl upward (away from the recoiler) or downward (toward the recoile
 **Knife clearance too small**
 Insufficient clearance compresses the material at the cut point, introducing residual stress that causes the edge to curl as it leaves the cut zone.
 
-*Corrective action:* Increase clearance by 1–2% of material thickness. Re-run test strip and measure curl height.
+*Corrective action:* Increase clearance by 1–2% of material thickness. Re-run test strip and measure curl height. {/* lint-ok: adjustment step, not a recommended value */}
 
 **Knife overlap excessive**
 Too much vertical engagement creates a wiping action on the edge that rolls the strip material.

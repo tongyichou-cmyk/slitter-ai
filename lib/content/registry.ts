@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { locales, type Locale } from '@/lib/i18n'
+import { resolveDataTokens } from './data-text'
 
 export const LOCALES = locales
 
@@ -76,7 +77,9 @@ function readMdxPages(rootDir: string, locale: Locale): PageEntry[] {
         reviewedAt: data.reviewedAt ? String(data.reviewedAt) : undefined,
         reviewer: data.reviewer ? String(data.reviewer) : undefined,
         keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : undefined,
-        faqs: Array.isArray(data.faqs) ? (data.faqs as FaqItem[]) : undefined,
+        faqs: Array.isArray(data.faqs)
+          ? (data.faqs as FaqItem[]).map(f => ({ q: resolveDataTokens(f.q), a: resolveDataTokens(f.a) }))
+          : undefined,
         body: content,
       })
     }

@@ -22,7 +22,7 @@
     },
     "clearanceData": {
       "title": "Slitting Clearance Data Table",
-      "description": "Starting knife clearance ranges by material and thickness, with the source and review status of every value."
+      "description": "Starting knife clearance ranges by material and thickness, and burr height limits by end use. All values are reference values with their source."
     },
     "about": {
       "title": "About slitter.ai and TOA DR Enterprise",
@@ -153,12 +153,34 @@
     "clearance": "Clearance per side",
     "source": "Source",
     "version": "Data version",
-    "reviewedOn": "Reviewed on {date}",
-    "pendingReview": "Pending engineer review. These values are a draft and may change.",
+    "updatedOn": "Updated {date}",
+    "reference": "Reference values: use them as a starting point and confirm by test slitting.",
     "sourceTypes": {
       "company-practice": "TOA DR practice",
       "standard": "Standard",
       "publication": "Publication"
+    },
+    "anyThickness": "Any",
+    "ruleDelta": "{basis} of the same thickness +{min}–{max}%",
+    "basis": {
+      "mild-steel": "Mild steel",
+      "base-metal": "Base metal"
+    },
+    "rules": {
+      "hsla": "High-strength low-alloy steel (HSLA)",
+      "ahss": "Advanced high-strength steel (AHSS)",
+      "galvanized": "Galvanized steel",
+      "silicon-steel": "Silicon steel (electrical steel)"
+    },
+    "burrHeading": "Burr Height Limits",
+    "burrIntro": "Common burr height limits by end use, as a percentage of material thickness. The customer's specification always takes precedence.",
+    "application": "End use",
+    "burrMax": "Maximum burr height",
+    "applications": {
+      "general": "General structural and construction steel",
+      "automotive": "Automotive stampings",
+      "electrical-steel": "Motor and transformer laminations",
+      "battery-electrode": "Battery electrodes"
     }
   },
   "about": {

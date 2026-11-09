@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { SLITTING_DATA, getClearance, assertPublishable, type SlittingData } from '@/data/slitting'
+import { SLITTING_DATA, getClearance, getRule, assertPublishable, type SlittingData } from '@/data/slitting'
 import { calculateClearance } from '@/lib/calculator'
 import { SITE, getContacts, officialLink } from '@/data/site'
 
@@ -60,16 +60,43 @@ describe('計算機與數據表一致', () => {
   })
 })
 
-describe('未經審核的數據不能正式上線', () => {
-  const draft: SlittingData = { ...SLITTING_DATA, reviewedAt: null, reviewer: null }
-  const reviewed: SlittingData = { ...SLITTING_DATA, reviewedAt: '2026-11-20', reviewer: 'engineer-a' }
-
-  it('審核日期是空的時候擋下', () => {
-    expect(() => assertPublishable(draft)).toThrow(/審核/)
+describe('參考數據的上線檢查', () => {
+  it('目前的數據通過檢查', () => {
+    expect(() => assertPublishable()).not.toThrow()
   })
 
-  it('有審核日期與審核人時通過', () => {
-    expect(() => assertPublishable(reviewed)).not.toThrow()
+  it('沒有更新日期時擋下', () => {
+    const bad: SlittingData = { ...SLITTING_DATA, updatedAt: '' }
+    expect(() => assertPublishable(bad)).toThrow(/更新日期/)
+  })
+
+  it('沒有說明來源時擋下', () => {
+    const bad: SlittingData = {
+      ...SLITTING_DATA,
+      clearance: [{ ...SLITTING_DATA.clearance[0], source: { type: 'company-practice', note: '' } }],
+    }
+    expect(() => assertPublishable(bad)).toThrow(/來源/)
+  })
+})
+
+describe('權威數據：其他材料的間隙規則', () => {
+  it('每條規則只有一種寫法：相對基準材料加減，或固定範圍', () => {
+    for (const rule of SLITTING_DATA.clearanceRules) {
+      expect(Boolean(rule.deltaPct) !== Boolean(rule.fixedPct), rule.material).toBe(true)
+    }
+  })
+
+  it('getRule 查得到每一條規則，查不到時回傳 null', () => {
+    for (const rule of SLITTING_DATA.clearanceRules) expect(getRule(rule.material)).toEqual(rule)
+    expect(getRule('unknown' as never)).toBeNull()
+  })
+})
+
+describe('權威數據：毛邊上限', () => {
+  it('每種用途只有一個上限，且越精密的用途上限越低', () => {
+    const limits = SLITTING_DATA.burrLimits.map(l => l.maxPct)
+    expect(new Set(SLITTING_DATA.burrLimits.map(l => l.application)).size).toBe(limits.length)
+    expect([...limits].sort((x, y) => y - x)).toEqual(limits)
   })
 })
 

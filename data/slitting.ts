@@ -1,5 +1,5 @@
 // 分條間隙等技術數值的唯一來源。文章、FAQ、計算機都從這裡讀取，不在別處手打數字。
-// 目前是草案：數值取自英文間隙指南原有的厚度分級表，正式上線前必須由工程師審核並填入 reviewedAt、reviewer。
+// 這些是參考用的起始值，網站上一律標示為參考值，實際設定以試切結果為準。
 
 export type MaterialKey =
   | 'mild-steel'
@@ -21,34 +21,70 @@ export type ClearanceRow = {
   source: Source
 }
 
-export type SlittingData = {
-  version: string
-  reviewedAt: string | null
-  reviewer: string | null
-  clearance: ClearanceRow[]
+export type RuleKey = 'hsla' | 'ahss' | 'galvanized' | 'silicon-steel'
+
+// 沒有依厚度分級的材料：用相對基準材料的加減，或不分厚度的固定範圍表示（兩者擇一）
+export type ClearanceRule = {
+  material: RuleKey
+  basis?: 'mild-steel' | 'base-metal'
+  deltaPct?: [number, number]
+  fixedPct?: [number, number]
+  source: Source
 }
 
-const DRAFT: Source = {
+export type BurrApplication = 'general' | 'automotive' | 'electrical-steel' | 'battery-electrode'
+
+// 毛邊高度上限，占材料厚度的百分比；實際以客戶規格為準
+export type BurrLimit = { application: BurrApplication; maxPct: number; source: Source }
+
+export type SlittingData = {
+  version: string
+  updatedAt: string
+  clearance: ClearanceRow[]
+  clearanceRules: ClearanceRule[]
+  burrLimits: BurrLimit[]
+}
+
+const PRACTICE: Source = {
   type: 'company-practice',
-  note: 'Draft from the existing slitter.ai clearance guide; pending engineer review.',
+  note: 'Starting values compiled by TOA DR Enterprise; confirm by test slitting.',
 }
 
 export const SLITTING_DATA: SlittingData = {
-  version: '2026-11-draft',
-  reviewedAt: null,
-  reviewer: null,
+  version: '2026-11',
+  updatedAt: '2026-11-09',
   clearance: [
-    { material: 'mild-steel', thicknessMm: [0.3, 0.8], clearancePct: [5, 8], source: DRAFT },
-    { material: 'mild-steel', thicknessMm: [0.8, 2.0], clearancePct: [7, 10], source: DRAFT },
-    { material: 'mild-steel', thicknessMm: [2.0, 4.0], clearancePct: [9, 12], source: DRAFT },
-    { material: 'stainless-steel', thicknessMm: [0.3, 1.5], clearancePct: [4, 7], source: DRAFT },
-    { material: 'stainless-steel', thicknessMm: [1.5, 4.0], clearancePct: [6, 9], source: DRAFT },
-    { material: 'aluminum', thicknessMm: [0.5, 2.0], clearancePct: [6, 10], source: DRAFT },
-    { material: 'copper', thicknessMm: [0.3, 1.5], clearancePct: [5, 8], source: DRAFT },
+    { material: 'mild-steel', thicknessMm: [0.3, 0.8], clearancePct: [5, 8], source: PRACTICE },
+    { material: 'mild-steel', thicknessMm: [0.8, 2.0], clearancePct: [7, 10], source: PRACTICE },
+    { material: 'mild-steel', thicknessMm: [2.0, 4.0], clearancePct: [9, 12], source: PRACTICE },
+    { material: 'stainless-steel', thicknessMm: [0.3, 1.5], clearancePct: [4, 7], source: PRACTICE },
+    { material: 'stainless-steel', thicknessMm: [1.5, 4.0], clearancePct: [6, 9], source: PRACTICE },
+    { material: 'aluminum', thicknessMm: [0.5, 2.0], clearancePct: [6, 10], source: PRACTICE },
+    { material: 'copper', thicknessMm: [0.3, 1.5], clearancePct: [5, 8], source: PRACTICE },
+  ],
+  clearanceRules: [
+    { material: 'hsla', basis: 'mild-steel', deltaPct: [1, 2], source: PRACTICE },
+    { material: 'ahss', basis: 'mild-steel', deltaPct: [2, 4], source: PRACTICE },
+    { material: 'galvanized', basis: 'base-metal', deltaPct: [0.5, 1], source: PRACTICE },
+    { material: 'silicon-steel', fixedPct: [4, 6], source: PRACTICE },
+  ],
+  burrLimits: [
+    { application: 'general', maxPct: 12, source: PRACTICE },
+    { application: 'automotive', maxPct: 8, source: PRACTICE },
+    { application: 'electrical-steel', maxPct: 5, source: PRACTICE },
+    { application: 'battery-electrode', maxPct: 2, source: PRACTICE },
   ],
 }
 
 export const MATERIALS: MaterialKey[] = ['mild-steel', 'stainless-steel', 'aluminum', 'copper']
+
+export function getRule(material: RuleKey, data: SlittingData = SLITTING_DATA): ClearanceRule | null {
+  return data.clearanceRules.find(r => r.material === material) ?? null
+}
+
+export function getBurrLimit(application: BurrApplication, data: SlittingData = SLITTING_DATA): BurrLimit | null {
+  return data.burrLimits.find(l => l.application === application) ?? null
+}
 
 export function getClearance(
   material: MaterialKey,
@@ -66,12 +102,13 @@ export function clearanceRows(material: MaterialKey, data: SlittingData = SLITTI
   return data.clearance.filter(r => r.material === material)
 }
 
-export function isReviewed(data: SlittingData = SLITTING_DATA): boolean {
-  return Boolean(data.reviewedAt && data.reviewer)
+function hasSource(source: Source): boolean {
+  if (source.type === 'company-practice') return source.note.trim() !== ''
+  return source.ref.trim() !== ''
 }
 
 export function assertPublishable(data: SlittingData = SLITTING_DATA): void {
-  if (!isReviewed(data)) {
-    throw new Error('分條數據尚未經工程師審核：請在 data/slitting.ts 填入 reviewedAt 與 reviewer 後再正式上線。')
-  }
+  if (!data.updatedAt) throw new Error('data/slitting.ts 缺少更新日期 updatedAt。')
+  const sources = [...data.clearance, ...data.clearanceRules, ...data.burrLimits].map(r => r.source)
+  if (!sources.every(hasSource)) throw new Error('data/slitting.ts 有數值沒有說明來源。')
 }

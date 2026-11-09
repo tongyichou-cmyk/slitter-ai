@@ -23,13 +23,13 @@ Getting slitting clearance right is the single most impactful setup decision on 
 
 ## What Is Slitting Clearance?
 
-Slitting clearance is the **lateral gap between the upper and lower knife edges** as they interlock during cutting. It is expressed as a percentage of material thickness:
+Slitting clearance is the **lateral gap between the upper and lower knife edges** at each cut, as they interlock during cutting. It is expressed as a percentage of material thickness:
 
 ```
-Clearance % = (Total gap / Material thickness) × 100%
+Clearance % = (Horizontal gap at one cut / Material thickness) × 100
 ```
 
-When a 1.0mm steel coil is slit with a 0.02mm clearance per side (0.04mm total), the clearance is 4%.
+When a 1.0mm steel coil is slit with a 0.04mm horizontal gap at each cut, the clearance is 4%. {/* lint-ok: worked example of the formula */}
 
 The clearance determines how the fracture propagates through the material cross-section. Correct clearance produces a clean, controlled fracture with minimal burr, minimal rollover, and a predictable burnish-to-fracture ratio.
 
@@ -37,23 +37,11 @@ The clearance determines how the fracture propagates through the material cross-
 
 ## Step 1: Look Up the Starting Clearance Range
 
-Use material type and thickness to determine the correct clearance range. These are engineering starting points — final clearance is confirmed by edge quality inspection.
+Use material type and thickness to find the starting clearance range. These are reference starting points — final clearance is confirmed by edge quality inspection.
 
-| Material | Thickness | Clearance (% of thickness) |
-|----------|-----------|---------------------------|
-| Mild steel (SPCC/SPCD) | 0.3–0.8mm | 5–8% |
-| Mild steel | 0.8–2.0mm | 7–10% |
-| Mild steel | 2.0–4.0mm | 9–12% |
-| High-strength steel (HSLA) | Any | +1–2% vs mild steel |
-| Advanced high-strength (AHSS) | Any | +2–4% vs mild steel (springback) |
-| Stainless steel (304/316) | 0.3–1.5mm | 4–7% |
-| Stainless steel | 1.5–4.0mm | 6–9% |
-| Aluminum | 0.5–2.0mm | 6–10% |
-| Copper / brass | 0.3–1.5mm | 5–8% |
-| Silicon steel (electrical) | Any | 4–6% (minimize edge stress) |
-| Galvanized steel | +0.5–1% vs base metal |
+<ClearanceTable />
 
-**For materials not listed:** Start at 8% and adjust based on edge inspection.
+**For materials not listed:** Start from the mild steel row for the same thickness and adjust based on edge inspection.
 
 ---
 
@@ -62,15 +50,15 @@ Use material type and thickness to determine the correct clearance range. These 
 Convert the percentage to a physical dimension:
 
 ```
-Clearance per side (mm) = Material thickness × (Clearance % / 100) / 2
+Horizontal gap (mm) = Material thickness × (Clearance % / 100)
 ```
 
 **Example:**
-- Material: 1.5mm mild steel
-- Target clearance: 8%
-- Physical clearance per side = 1.5 × 0.08 / 2 = **0.060mm per side**
+- Material: 1.5mm mild steel, which falls in the 0.8–2.0mm row: <Clearance material="mild-steel" thickness="1.5" />
+- Target clearance: 8% {/* lint-ok: worked example inside the data table range */}
+- Horizontal gap = 1.5 × 0.08 = **0.12mm at each cut**
 
-This is the gap you set between the upper knife and the lower knife on each side of the strip.
+This is the gap you set between the upper knife and the lower knife at each cut. The [clearance calculator](/en/tools/clearance-calculator) does this conversion for you.
 
 ---
 
@@ -105,7 +93,7 @@ Penetration depth (how far the knife edge enters the material) works together wi
 | 1.5–3.0mm | 25–40% of thickness |
 | > 3.0mm | 30–45% of thickness |
 
-**Too shallow** (< 15%): Incomplete fracture, tearing, high burr  
+**Too shallow** (< 15%): Incomplete fracture, tearing, high burr {/* lint-ok: penetration depth, not clearance */}  
 **Too deep** (> 50%): Excessive knife face contact, scoring, accelerated wear
 
 ---
@@ -115,10 +103,9 @@ Penetration depth (how far the knife edge enters the material) works together wi
 Run 2–3 meters at slow speed (10–20% of normal line speed). Stop the line and inspect the slit edge against these quality benchmarks:
 
 ### Burr Height
-Use a burr height gauge or surface profilometer. Acceptable burr height:
-- Cold-rolled steel: ≤ 5% of material thickness (e.g., ≤ 0.075mm for 1.5mm stock)
-- Stainless steel: ≤ 7% (harder to control due to work hardening)
-- Aluminum: ≤ 8%
+Use a burr height gauge or surface profilometer. The acceptable burr height depends on the end use, and the customer's specification always takes precedence. Common limits:
+
+<BurrTable />
 
 ### Burnish-to-Fracture Ratio
 A correctly slit edge shows a smooth burnished zone (bright, reflective) in the top 30–50% of the cross-section, with a fractured zone below. The ideal ratio:
@@ -142,15 +129,15 @@ Use the inspection results to adjust clearance systematically:
 
 ### Burr on the bottom edge
 **Cause:** Clearance too large  
-**Fix:** Decrease clearance by 1–1.5% and re-test
+**Fix:** Decrease clearance by 1–1.5% and re-test {/* lint-ok: adjustment step, not a recommended value */}
 
 ### Burr on the top edge
 **Cause:** Clearance too small  
-**Fix:** Increase clearance by 1% and re-test
+**Fix:** Increase clearance by 1% and re-test {/* lint-ok: adjustment step, not a recommended value */}
 
 ### Large rollover, crushed edge
 **Cause:** Clearance too small (knives being forced apart rather than shearing)  
-**Fix:** Increase clearance 1–2%
+**Fix:** Increase clearance 1–2% {/* lint-ok: adjustment step, not a recommended value */}
 
 ### Tearing, rough fracture zone
 **Cause:** Clearance too large or penetration too shallow  
@@ -178,13 +165,13 @@ A well-documented setup can be re-produced in minutes on the next order for the 
 ## Special Considerations
 
 ### Stainless Steel
-Stainless work-hardens rapidly as the knife penetrates. Use knife grades of M42 or carbide, keep clearance on the lower end of the range (4–6%), and ensure you have adequate coolant/oil at the cut zone to prevent seizure.
+Stainless work-hardens rapidly as the knife penetrates. Use knife grades of M42 or carbide, keep clearance on the lower end of the stainless rows in the table, and ensure you have adequate coolant/oil at the cut zone to prevent seizure.
 
 ### AHSS (Advanced High-Strength Steel)
-Springback causes the slit edge to press back toward the knife after cutting. Use **2–4% more clearance** than equivalent mild steel thickness to compensate. Inadequate clearance on AHSS leads to premature knife edge chipping.
+Springback causes the slit edge to press back toward the knife after cutting. Use **<ClearanceRule material="ahss" />** more clearance than mild steel of the same thickness to compensate. Inadequate clearance on AHSS leads to premature knife edge chipping.
 
 ### Silicon Steel (Electrical)
-The abrasive silicon particles accelerate knife wear. Use carbide knives when possible. Keep clearance tight (4–6%) to minimize edge stress concentration — loose clearance causes microcracks that propagate during stamping.
+The abrasive silicon particles accelerate knife wear. Use carbide knives when possible. Keep clearance tight (<ClearanceRule material="silicon-steel" />) to minimize edge stress concentration — loose clearance causes microcracks that propagate during stamping.
 
 ---
 

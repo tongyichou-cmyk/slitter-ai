@@ -1,11 +1,11 @@
 ---
 title: 'Coil Slitting Process: Step-by-Step Technical Guide'
 description: >-
-  Complete technical guide to the coil slitting process: setup sequence,
-  clearance calculation, quality parameters, common defects, and process
-  optimization for metal strip production.
+  Step-by-step guide to the coil slitting process: incoming coil checks, arbor
+  and clearance setup, threading, production run, final inspection, quality
+  parameters and common defects in metal strip production.
 publishedAt: '2026-04-15'
-updatedAt: '2026-04-15'
+updatedAt: '2026-11-09'
 keywords:
   - coil slitting process
   - slitting process guide
@@ -15,19 +15,27 @@ keywords:
 faqs:
   - q: How do you calculate slitter knife clearance?
     a: >-
-      Slitter knife clearance is calculated as a percentage of material
-      thickness. The specific percentage depends on material type: 8–12% for
-      mild carbon steel, 10–15% for stainless steel, 5–8% for aluminum alloy,
-      and 4–6% for copper. Example: 1.5 mm stainless steel at 12% = 0.18 mm
-      horizontal clearance per knife pair.
+      Slitter knife clearance is the horizontal gap between the upper and lower
+      knife at each cut, expressed as a percentage of material thickness. It
+      depends on material and thickness: for 0.8–2.0 mm mild steel the reference
+      starting range is {{clearance:mild-steel:1.0}}, and for 1.5–4.0 mm
+      stainless steel it is {{clearance:stainless-steel:2.0}}. Multiply the
+      thickness by the percentage to get the gap in millimeters, then confirm
+      by test slitting.
   - q: What causes burr on slit strip edges?
     a: >-
-      Burr on slit strip edges is caused by incorrect knife clearance (most
-      commonly too small), worn knife edges, or misaligned knife pairs. Burr on
+      Burr on slit strip edges is caused by incorrect knife clearance, worn
+      knife edges, or misaligned knife pairs. Burr on
       one side of the strip indicates a problem with a specific knife pair's
       clearance; uniform burr across all strips indicates the overall clearance
       setting needs adjustment. Worn knife edges produce increasing burr height
       over time — this is the standard regrind trigger.
+  - q: What should be checked before a coil is slit?
+    a: >-
+      Check that the coil and heat number match the material certificate, that
+      grade, temper, thickness and surface condition match the work order, and
+      that the coil has no telescoping, edge damage or corrosion. Coils that
+      fail incoming inspection should be quarantined before processing.
   - q: How do you set up a slitting machine for a new width?
     a: >-
       Width setup involves: (1) calculating the spacer width for each knife pair
@@ -67,13 +75,26 @@ Each zone must be correctly set up and matched to the others. A tension mismatch
 
 ---
 
-## Step 1: Master Coil Preparation
+## Step 1: Incoming Coil Verification
 
-Before loading, verify:
-- Coil OD and weight are within machine capacity
-- Material grade, thickness, and hardness match the work order
-- Coil is free from telescoping, edge damage, or surface defects that would cause feed problems
-- ID is correct for the uncoiler mandrel
+Before loading any coil, verify it against the work order and the material certificate. Processing an out-of-spec coil risks tooling damage and produces reject material.
+
+### Coil Identification
+- Heat number / coil number matches the material certificate
+- Material grade, temper, thickness and surface condition match the work order
+- Coil OD, ID and weight are within the uncoiler capacity, and the ID fits the mandrel
+
+### Material Certificate Review
+- Mechanical properties: tensile strength, yield strength, elongation
+- Chemical composition, for alloy-critical applications
+- Surface quality grade, for pre-painted and galvanized material
+- Thickness tolerance compliance
+
+### Physical Inspection
+- Telescoping, edge damage or damaged outer wraps
+- Corrosion, surface rust or moisture under the coil wrapping
+
+Coils that fail incoming inspection should be quarantined before any attempt to process them.
 
 **Coil set measurement:** Determine the coil set direction (inner wrap tends to curve inward; outer wrap curves outward) before threading. The straightener must be set to compensate for the specific coil set magnitude — a coil from a tight OD will have more set than one from a large OD.
 
@@ -93,20 +114,25 @@ Spacer width = Strip width − (upper knife width + lower knife width) / 2
 
 For precision work, account for knife clearance (which adds to the nominal strip width) and for material springback.
 
+### Spacer Set Assembly
+
+Assemble and verify the spacer set off-machine, before the coil is loaded:
+
+1. List target strip widths from the work order
+2. Select spacer combinations that sum to each target width
+3. Measure each spacer with a calibrated micrometer and calculate the actual expected widths
+4. Record all measured widths on the tooling setup sheet
+5. Check accumulated tolerance — the worst-case width at the last strip position must be within specification
+
+See [Arbor Spacers](/en/wiki/arbor-spacers) for spacer tolerances and stacking.
+
 ### Horizontal Clearance Setting
 
-Set the horizontal clearance between upper and lower knife faces for the specific material:
+Set the horizontal clearance between upper and lower knife faces for the material and thickness. Reference starting values:
 
-| Material Type | Clearance (% of thickness) |
-|--------------|---------------------------|
-| Mild carbon steel | 8–12% |
-| Stainless steel 304/316 | 10–15% |
-| Aluminum alloy | 5–8% |
-| Copper | 4–6% |
-| Electrical steel | 6–10% |
-| Pre-painted / galvanized | 10–14% |
+<ClearanceTable />
 
-**Example:** 1.5 mm stainless steel at 12% clearance = 0.18 mm horizontal gap per knife pair.
+**Example:** 1.5 mm mild steel falls in the 0.8–2.0 mm row (<Clearance material="mild-steel" thickness="1.5" />). At 8% {/* lint-ok: worked example inside the data table range */} the horizontal gap is 1.5 × 0.08 = 0.12 mm at each cut. The [clearance calculator](/en/tools/clearance-calculator) does this conversion for you.
 
 ### Knife Penetration (Overlap)
 
@@ -120,6 +146,8 @@ Insufficient overlap leaves material uncut or creates a tear rather than a clean
 ### Arbor Torque and Clamping
 
 After loading the knife and spacer stack, clamp the arbor with the specified torque. Under-torqued arbors allow knife migration under cutting loads, shifting strip widths during production. Verify the full stack is clamped uniformly — uneven clamping creates differential knife face contact and promotes galling.
+
+Then measure runout at each knife position and record it on the tooling setup sheet. Excess runout causes uneven clearance around the knife circumference and chipping on carbide knives.
 
 ---
 
@@ -183,24 +211,37 @@ Check strip width every 500–1,000 meters during a run:
 
 ## Step 6: Coil Changeover
 
-### Sequence
+At the end of the coil, decelerate to threading speed and stop before the coil end reaches the straightener. Unload the finished slit coils and load the next master coil. If the width and clearance are unchanged, thread and resume; if the setup changes, reconfigure the arbor first.
 
-1. Decelerate to threading speed before the coil end
-2. Stop the line before the coil end reaches the straightener — avoid threading the bare mandrel core
-3. Unload finished slit coils from the recoiler
-4. Clear residual strip from the line if changing material grade or width
-5. Load the new master coil
-6. If arbor setup is unchanged (same width and clearance), thread and resume
-7. If setup changes, reconfigure the arbor before threading
+For a full changeover procedure with timing targets for each phase, see the [Slitting Line Changeover Guide](/en/guide/slitting-line-changeover).
 
-### Changeover Time Benchmarks
+---
 
-| Setup Condition | Manual Changeover | With Cassette Tooling |
-|-----------------|------------------|----------------------|
-| Same width, same material | 10–20 min | 5–10 min |
-| Same width, different gauge | 20–35 min | 10–15 min |
-| New width, same material | 45–90 min | 15–25 min |
-| Full tooling change | 90–150 min | 25–40 min |
+## Step 7: Final Inspection and Documentation
+
+### Strip Width Audit
+
+Select one coil per product width for measurement:
+- Cut a sample at least 200 mm long from the outer wrap
+- Measure each strip width at 5 locations along the sample
+- Calculate Cpk if SPC is in use
+
+### Final Edge Check
+
+Measure burr height at 3 locations per strip and compare with the start-of-run measurements. The change shows the knife wear rate for this material.
+
+### Coil Geometry
+
+Record slit coil OD and weight against the work order and customer specification, and check edge alignment (telescoping) where the specification requires it.
+
+### Labeling
+
+Each slit coil label should include at minimum:
+- Material grade and heat number
+- Slit width and thickness
+- Coil weight, and length if required
+- Work order number and production date
+- Operator or line identification
 
 ---
 
@@ -208,15 +249,13 @@ Check strip width every 500–1,000 meters during a run:
 
 ### Burr Height
 
-The most common quality parameter for slit strip. Measured with a contact profilometer or optical comparator. Acceptable burr height depends on downstream application:
+The most common quality parameter for slit strip. Measured with a contact profilometer or optical comparator. Acceptable burr height depends on downstream application, and the customer's specification takes precedence:
 
-- Automotive stamping: ≤ 10% of material thickness
-- Electrical laminations: ≤ 5% of material thickness
-- Battery electrode: ≤ 2% of material thickness (often expressed in absolute μm)
+<BurrTable />
 
 ### Edge Rollover (Rollover Depth)
 
-The depth of material that deforms downward before fracture. Rollover is acceptable in controlled amounts — typically 20–40% of thickness. Excessive rollover indicates clearance too wide or knife faces worn.
+The depth of material that deforms downward before fracture. Rollover is acceptable in controlled amounts — typically below 15% of thickness for standard work and below 10% for precision parts such as motor laminations. {/* lint-ok: rollover depth, not clearance */} Excessive rollover indicates incorrect clearance or worn knife faces.
 
 ### Strip Camber
 
@@ -232,13 +271,15 @@ Measured across 5+ points per coil, comparing to work order specification. Track
 
 | Defect | Most Likely Cause | Corrective Action |
 |--------|------------------|-------------------|
-| Excessive burr (one side) | Clearance too small on one knife pair | Recheck individual knife clearance; regrind knife if edge is worn |
-| Excessive burr (all strips) | Clearance too small overall | Recalculate and reset horizontal clearance |
+| Excessive burr (one strip) | Clearance off on one knife pair, or a worn edge | Recheck that knife pair's clearance; regrind the knife if the edge is worn |
+| Excessive burr (all strips) | Overall clearance setting wrong | Check which edge carries the burr (bottom: too large; top: too small) and reset |
 | Torn / ragged edge | Clearance too large | Reduce clearance to specification |
 | Strip camber | Uneven tension across arbor; coil camber | Check tension distribution; compensate for material camber |
 | Width variation along coil | Tension instability; straightener setting | Verify loop stability; check straightener roll gap |
 | Strip wrapping on arbor | Stripper rings worn or undersized | Replace stripper rings; check ring OD vs knife OD |
 | Knife chipping (carbide) | Arbor runout; spacer tolerance error | Measure arbor runout; replace worn spacers |
+
+For diagnosis by symptom, see [Slitting Defects and Troubleshooting](/en/wiki/slitting-defects).
 
 ---
 
@@ -246,7 +287,7 @@ Measured across 5+ points per coil, comparing to work order specification. Track
 
 ### Clearance Optimization
 
-For a new material or knife combination, run a clearance sensitivity test: slit 5 test passes at clearances of −10%, specified, and +10% of nominal. Compare burr height, rollover, and edge fracture zone at each setting. The optimum clearance minimizes burr height while maintaining acceptable rollover depth.
+For a new material or knife combination, run a clearance sensitivity test: slit test passes at the specified clearance and at about 10% below and above it. {/* lint-ok: relative test offsets, not a recommended value */} Compare burr height, rollover, and edge fracture zone at each setting. The optimum clearance minimizes burr height while maintaining acceptable rollover depth.
 
 ### Knife Life Extension
 
@@ -273,10 +314,13 @@ TOA DR Engineering supplies tooling engineered to precision process requirements
 ## FAQ
 
 **Q: How do you calculate knife clearance?**
-As a percentage of material thickness: 8–12% for mild steel; 10–15% for stainless; 5–8% for aluminum; 4–6% for copper. Example: 1.5 mm stainless at 12% = 0.18 mm.
+As a percentage of material thickness, by material and thickness: for example <Clearance material="mild-steel" thickness="1.0" /> for 0.8–2.0 mm mild steel and <Clearance material="stainless-steel" thickness="2.0" /> for 1.5–4.0 mm stainless. Gap in mm = thickness × percentage. See the [clearance data table](/en/data/slitting-clearance).
+
+**Q: What should be checked before a coil is slit?**
+Coil and heat number against the material certificate; grade, temper, thickness and surface against the work order; telescoping, edge damage and corrosion. Quarantine coils that fail.
 
 **Q: What causes burr on slit edges?**
-Clearance too small (most common), worn knife edge, or misaligned knife pair. Burr on one side = individual knife pair issue. Burr across all strips = overall clearance setting.
+Incorrect clearance, worn knife edge, or misaligned knife pair. Burr on one side = individual knife pair issue. Burr across all strips = overall clearance setting.
 
 **Q: How do you set up a new width?**
 Calculate spacer widths → load knife/spacer stack → set horizontal clearance → set penetration depth → clamp to torque spec → thread at slow speed → verify widths before production speed.

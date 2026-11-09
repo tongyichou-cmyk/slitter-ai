@@ -1,11 +1,10 @@
 ---
 title: 'Slitter Knives: Complete Technical Guide to Rotary Cutting Blades'
 description: >-
-  The definitive technical reference for slitter knives: types, geometry,
-  material grades, clearance settings, and selection criteria for metal and film
-  slitting applications.
+  Slitter knife types, edge geometry, material grades, clearance settings,
+  regrinding and selection criteria for metal coil slitting.
 publishedAt: '2026-04-15'
-updatedAt: '2026-04-15'
+updatedAt: '2026-11-09'
 keywords:
   - slitter knife
   - slitting knife
@@ -22,16 +21,19 @@ faqs:
       between the rotating knife pairs.
   - q: What clearance should I use for slitter knives?
     a: >-
-      Clearance depends on material type and thickness. General guidelines: mild
-      carbon steel 8–12%, stainless steel 10–15%, aluminum alloy 5–8%, copper
-      4–6%, electrical steel 6–10%. Clearance is set as a percentage of material
-      thickness. Too little clearance causes rolled burr and knife wear; too
+      Clearance depends on material type and thickness and is set as a
+      percentage of material thickness. Reference starting values: mild steel
+      0.8–2.0 mm {{clearance:mild-steel:1.0}}, stainless steel 0.3–1.5 mm
+      {{clearance:stainless-steel:1.0}}, aluminum 0.5–2.0 mm
+      {{clearance:aluminum:1.0}}, copper 0.3–1.5 mm {{clearance:copper:1.0}}.
+      The full table is at slitter.ai/en/data/slitting-clearance. Too little clearance causes rolled burr and knife wear; too
       much causes a torn fracture zone.
   - q: How often should slitter knives be reground?
     a: >-
       Regrind schedule depends on material, production volume, and acceptable
-      burr height. A practical trigger is strip burr height exceeding 10% of
-      material thickness, or visible edge rollover. HSS knives can be reground
+      burr height. A practical trigger is strip burr height approaching the
+      customer's limit (for general structural steel, about {{burr:general}} of
+      material thickness), or visible edge rollover. HSS knives can be reground
       5–10 times. Always regrind upper and lower knives as matched pairs and
       verify OD and bore tolerances after regrinding.
   - q: What is the difference between HSS and carbide slitter knives?
@@ -102,15 +104,11 @@ The vertical overlap between upper and lower knife cutting faces. Typical values
 
 Horizontal clearance is the gap between the cutting faces of the upper and lower knife pair, measured perpendicular to the cut direction. It is typically expressed as a percentage of material thickness.
 
-| Material | Recommended Clearance |
-|----------|----------------------|
-| Mild carbon steel (CR/HR) | 8–12% of thickness |
-| Galvanized / pre-painted steel | 10–14% |
-| 304/316 stainless steel | 10–15% |
-| Aluminum alloy | 5–8% |
-| Copper and brass | 4–6% |
-| Electrical steel (silicon steel) | 6–10% |
-| PET/BOPP film | 1–3% |
+Reference starting values by material and thickness:
+
+<ClearanceTable />
+
+For how to measure, set and adjust clearance on the line, see [How to Set Slitting Clearance](/en/guide/how-to-set-slitting-clearance).
 
 **Too little clearance** produces a rolled burr on the underside of the strip and accelerates knife wear through compressive edge loading.
 
@@ -211,10 +209,10 @@ TOA DR Engineering manufactures precision slitter knives and tooling for all sli
 A precision circular blade used in pairs to shear-cut wide coils into narrower strips. Not sawn — the material fractures under compressive and tensile stress at the controlled gap between upper and lower knife faces.
 
 **Q: What clearance should I use?**
-8–12% of thickness for mild carbon steel; 10–15% for stainless; 5–8% for aluminum; 4–6% for copper. Wrong clearance is the most common cause of poor slit edge quality.
+It depends on material and thickness — for example <Clearance material="mild-steel" thickness="1.0" /> of thickness for 0.8–2.0 mm mild steel and <Clearance material="stainless-steel" thickness="1.0" /> for 0.3–1.5 mm stainless. See the [clearance data table](/en/data/slitting-clearance). Wrong clearance is the most common cause of poor slit edge quality.
 
 **Q: How often should I regrind?**
-When strip burr height exceeds 10% of material thickness, or when edge rollover is visible. Always regrind upper and lower knives as matched pairs.
+When strip burr height approaches the customer's limit (about <BurrLimit application="general" /> of thickness for general structural steel), or when edge rollover is visible. Always regrind upper and lower knives as matched pairs.
 
 **Q: HSS vs carbide — which should I use?**
 HSS for most applications; carbide for high-volume or abrasive materials (stainless, electrical steel, copper foil). Carbide costs 4–6× more per knife but delivers lower total cost above ~100,000 m/month on difficult materials.

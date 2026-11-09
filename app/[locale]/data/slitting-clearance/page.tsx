@@ -5,7 +5,7 @@ import { registry } from '@/lib/content/registry'
 import { SLITTING_DATA } from '@/data/slitting'
 import SchemaScript from '@/components/SchemaScript'
 import Breadcrumb from '@/components/Breadcrumb'
-import { ClearanceTable } from '@/components/SlittingData'
+import { ClearanceTable, BurrTable } from '@/components/SlittingData'
 import type { Locale } from '@/lib/i18n'
 
 const PATH = '/data/slitting-clearance'
@@ -29,7 +29,7 @@ export default async function ClearanceDataPage({ params: { locale } }: { params
         description: page.description,
         path: PATH,
         version: SLITTING_DATA.version,
-        reviewedAt: SLITTING_DATA.reviewedAt,
+        updatedAt: SLITTING_DATA.updatedAt,
       })]} />
 
       <div className="max-w-4xl mx-auto px-4 py-12">
@@ -37,6 +37,9 @@ export default async function ClearanceDataPage({ params: { locale } }: { params
         <h1>{t('heading')}</h1>
         <p className="mt-3 text-gray-600">{t('intro')}</p>
         <ClearanceTable locale={locale} />
+        <h2 className="mt-10">{t('burrHeading')}</h2>
+        <p className="mt-3 text-gray-600">{t('burrIntro')}</p>
+        <BurrTable locale={locale} />
       </div>
     </>
   )

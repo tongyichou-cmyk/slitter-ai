@@ -4,13 +4,14 @@ import rehypeSlug from 'rehype-slug'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/lib/i18n'
 import type { PageEntry } from '@/lib/content/registry'
+import type { MaterialKey } from '@/data/slitting'
 import { buildArticleSchema } from '@/lib/schema'
 import SchemaScript from './SchemaScript'
 import Breadcrumb from './Breadcrumb'
 import CTA from './CTA'
 import AuthorBox from './AuthorBox'
 import FAQ from './FAQ'
-import { ClearanceTable, Clearance, DataStatus } from './SlittingData'
+import { ClearanceTable, BurrTable, Clearance, ClearanceRule, DataStatus, BurrLimit } from './SlittingData'
 
 export default async function ArticleView({ locale, page }: { locale: Locale; page: PageEntry }) {
   const tb = await getTranslations({ locale, namespace: 'breadcrumb' })
@@ -21,8 +22,13 @@ export default async function ArticleView({ locale, page }: { locale: Locale; pa
     : { name: tb('wiki'), href: `${base}/wiki` }
 
   const components = {
-    ClearanceTable: (props: { materials?: Parameters<typeof ClearanceTable>[0]['materials'] }) => <ClearanceTable locale={locale} {...props} />,
+    ClearanceTable: ({ materials }: { materials?: string }) => (
+      <ClearanceTable locale={locale} materials={materials?.split(',') as MaterialKey[] | undefined} />
+    ),
+    BurrTable: () => <BurrTable locale={locale} />,
     DataStatus: () => <DataStatus locale={locale} />,
+    BurrLimit,
+    ClearanceRule,
     Clearance,
   }
 
