@@ -29,6 +29,14 @@ describe('findHardcodedPercents', () => {
     expect(findHardcodedPercents('Line speed improved by 30% after the upgrade.')).toEqual([])
   })
 
+  it('標記 lint-ok 並寫明原因的行不算', () => {
+    expect(findHardcodedPercents('Clearance % = gap / thickness × 100% {/* lint-ok: 公式 */}')).toEqual([])
+  })
+
+  it('lint-ok 沒有寫原因時仍然要檢查', () => {
+    expect(findHardcodedPercents('Clearance 8% {/* lint-ok: */}')).toHaveLength(1)
+  })
+
   it('透過數據元件引用的數值不算', () => {
     expect(findHardcodedPercents('間隙請見 <Clearance material="mild-steel" thickness={1.2} />。')).toEqual([])
   })

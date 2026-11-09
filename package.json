@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "generate:redirects": "tsx scripts/generate-redirects.ts",
     "predev": "npm run generate:redirects",
-    "prebuild": "npm run generate:redirects"
+    "prebuild": "npm run generate:redirects",
+    "check:release": "tsx scripts/check-release.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
