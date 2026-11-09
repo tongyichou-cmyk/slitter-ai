@@ -2,7 +2,6 @@ import { buildMetadata } from '@/lib/seo'
 import { buildOrganizationSchema, buildWebSiteSchema } from '@/lib/schema'
 import SchemaScript from '@/components/SchemaScript'
 import CTA from '@/components/CTA'
-import Newsletter from '@/components/Newsletter'
 import QuickFacts from '@/components/QuickFacts'
 import Link from 'next/link'
 import { setRequestLocale } from 'next-intl/server'
@@ -23,7 +22,6 @@ const toc = [
   { label: '3  Guides & Tutorials', id: 'guides' },
   { label: '4  Interactive Tools',  id: 'tools' },
   { label: '5  Industry Partner',   id: 'cta' },
-  { label: '6  Newsletter',         id: 'newsletter' },
 ]
 
 function buildLeftNav(base: string, isZh: boolean) {
@@ -483,12 +481,6 @@ export default function HomePage({ params: { locale } }: { params: { locale: Loc
           {/* Section 5: CTA */}
           <section id="cta">
             <CTA variant="banner" />
-          </section>
-
-          {/* Section 6: Newsletter */}
-          <section id="newsletter" className="mt-10">
-            <h2 style={sectionHeadingStyle}>Newsletter</h2>
-            <Newsletter />
           </section>
         </main>
 

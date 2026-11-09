@@ -71,7 +71,7 @@ export default function SlitterKnifePage({ params: { locale } }: { params: { loc
           </table>
 
           <h2>Tolerance Standards</h2>
-          <p>Slitter knife tolerance directly affects edge quality. TOA DR precision knives are ground to ±0.002mm on thickness and diameter. Generic import knives typically hold ±0.01–0.05mm — a 5–25× larger variation that causes:</p>
+          <p>Slitter knife tolerance directly affects edge quality. TOA DR precision knives hold a thickness tolerance of ±0.001 mm with parallelism within 0.005 mm. Generic import knives typically hold ±0.01–0.05mm — a 5–25× larger variation that causes:</p>
           <ul>
             <li>Inconsistent burr height across the roll width</li>
             <li>Premature wear from uneven load distribution</li>

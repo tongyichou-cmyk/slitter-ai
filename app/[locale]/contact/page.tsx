@@ -29,7 +29,7 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
         <div className="p-6 border border-gray-200 rounded-xl">
           <h2 className="text-lg font-semibold mb-3">Taiwan Domestic</h2>
           <p className="text-gray-600 text-sm mb-4">Taiwan-based customers can reach us directly via LINE.</p>
-          <Link href="https://line.me/R/ti/p/@256nfmzx" target="_blank" rel="noopener" className="block text-brand-600 font-medium">LINE@ @256nfmzx</Link>
+          <Link href="https://line.me/R/ti/p/@vup7881u" target="_blank" rel="noopener" className="block text-brand-600 font-medium">LINE@ @vup7881u</Link>
         </div>
       </div>
 
