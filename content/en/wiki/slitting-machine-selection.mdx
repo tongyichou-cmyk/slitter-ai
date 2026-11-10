@@ -32,13 +32,14 @@ faqs:
       prices.
   - q: What line speed do I need for my production volume?
     a: >-
-      Average speed = (annual tonnage × 1,000) / (operating hours × utilization
-      × 60 × coil weight per meter). For 10,000 t/year, 4,000 operating hours at
-      70% utilization and 1.5 mm steel coil at about 12 kg/m, that is only about
-      5 m/min on average. At volumes like this, line speed is rarely the
-      bottleneck — coil changes, threading and knife changes are. Choose line
-      speed for the thinnest material and the shortest coils you run, and look
-      just as hard at changeover time.
+      Start from the time per coil, not an average speed. Time per coil = coil
+      length ÷ line speed + coil change and threading time, and coil length =
+      coil weight ÷ weight per meter. For example, 1.5 mm × 1,000 mm steel weighs
+      about 12 kg/m, so a 5 t coil is about 420 m long and is slit in about
+      4 minutes at 100 m/min. With 2–8 t coils, coil change and threading often
+      take longer than the cut itself, so a shorter changeover can raise output
+      more than a higher top speed. Time your own coil changes to see which
+      applies to you.
   - q: How many strips can a slitting machine cut simultaneously?
     a: >-
       The number of simultaneous strips depends on the arbor length, minimum
@@ -145,7 +146,24 @@ List every material, thickness, and width combination you will process—now and
 
 ### 2. Calculate Required Throughput
 
-Throughput (t/year) = operating hours × utilization × average line speed × coil weight per meter. Build in capacity headroom, and remember that average speed includes coil changes, threading and knife changes, not just the top running speed. Underestimating throughput requirements is the most common mistake in slitting line procurement.
+Work out throughput from the time per coil:
+
+```
+Coil length (m) = Coil weight (kg) ÷ Weight per meter (kg/m)
+Time per coil   = Coil length ÷ Line speed + Coil change and threading time
+Coils per shift = Shift time ÷ Time per coil
+```
+
+Example at 100 m/min for 1.5 mm × 1,000 mm steel (about 12 kg/m):
+
+| Coil weight | Coil length | Slitting time |
+|-------------|-------------|---------------|
+| 2 t | about 170 m | about 1.7 min |
+| 3 t | about 250 m | about 2.5 min |
+| 5 t | about 420 m | about 4.2 min |
+| 8 t | about 670 m | about 6.7 min |
+
+With coils of this size, coil change and threading often take longer than the cut itself. Add your own measured changeover time to see whether line speed or changeover limits your output, and build in capacity headroom. Underestimating throughput requirements is the most common mistake in slitting line procurement.
 
 ### 3. Tension and Loop Control Requirements
 
