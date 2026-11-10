@@ -162,18 +162,35 @@ Coil length depends on thickness and width as well as weight: the same coil weig
 | Aluminum | 2.70 |
 | Copper | 8.96 |
 
-**Coil length for 1.0 mm carbon steel** (for 2.0 mm, halve the length; for 0.5 mm, double it):
+**Coil length, carbon steel, 500 mm wide** (for 400 mm multiply by 1.25; for 600 mm multiply by 0.83):
 
-| Coil weight | 400 mm wide | 500 mm wide | 600 mm wide |
-|---|---|---|---|
-| 2 t | 637 m | 510 m | 425 m |
-| 3 t | 955 m | 764 m | 637 m |
-| 5 t | 1,592 m | 1,274 m | 1,062 m |
-| 8 t | 2,548 m | 2,038 m | 1,699 m |
+| Thickness | 2 t | 3 t | 5 t | 8 t |
+|---|---|---|---|---|
+| 0.05 mm | 10,191 m | 15,287 m | 25,478 m | 40,764 m |
+| 0.1 mm | 5,096 m | 7,643 m | 12,739 m | 20,382 m |
+| 0.2 mm | 2,548 m | 3,822 m | 6,369 m | 10,191 m |
+| 0.3 mm | 1,699 m | 2,548 m | 4,246 m | 6,794 m |
+| 0.5 mm | 1,019 m | 1,529 m | 2,548 m | 4,076 m |
+| 1.0 mm | 510 m | 764 m | 1,274 m | 2,038 m |
 
-**Example:** a 3 t coil, 1.0 mm × 500 mm, is 3,000 ÷ (1.0 × 0.5 × 7.85) ≈ 764 m long. At 100 m/min it is slit in about 7.6 minutes.
+**Slitting time per coil at 100 m/min** (at 200 m/min, halve it):
 
-Add your own measured coil change and threading time to see whether line speed or changeover limits your output, and build in capacity headroom. Underestimating throughput requirements is the most common mistake in slitting line procurement.
+| Thickness | 2 t | 3 t | 5 t | 8 t |
+|---|---|---|---|---|
+| 0.05 mm | 102 min | 153 min | 255 min | 408 min |
+| 0.1 mm | 51 min | 76 min | 127 min | 204 min |
+| 0.2 mm | 25 min | 38 min | 64 min | 102 min |
+| 0.3 mm | 17 min | 25 min | 42 min | 68 min |
+| 0.5 mm | 10 min | 15 min | 25 min | 41 min |
+| 1.0 mm | 5 min | 8 min | 13 min | 20 min |
+
+**Example:** a 3 t coil, 0.1 mm × 500 mm, is 3,000 ÷ (0.1 × 0.5 × 7.85) ≈ 7,643 m long and takes about 76 minutes at 100 m/min.
+
+**What this means:**
+- **Thin material (around 0.05–0.1 mm):** most coils take about an hour or more to slit, so line speed decides output. This is why thin-gauge lines are built for high speed.
+- **Thicker material (around 0.5–1.0 mm):** a coil is slit in roughly 5–40 minutes, so coil change and threading time weigh much more heavily. Between these, it depends on coil weight.
+
+Add your own measured coil change and threading time to see which applies to your product mix, and build in capacity headroom. Underestimating throughput requirements is the most common mistake in slitting line procurement.
 
 ### 3. Tension and Loop Control Requirements
 
