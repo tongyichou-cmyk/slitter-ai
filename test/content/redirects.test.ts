@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { registry } from '@/lib/content/registry'
+import { registry, type Registry } from '@/lib/content/registry'
 import { REDIRECTS, resolveRedirect, buildNextRedirects } from '@/lib/content/redirects'
 
 describe('REDIRECTS 對照表', () => {
@@ -52,12 +52,27 @@ describe('resolveRedirect', () => {
       .toEqual({ status: 301, to: '/zh-TW/wiki/slitting-defects' })
   })
 
+  // 模擬某篇英文文章還沒有繁中版的情況
+  const withoutZh = (path: string): Registry => ({
+    ...registry,
+    getPage: (locale, p) => (locale === 'zh-TW' && p === path ? null : registry.getPage(locale, p)),
+  })
+
   it('簡中網址沒有對應繁中頁面時回應 404', () => {
-    expect(resolveRedirect('/zh-CN/wiki/slitter-knife-materials', registry)).toEqual({ status: 404 })
+    const reg = withoutZh('/wiki/slitter-knife-materials')
+    expect(resolveRedirect('/zh-CN/wiki/slitter-knife-materials', reg)).toEqual({ status: 404 })
   })
 
   it('繁中網址下沒有繁中版的英文文章回應 404', () => {
-    expect(resolveRedirect('/zh-TW/wiki/slitting-machine-selection-guide', registry)).toEqual({ status: 404 })
+    const reg = withoutZh('/wiki/slitting-machine-selection')
+    expect(resolveRedirect('/zh-TW/wiki/slitting-machine-selection-guide', reg)).toEqual({ status: 404 })
+  })
+
+  it('繁中版存在時，舊的繁中網址轉到新網址', () => {
+    expect(resolveRedirect('/zh-TW/wiki/slitting-machine-selection-guide', registry)).toEqual({
+      status: 301,
+      to: '/zh-TW/wiki/slitting-machine-selection',
+    })
   })
 
   it('現行有效網址不轉址', () => {

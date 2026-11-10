@@ -1,0 +1,287 @@
+---
+title: 'Slitting Clearance Explained: Calculation, Reference Values by Material and Burr Diagnosis'
+description: >-
+  What slitting knife clearance is, how to calculate it, reference starting
+  values by material and thickness, how to set penetration, how to read seven
+  burr patterns, and how to optimize clearance by test slitting.
+publishedAt: '2026-11-10'
+updatedAt: '2026-11-10'
+keywords:
+  - slitting clearance
+  - slitter knife clearance
+  - slitting burr
+  - knife penetration
+  - slit edge quality
+faqs:
+  - q: I set clearance to the recommended value and still get burr. What now?
+    a: >-
+      Recommended values are starting points. The best setting varies with
+      knife wear and the hardness of each material batch. First confirm the
+      actual spacer thickness, not the nominal value, then confirm arbor runout
+      is within specification. Then adjust from the recommended value in steps
+      of ±0.01 mm and test-slit after each step.
+  - q: Burr is hard to control on AHSS. What do you recommend?
+    a: >-
+      AHSS is strong and springs back strongly, so the effective clearance is
+      smaller than the setting. A reference approach is to add {{rule:ahss}} to
+      the clearance for mild steel of the same thickness, then confirm with a
+      clearance optimization test. Use PM steel or carbide knives with precision
+      spacers of ±0.001 mm tolerance.
+  - q: Why does burr grow partway through a coil?
+    a: >-
+      It is the normal result of knife wear: as the edge wears, the effective
+      clearance grows. Set a knife change standard — record the meters slit by
+      each knife set and regrind before burr goes out of specification, not
+      after quality has already dropped.
+  - q: Which matters more for edge quality, penetration or horizontal clearance?
+    a: >-
+      Horizontal clearance has the more direct effect on burr height and the
+      cut face, so set it first. Penetration mainly decides whether the material
+      is fully sheared and how high the cutting force is. Both must be right for
+      the best edge, but if you can only adjust one, set clearance first.
+  - q: Does the best clearance change between batches of the same material?
+    a: >-
+      Yes, especially for stainless and high-strength steel. Heat treatment and
+      actual hardness vary from batch to batch, and the best clearance shifts
+      with them. Test-slit each new batch at least briefly to check burr, and
+      fine-tune the clearance if needed.
+---
+
+# Slitting Clearance Explained: Calculation, Reference Values by Material and Burr Diagnosis
+
+Burr is the most common and most frustrating quality problem in metal slitting. It spoils the appearance of the product, and it can also throw off downstream stamping dimensions, scratch equipment and injure operators.
+
+The first reaction in many plants is to change the knives. The more fundamental cause is often **incorrect clearance**. In TOA DR Enterprise's experience servicing slitting tooling, many edge quality problems can be solved by setting the clearance correctly, without replacing the knives right away.
+
+This article explains what clearance is, how to calculate it, reference starting values by material, and how to trace a problem back to its cause from the burr pattern. For the on-line procedure, see [How to Set Slitting Clearance](/en/guide/how-to-set-slitting-clearance).
+
+---
+
+## What Is Slitting Clearance?
+
+Slitting clearance is the **horizontal** gap between the upper and lower knives, expressed as a percentage of material thickness.
+
+Two parameters are easily confused:
+
+- **Horizontal clearance:** the lateral distance between the cutting faces of the upper and lower knife — the core parameter for shear quality
+- **Vertical penetration (overlap):** how far the upper knife goes below the top of the lower knife — it controls where shearing starts
+
+Vertically the knives **overlap** (penetration); horizontally they are **apart** (clearance). Together the two decide how the material is sheared in the stack.
+
+### How Shearing Works
+
+As material enters the stack, the upper and lower knives press on it from either side of the cut line. Under the combined compressive and tensile stress, the material fractures across a weak section.
+
+The clearance determines the quality of that fracture:
+- **Too small:** the shear zone is too narrow, the material is forced into secondary shearing, and the result is fragmented burr and faster knife wear
+- **Too large:** the shear zone is too wide, the material is stretched and torn rather than cut cleanly, and the result is a full, continuous burr
+- **Correct:** the material fractures cleanly at the lowest cutting force, with a smooth cut face and minimal burr
+
+---
+
+## Calculating Horizontal Clearance
+
+### Basic Formula
+
+```
+Horizontal gap (each cut) = Material thickness × Clearance percentage
+```
+
+Example: 1.5 mm 304 stainless falls in the 1.5–4.0 mm row (<Clearance material="stainless-steel" thickness="1.5" />). At 8%: {/* lint-ok: worked example inside the data table range */}
+```
+Horizontal gap = 1.5 mm × 0.08 = 0.12 mm
+```
+
+The [clearance calculator](/en/tools/clearance-calculator) does this conversion for you.
+
+### Reference Values by Material
+
+These are the reference starting values used across slitter.ai, by material and thickness:
+
+<ClearanceTable />
+
+For materials not in the table, such as hot-rolled steel, martensitic stainless (420/440) and UHSS, start from the closest material and confirm by test slitting.
+
+> **Important:** these are starting values. The best clearance depends on knife wear, batch hardness, machine rigidity and line speed. Test-slit at the recommended value, then fine-tune.
+
+---
+
+## Setting Penetration
+
+Penetration and horizontal clearance must both be right for the best edge.
+
+### Recommended Penetration
+
+| Material thickness | Recommended penetration |
+|--------------------|-------------------------|
+| Under 0.5 mm | 0.05–0.15 mm |
+| 0.5–1.5 mm | 0.10–0.30 mm |
+| 1.5–4 mm | 0.25–0.80 mm |
+| 4–8 mm | 0.5–1.5 mm |
+| Over 8 mm | 1.0–2.5 mm |
+
+### Effects of Wrong Penetration
+
+**Too little:**
+- The material is not fully sheared; it tears apart instead
+- Rough edges and longitudinal drag marks on the strip
+
+**Too much:**
+- Cutting force rises sharply, and so does drive current
+- Knives deflect, the stack loses rigidity and cut widths become uneven
+- Carbide knives may chip
+
+---
+
+## Material-Specific Considerations
+
+### Stainless Steel
+
+Work hardening is the key challenge with stainless. In austenitic grades (304/316), the material around the shear zone hardens quickly during cutting and forms a layer harder than the base metal.
+
+This means:
+- Set stainless clearance from the data table and confirm the extent of the work-hardened layer by test slitting
+- Keep knives sharp, so edge wear does not widen the shear zone
+
+### Electrical (Silicon) Steel
+
+Clearance on electrical steel directly affects magnetic performance. Too much clearance leaves a larger work-hardened zone at the cut, which reduces permeability; a poor cut face also makes poor contact when laminations are stacked, losing magnetic performance.
+
+Electrical steel slitting requires:
+- Tight clearance control — the reference value is <ClearanceRule material="silicon-steel" />
+- Carbide knives — HSS wears too fast, and the effective clearance drifts quickly as it wears
+- Regular burr measurement, with a regrind once burr exceeds 5 μm
+
+### High-Strength Steel (AHSS/UHSS)
+
+The tensile strength of high-strength steel can exceed 1,500 MPa, which affects slitting in several ways:
+- Cutting force is far higher than for ordinary carbon steel, so the arbors must be stiffer
+- Springback is large, so the effective clearance is smaller than the setting — a reference approach is to add <ClearanceRule material="ahss" /> to the clearance for mild steel of the same thickness
+- After setting clearance, verify the actual knife gap with a dial indicator instead of relying on the spacer calculation
+
+---
+
+## Diagnosing Seven Burr Patterns
+
+Each burr pattern points to a different root cause. Recognizing the pattern is the fastest route to the fix.
+
+### Pattern 1: Full, continuous burr on every strip
+
+**Signs:** even burr height, smooth root, continuous along the edge
+**Diagnosis:** horizontal clearance too large
+**Fix:** reduce clearance toward the low end of the recommended range and test-slit
+
+### Pattern 2: Fragmented, whisker-like burr on every strip
+
+**Signs:** broken burr in short whiskers, with a bright band on the cut face
+**Diagnosis:** horizontal clearance too small, or severely worn knives
+**Fix:** increase clearance, and check whether the knives need regrinding
+
+### Pattern 3: Odd and even strips differ
+
+**Signs:** strips 1, 3, 5… have large burr while 2, 4, 6… are fine, or the reverse
+**Diagnosis:** the first datum position on the arbor has shifted, or the upper and lower arbors are not parallel
+**Fix:** re-establish the arbor datum; measure the parallelism of the upper and lower arbors
+
+### Pattern 4: The two edges of a strip differ
+
+**Signs:** one edge of the strip has large burr and the other is fine, repeated on every strip
+**Diagnosis:** uneven clearance on a particular knife pair, or uneven wear on the two side faces of a knife
+**Fix:** re-measure and re-adjust the spacers for that pair; check the flatness of the knife side faces
+
+### Pattern 5: Burr rises and falls along the strip
+
+**Signs:** burr height varies periodically along the coil length
+**Diagnosis:** excessive arbor runout, or a local chip on a knife
+**Fix:** measure arbor runout with a dial indicator and check it is within 0.005 mm for tool steel knives or 0.003 mm for carbide
+
+### Pattern 6: Burr grows through the coil
+
+**Signs:** burr is acceptable at the start, then grows through the middle and end of the coil
+**Diagnosis:** normal knife wear — the effective clearance grows as the edge wears
+**Fix:** record knife life and set a planned knife change and regrinding cycle
+
+### Pattern 7: Edge wave after slitting
+
+**Signs:** the strip edge is wavy rather than straight
+**Diagnosis:** too little penetration, or incorrect clearance letting the strip spring back and deform after the stack
+**Fix:** increase penetration moderately; check that recoiler tension is even
+
+---
+
+## Optimizing Clearance Systematically
+
+For a new material or knife combination, run a **clearance sensitivity test**:
+
+### Step 1: Establish a Baseline
+
+Use the middle of the recommended range as the baseline. Slit at least 50 m and sample burr height, rollover depth and cut-face finish.
+
+### Step 2: Step the Clearance
+
+Change the clearance in steps of ±10% of the baseline, test-slitting and sampling at each step. {/* lint-ok: test step relative to baseline */} Example for 1.5 mm stainless with a 0.12 mm baseline:
+
+| Test point | Horizontal gap | Purpose |
+|------------|----------------|---------|
+| Baseline −20% | 0.096 mm | See how too small behaves {/* lint-ok: test step relative to baseline */} |
+| Baseline −10% | 0.108 mm | Lower boundary |
+| Baseline | 0.120 mm | Baseline data |
+| Baseline +10% | 0.132 mm | Upper boundary |
+| Baseline +20% | 0.144 mm | See how too large behaves {/* lint-ok: test step relative to baseline */} |
+
+### Step 3: Find the Optimum
+
+Compare burr height, cutting force (drive current) and rollover depth across the test points. The clearance range with the lowest burr and a reasonable cutting force becomes the production setting for this material.
+
+---
+
+## How Spacer Accuracy Affects Clearance
+
+Clearance does not exist on its own — it is set by the thickness accuracy of the spacers.
+
+With spacers of ±0.01 mm tolerance, the actual clearance can vary by more than 0.02 mm from one assembly to the next. On 1.5 mm stainless, a 0.02 mm change equals 1.3% of the material thickness {/* lint-ok: tolerance conversion example */} — well within the sensitive range.
+
+**Conclusion:** clearance optimization only repeats reliably on precision spacers. Use spacers with a tolerance of ±0.002 mm or better, and check the actual clearance with a dial indicator after each assembly.
+
+---
+
+## Quality Measurements
+
+### Burr Height
+
+Acceptable burr height depends on the end use, and the customer's specification takes precedence. Common limits:
+
+<BurrTable />
+
+### Rollover Depth
+
+Rollover is how far the material bends down before it separates. It should be below 15% of material thickness for general work and below 10% for precision parts such as motor laminations. {/* lint-ok: rollover depth, not clearance */}
+
+If rollover is clearly too large, check the clearance setting and knife wear first.
+
+### Burnish Ratio
+
+From top to bottom, the cut face shows a burnished (sheared) band and then a fracture band. The share of the burnished band reflects shear quality:
+- Normal: burnished band 40–70% of the cut face height
+- Clearance too large: burnished band under 20%, mostly fracture {/* lint-ok: cut face proportion, not clearance */}
+- Clearance too small: burnished band over 85%, with a secondary shear band {/* lint-ok: cut face proportion, not clearance */}
+
+---
+
+## FAQ
+
+**Q: Still getting burr at the recommended setting?**
+Check actual spacer thickness and arbor runout first, then adjust from the recommended value in ±0.01 mm steps. Recommended values are starting points.
+
+**Q: Burr is hard to control on AHSS?**
+AHSS springs back, so the effective clearance is smaller than the setting. A reference approach is to add <ClearanceRule material="ahss" /> to the mild steel clearance for the same thickness, with precision spacers and carbide knives.
+
+**Q: Burr grows partway through a coil?**
+Normal knife wear makes the effective clearance drift. Set a planned knife change cycle.
+
+**Q: Penetration or horizontal clearance — which matters more?**
+Horizontal clearance has the more direct effect on edge quality. Set it first.
+
+---
+
+*See also: [Slitter Knives](/en/wiki/slitter-knife) · [Arbor Spacers](/en/wiki/arbor-spacers) · [Slitting Defects](/en/wiki/slitting-defects) · [Tooling Installation](/en/wiki/tooling-installation)*
