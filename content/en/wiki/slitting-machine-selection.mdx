@@ -33,10 +33,12 @@ faqs:
   - q: What line speed do I need for my production volume?
     a: >-
       Start from the time per coil, not an average speed. Time per coil = coil
-      length ÷ line speed + coil change and threading time, and coil length =
-      coil weight ÷ weight per meter. For example, 1.5 mm × 1,000 mm steel weighs
-      about 12 kg/m, so a 5 t coil is about 420 m long and is slit in about
-      4 minutes at 100 m/min. With 2–8 t coils, coil change and threading often
+      length ÷ line speed + coil change and threading time. Coil length depends
+      on weight, thickness, width and density: length (m) = weight (kg) ÷
+      (thickness (mm) × width (m) × density (g/cm³)). For example, a 5 t steel
+      coil of 1.5 mm × 1,000 mm is about 425 m long and is slit in about 4
+      minutes at 100 m/min; at 500 mm wide the same weight is twice as long.
+      With 2–8 t coils, coil change and threading often
       take longer than the cut itself, so a shorter changeover can raise output
       more than a higher top speed. Time your own coil changes to see which
       applies to you.
@@ -149,21 +151,23 @@ List every material, thickness, and width combination you will process—now and
 Work out throughput from the time per coil:
 
 ```
-Coil length (m) = Coil weight (kg) ÷ Weight per meter (kg/m)
+Coil length (m) = Coil weight (kg) ÷ (Thickness (mm) × Width (m) × Density (g/cm³))
 Time per coil   = Coil length ÷ Line speed + Coil change and threading time
 Coils per shift = Shift time ÷ Time per coil
 ```
 
-Example at 100 m/min for 1.5 mm × 1,000 mm steel (about 12 kg/m):
+Coil length depends on thickness and width as well as weight: the same 5 t coil is twice as long at half the width or half the thickness. Typical densities:
 
-| Coil weight | Coil length | Slitting time |
-|-------------|-------------|---------------|
-| 2 t | about 170 m | about 1.7 min |
-| 3 t | about 250 m | about 2.5 min |
-| 5 t | about 420 m | about 4.2 min |
-| 8 t | about 670 m | about 6.7 min |
+| Material | Density (g/cm³) |
+|----------|-----------------|
+| Carbon steel | 7.85 |
+| Stainless steel 304 | 7.93 |
+| Aluminum | 2.70 |
+| Copper | 8.96 |
 
-With coils of this size, coil change and threading often take longer than the cut itself. Add your own measured changeover time to see whether line speed or changeover limits your output, and build in capacity headroom. Underestimating throughput requirements is the most common mistake in slitting line procurement.
+**Example:** a 5 t carbon steel coil, 1.5 mm × 1,000 mm, is 5,000 ÷ (1.5 × 1.0 × 7.85) ≈ 425 m long. At 100 m/min it is slit in about 4.2 minutes.
+
+With small coils, coil change and threading often take longer than the cut itself. Add your own measured changeover time to see whether line speed or changeover limits your output, and build in capacity headroom. Underestimating throughput requirements is the most common mistake in slitting line procurement.
 
 ### 3. Tension and Loop Control Requirements
 
