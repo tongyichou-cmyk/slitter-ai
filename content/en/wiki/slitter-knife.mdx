@@ -33,8 +33,9 @@ faqs:
       Regrind schedule depends on material, production volume, and acceptable
       burr height. A practical trigger is strip burr height approaching the
       customer's limit (for general structural steel, about {{burr:general}} of
-      material thickness), or visible edge rollover. HSS knives can be reground
-      5–10 times. Always regrind upper and lower knives as matched pairs and
+      material thickness), or visible edge rollover. The number of regrinds
+      depends on OD: (current OD − machine minimum OD) ÷ removal per regrind.
+      Grind the whole set together so every knife ends at the same OD, and
       verify OD and bore tolerances after regrinding.
   - q: What is the difference between HSS and carbide slitter knives?
     a: >-
@@ -150,10 +151,10 @@ For detailed material selection with cost-per-cut analysis, see [Slitter Knife M
 
 ## Regrinding and Reconditioning
 
-Slitter knives are designed to be reground. Each regrind cycle removes 0.2–0.5 mm of outer diameter by surface grinding the cutting face, restoring the sharp cutting edge. HSS knives can typically be reground 5–10 times before the diameter reduction affects clearance geometry.
+Slitter knives are designed to be reground. Each regrind removes material from the outer diameter only, not the thickness, restoring the sharp cutting edge. Regrinds available = (current OD − the machine's minimum OD) ÷ removal per regrind. For example, a 150 mm OD knife on a machine with a 140 mm minimum OD, at 0.2 mm per regrind, allows about 50 regrinds.
 
 **Critical regrinding requirements:**
-- Always regrind upper and lower knives as matched pairs
+- Grind the whole set together so every knife ends at the same OD
 - Maintain OD tolerance to ±0.002 mm after regrinding
 - Check arbor runout after reassembly — any wobble above 0.003 mm requires correction
 - Inspect bore condition; any bore wear exceeding 0.005 mm can cause seating errors that appear as runout
@@ -212,7 +213,7 @@ A precision circular blade used in pairs to shear-cut wide coils into narrower s
 It depends on material and thickness — for example <Clearance material="mild-steel" thickness="1.0" /> of thickness for 0.8–2.0 mm mild steel and <Clearance material="stainless-steel" thickness="1.0" /> for 0.3–1.5 mm stainless. See the [clearance data table](/en/data/slitting-clearance). Wrong clearance is the most common cause of poor slit edge quality.
 
 **Q: How often should I regrind?**
-When strip burr height approaches the customer's limit (about <BurrLimit application="general" /> of thickness for general structural steel), or when edge rollover is visible. Always regrind upper and lower knives as matched pairs.
+When strip burr height approaches the customer's limit (about <BurrLimit application="general" /> of thickness for general structural steel), or when edge rollover is visible. Grind the whole set together so every knife ends at the same OD.
 
 **Q: HSS vs carbide — which should I use?**
 HSS for most applications; carbide for high-volume or abrasive materials (stainless, electrical steel, copper foil). Carbide costs 4–6× more per knife but delivers lower total cost above ~100,000 m/month on difficult materials.
