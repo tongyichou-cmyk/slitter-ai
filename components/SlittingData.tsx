@@ -4,10 +4,10 @@ import type { Locale } from '@/lib/i18n'
 import { SLITTING_DATA, MATERIALS, type MaterialKey, type RuleKey, type BurrApplication } from '@/data/slitting'
 import { clearanceText, ruleText, burrText, ruleCell } from '@/lib/content/data-text'
 
+const num = { fontVariantNumeric: 'tabular-nums' } as const
+
 // 這些元件可在 MDX 中使用，文章裡的間隙與毛邊數值一律透過它們從 data/slitting.ts 讀取。
 
-const cell = 'border border-gray-200 px-3 py-2 text-left'
-const num = { fontVariantNumeric: 'tabular-nums' } as const
 
 export async function ClearanceTable({ locale, materials }: { locale: Locale; materials?: MaterialKey[] }) {
   const t = await getTranslations({ locale, namespace: 'data' })
@@ -15,35 +15,37 @@ export async function ClearanceTable({ locale, materials }: { locale: Locale; ma
   const rows = SLITTING_DATA.clearance.filter(r => (materials ?? MATERIALS).includes(r.material))
   const rules = materials ? [] : SLITTING_DATA.clearanceRules
   return (
-    <div className="not-prose my-6 overflow-x-auto">
-      <table className="w-full text-sm border-collapse">
-        <thead className="bg-gray-50">
+    <div className="not-prose my-6">
+      <div className="table-wrap">
+      <table>
+        <thead>
           <tr>
-            <th className={cell}>{t('material')}</th>
-            <th className={cell}>{t('thickness')}</th>
-            <th className={cell}>{t('clearance')}</th>
-            <th className={cell}>{t('source')}</th>
+            <th>{t('material')}</th>
+            <th>{t('thickness')}</th>
+            <th>{t('clearance')}</th>
+            <th>{t('source')}</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((r, i) => (
             <tr key={i}>
-              <td className={cell}>{tm(r.material)}</td>
-              <td className={cell} style={num}>{r.thicknessMm[0]}–{r.thicknessMm[1]}</td>
-              <td className={cell} style={num}>{r.clearancePct[0]}–{r.clearancePct[1]}%</td>
-              <td className={cell}>{t(`sourceTypes.${r.source.type}`)}</td>
+              <td>{tm(r.material)}</td>
+              <td className="num">{r.thicknessMm[0]}–{r.thicknessMm[1]}</td>
+              <td className="num">{r.clearancePct[0]}–{r.clearancePct[1]}%</td>
+              <td>{t(`sourceTypes.${r.source.type}`)}</td>
             </tr>
           ))}
           {rules.map(r => (
             <tr key={r.material}>
-              <td className={cell}>{t(`rules.${r.material}`)}</td>
-              <td className={cell}>{t('anyThickness')}</td>
-              <td className={cell} style={num}>{ruleCell(locale, r)}</td>
-              <td className={cell}>{t(`sourceTypes.${r.source.type}`)}</td>
+              <td>{t(`rules.${r.material}`)}</td>
+              <td>{t('anyThickness')}</td>
+              <td className="num">{ruleCell(locale, r)}</td>
+              <td>{t(`sourceTypes.${r.source.type}`)}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
       <DataStatus locale={locale} />
     </div>
   )
@@ -52,23 +54,25 @@ export async function ClearanceTable({ locale, materials }: { locale: Locale; ma
 export async function BurrTable({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: 'data' })
   return (
-    <div className="not-prose my-6 overflow-x-auto">
-      <table className="w-full text-sm border-collapse">
-        <thead className="bg-gray-50">
+    <div className="not-prose my-6">
+      <div className="table-wrap">
+      <table>
+        <thead>
           <tr>
-            <th className={cell}>{t('application')}</th>
-            <th className={cell}>{t('burrMax')}</th>
+            <th>{t('application')}</th>
+            <th>{t('burrMax')}</th>
           </tr>
         </thead>
         <tbody>
           {SLITTING_DATA.burrLimits.map(l => (
             <tr key={l.application}>
-              <td className={cell}>{t(`applications.${l.application}`)}</td>
-              <td className={cell} style={num}>≤ {l.maxPct}%</td>
+              <td>{t(`applications.${l.application}`)}</td>
+              <td className="num">≤ {l.maxPct}%</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
       <DataStatus locale={locale} />
     </div>
   )

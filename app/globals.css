@@ -55,9 +55,67 @@ a:hover { text-decoration: underline; }
 }
 
 @layer components {
-  .prose-article {
-    @apply prose max-w-none;
+  /* 文章內文：站內沒有裝 typography 外掛，排版在這裡定義 */
+  .article-body { font-size: 16px; line-height: 1.85; color: var(--text); }
+  .article-body > * + * { margin-top: 1em; }
+  .article-body h1 { margin-bottom: 0.6em; }
+  .article-body h2 {
+    margin-top: 2.6em; padding-top: 0.2em; margin-bottom: 0.2em;
+    line-height: 1.35;
   }
+  .article-body h3 { margin-top: 2em; font-size: 1.05rem; color: var(--mocha); }
+  .article-body h4 { margin-top: 1.6em; font-weight: 600; }
+  .article-body h2 + *, .article-body h3 + *, .article-body h4 + * { margin-top: 0.6em; }
+  .article-body hr { border: 0; border-top: 1px solid var(--border); margin: 2.4em 0; }
+  .article-body hr + h2 { margin-top: 0; }
+  .article-body strong { color: var(--ink); font-weight: 600; }
+  .article-body a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold-light); }
+  .article-body a:hover { text-decoration-color: var(--gold); }
+
+  .article-body ul, .article-body ol { padding-left: 1.4em; }
+  .article-body ul { list-style: disc; }
+  .article-body ol { list-style: decimal; }
+  .article-body li + li { margin-top: 0.35em; }
+  .article-body li::marker { color: var(--mocha-light); }
+  .article-body li > ul, .article-body li > ol { margin-top: 0.35em; }
+
+  .article-body blockquote {
+    border-left: 3px solid var(--gold); background: var(--surface);
+    padding: 0.8em 1.1em; color: var(--text2);
+  }
+  .article-body code {
+    font-family: var(--font-mono), Menlo, monospace; font-size: 0.88em;
+    background: var(--bg2); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+  .article-body pre {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 1em 1.2em; overflow-x: auto; border-radius: 4px; line-height: 1.6;
+  }
+  .article-body pre code { background: none; padding: 0; }
+
+  /* 表格：外層可橫向捲動，手機不會撐破版面 */
+  .article-body .table-wrap { margin-top: 1.4em; margin-bottom: 0.4em; }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border); border-radius: 4px; background: var(--surface);
+  }
+  .table-wrap table {
+    width: 100%; border-collapse: collapse;
+    font-family: var(--font-ui), system-ui, sans-serif; font-size: 14px; line-height: 1.55;
+    font-variant-numeric: tabular-nums;
+  }
+  .table-wrap th {
+    background: var(--bg2); color: var(--mocha); font-weight: 600;
+    text-align: left; white-space: nowrap;
+    padding: 10px 14px; border-bottom: 1px solid var(--border2);
+  }
+  .table-wrap td {
+    padding: 9px 14px; border-bottom: 1px solid var(--bg2); vertical-align: top;
+  }
+  .table-wrap tr:last-child td { border-bottom: 0; }
+  .table-wrap td:first-child { color: var(--ink); font-weight: 500; }
+  .table-wrap .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .table-wrap tbody tr:hover { background: #FBF8F4; }
 
   .knowledge-card {
     border-top: 3px solid #C8BDB0;

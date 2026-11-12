@@ -21,7 +21,7 @@ export default async function AboutPage({ params: { locale } }: { params: { loca
       <Breadcrumb currentPath={`${base}/about`} items={[{ name: tb('home'), href: base }, { name: t('heading') }]} />
       <h1>{t('heading')}</h1>
 
-      <div className="mt-6 prose prose-gray max-w-none">
+      <div className="mt-6 article-body">
         <p className="text-lg text-gray-600">{t('lead')}</p>
 
         <h2>{t('companyHeading')}</h2>

@@ -30,6 +30,9 @@ export default async function ArticleView({ locale, page }: { locale: Locale; pa
     BurrLimit,
     ClearanceRule,
     Clearance,
+    table: (props: React.ComponentProps<'table'>) => (
+      <div className="table-wrap"><table {...props} /></div>
+    ),
   }
 
   return (
@@ -49,7 +52,7 @@ export default async function ArticleView({ locale, page }: { locale: Locale; pa
           )}
         </p>
 
-        <div className="mt-6 prose prose-gray max-w-none">
+        <div className="mt-6 article-body">
           <MDXRemote
             source={page.body ?? ''}
             components={components}
