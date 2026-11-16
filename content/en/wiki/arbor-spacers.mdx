@@ -1,292 +1,238 @@
 ---
-title: 'Precision Arbor Spacers: Specifications, Tolerances & Selection Guide'
+title: 'Arbor Spacer Complete Guide: Function, Precision Grades, Types and Installation Best Practices'
 description: >-
-  Technical guide to precision arbor spacers for slitting machines: dimensional
-  tolerances, material grades, hardness requirements, and how spacer stack
-  accuracy affects strip width and edge quality.
+  Spacer accuracy directly determines slit width and edge quality. This guide
+  covers what arbor spacers do, how tolerance stack-up is calculated, precision
+  grades, standard vs lightweight spacers, materials, and practical
+  installation, measurement and maintenance.
 publishedAt: '2026-04-13'
-updatedAt: '2026-04-13'
+updatedAt: '2026-11-16'
 keywords:
-  - precision spacer specifications
-  - arbor spacer slitting
-  - slitter spacer tolerance
-  - knife spacer ring
+  - arbor spacers
+  - slitter spacers
+  - slitting spacer tolerance
+  - spacer stack-up
+  - lightweight spacers
   - slitting machine spacers
 faqs:
-  - q: What tolerance should arbor spacers be ground to?
+  - q: Why is the finished strip width off when the setup values are correct?
     a: >-
-      Precision slitting applications require spacer width tolerance of ±0.002
-      mm. Standard industrial slitting is typically ±0.005 mm. Generic import
-      spacers at ±0.02-0.05 mm tolerance accumulate too much error in a
-      multi-knife stack to hold tight strip width tolerances. In a 20-spacer
-      assembly, ±0.005 mm per spacer accumulates to a maximum of ±0.1 mm at the
-      last strip position.
-  - q: What material are slitter arbor spacers made from?
+      The most common cause is accumulated spacer error. Measure every spacer
+      in the set with a micrometer, without trusting nominal values or the last
+      record, calculate the actual total thickness and adjust the setup. Also
+      check that arbor runout is within 0.003 mm.
+  - q: Should I choose standard or lightweight spacers?
     a: >-
-      The most common spacer material is D2 (SKD-11) tool steel hardened to 58-62 HRC.
-      For higher precision, SUJ2 bearing steel at 62-64 HRC offers better
-      dimensional stability. Carbide-faced or solid carbide spacers are used for
-      highly abrasive materials like electrical (silicon) steel where steel
-      spacers wear measurably. The material choice depends on the material being
-      slit, production volume, and acceptable measurement intervals.
-  - q: How do spacer tolerances affect strip width accuracy?
+      If changeovers are infrequent and the arbor diameter is under 180 mm,
+      standard spacers are enough. For frequent changeovers and large slitting
+      lines, lightweight spacers are easier to handle and can greatly improve
+      changeover efficiency.
+  - q: Can spacers from different brands be mixed?
     a: >-
-      Spacer tolerances accumulate across the arbor stack. In a 10-strip
-      assembly with 20 spacers, each ±0.005 mm tolerance adds in worst case to
-      ±0.1 mm total width variation at the last strip position. This means
-      spacer tolerance is often the dominant factor in strip width accuracy —
-      not the machine itself. Precision spacers at ±0.002 mm allow achieving
-      strip width tolerances of ±0.05-0.10 mm.
-  - q: How often should slitter spacers be measured?
+      Only after measuring the actual thickness of every spacer. Brands differ
+      in manufacturing tolerance and heat-treatment hardness, so spacers with
+      the same nominal size can differ in actual size. Use spacers from the
+      same batch in one knife set to keep accumulated error to a minimum.
+  - q: How often should spacers be replaced?
     a: >-
-      Measure spacer widths every 200-500 operational hours depending on
-      material abrasiveness. Abrasive materials like electrical steel wear
-      spacers faster; mild steel lines can go longer between measurements. Any
-      spacer that has worn more than 0.005 mm from nominal should be removed
-      from service. Always measure incoming spacers before adding to a precision
-      set — even new spacers from suppliers can be out of tolerance.
-  - q: What is the difference between upper and lower arbor spacers?
-    a: >-
-      Upper and lower arbor spacers serve the same positioning function but are
-      often different widths at each knife position. The difference in width
-      between upper and lower spacers at each knife pair determines the
-      horizontal offset between the knife pair cutting faces — which sets the
-      knife clearance. When clearance is adjusted by offsetting the lower arbor
-      axially, upper and lower spacers can be the same width and clearance is
-      managed at the machine level.
+      On a single daily shift, a five-year replacement cycle is recommended;
+      it mainly depends on usage, the material being slit and the accuracy
+      required. Keep measurement records and replace spacers once the measured
+      thickness falls outside the tolerance of their grade.
 ---
 
-# Precision Arbor Spacers: Specifications, Tolerances & Selection Guide
+# Arbor Spacer Complete Guide: Function, Precision Grades, Types and Installation Best Practices
 
-Slitter knife spacers are the least-discussed components in a slitting tooling assembly, yet they directly determine strip width accuracy and knife alignment. In a 20-strip assembly with 40 spacer rings, a tolerance error of ±0.01 mm per spacer accumulates to ±0.4 mm of potential width variation—nearly the full tolerance band of a standard slitting line. This guide covers spacer specifications, material selection, and tolerance requirements for engineers building or auditing slitting tooling sets.
+In metal slitting, one part is often overlooked even though it directly determines finished width accuracy: the **spacer**, also called a slitter spacer or spacer liner.
+
+Spacers are precision rings mounted on the arbor between the knives. Their job looks simple: keep the knife spacing and set the slit width. Yet their accuracy is a key foundation of slitting quality. Many plants buy a precision slitter and good knives and still cannot hold width tolerance; the cause is often how spacer accuracy is managed.
 
 ---
 
-## What Are Arbor Spacers?
+## Three Functions of Spacers
 
-Arbor spacers (also called knife spacers, spacer rings, or separator rings) are precision-ground cylindrical rings mounted on the knife arbor between knife discs. Their function is to position each knife at the exact horizontal location required to produce the target strip width.
+### 1. Keep Knife Spacing and Set Slit Width
 
-A complete tooling set consists of:
-- Upper arbor: alternating upper knives and upper spacers
-- Lower arbor: alternating lower knives and lower spacers
-- The gap between upper and lower knives = knife clearance (set by knife geometry and arbor spacing)
-- The horizontal distance between knife pairs = target strip width (set by spacer width)
+How spacers are arranged on the arbor decides where each knife sits, and therefore the width of each strip.
 
-Because spacers are stacked serially—each spacer position error adds to all subsequent positions—tolerances must be extremely tight. A 10-knife assembly with 20 spacers compounds any per-piece error across the entire stack.
+Strip width ≈ total spacer thickness between adjacent knives + knife thickness + clearance compensation
 
----
+### 2. Set the Horizontal Clearance
 
-## Why Spacer Tolerance Is Critical
+Spacer thickness, together with knife thickness, sets the horizontal clearance between upper and lower knives. Clearance is the most critical parameter for edge quality; see [Slitting Clearance Explained](/en/wiki/slitting-clearance).
 
-### Width Tolerance Accumulation
+### 3. Keep the Knife Set Rigid
 
-Consider a 10-strip assembly with target strip width 50.0 mm. The width of each strip depends on the combined thickness of one knife spacer (upper) and one knife spacer (lower) plus the knife widths.
-
-If spacers are ground to ±0.005 mm:
-- Worst-case single spacer error: 0.005 mm
-- Worst-case stack error (20 spacers): 0.1 mm
-- Total width variation at strip 10: ±0.1 mm
-
-If spacers are ground to ±0.020 mm (typical generic import):
-- Worst-case stack error: ±0.4 mm
-- Total width variation at strip 10: ±0.4 mm — exceeds most specification limits
-
-This is why precision spacer tolerance directly defines the achievable strip width tolerance of the line. No amount of machine rigidity or knife quality compensates for imprecise spacers.
-
-### Knife Alignment and Load Distribution
-
-Spacers also control the vertical relationship between upper and lower knives. If spacer bore tolerance is loose, the knife pairs run with radial eccentricity. Uneven radial clearance causes:
-- Non-uniform burr height across the coil width
-- Differential wear rates — some knife pairs wear faster
-- Strip width drift as the arbor warms up during production
+Spacers fill the space between knives so the whole set acts as one rigid body on the arbor, and side forces cannot push knives out of position during slitting. If the spacer OD is too small, the knife set starts to "wobble": the clearance opens and closes slightly as it runs, and edge quality degrades periodically.
 
 ---
 
-## Spacer Dimensions and Tolerances
+## Tolerance Stack-Up: Why Spacer Accuracy Matters So Much
 
-### Width (Axial Thickness)
+A slitting knife set often stacks 10 to 30 or more spacers. Every spacer has a tolerance, and stacked together the tolerances add up.
 
-Width tolerance is the most critical specification. For precision slitting:
+**Calculation:** worst-case accumulated error = number of spacers × tolerance per spacer
 
-| Application | Width Tolerance |
-|-------------|----------------|
-| Precision (battery foil, fine copper) | ±0.002 mm |
-| Standard industrial slitting | ±0.005 mm |
-| General purpose / light duty | ±0.010 mm |
-| Generic import (common) | ±0.020–0.050 mm |
+**Examples:**
+- Standard-grade spacers at ±0.005 mm, 20 stacked: 20 × 0.005 mm = ±0.1 mm
+- Ultra-precision spacers at ±0.001 mm, 20 stacked: 20 × 0.001 mm = ±0.02 mm
 
-TOA DR precision spacers achieve a thickness tolerance of ±0.001 mm. At that tolerance, a 20-spacer stack accumulates at most ±0.02 mm in the worst case, supporting strip width tolerances of ±0.05–0.10 mm.
-
-### Bore Diameter
-
-The bore diameter must match the arbor shaft diameter with minimal clearance. A loose bore creates radial play that misaligns the knife pair.
-
-| Arbor Diameter | Recommended Bore Fit | Max Radial Clearance |
-|----------------|---------------------|----------------------|
-| 75 mm (light-gauge) | H6/h5 | 0.010 mm |
-| 100 mm (medium) | H6/h5 | 0.012 mm |
-| 150 mm (heavy) | H7/h6 | 0.015 mm |
-
-### Outside Diameter
-
-Outside diameter determines the radial clearance between the spacer and the workpiece path. Insufficient OD clearance causes material contact; excessive OD reduces ring stiffness.
-
-Standard OD tolerance: ±0.01 mm. This is less critical than bore and width tolerances but affects ring balance at high rotational speeds.
-
-### Flatness and Parallelism
-
-Face flatness and face-to-face parallelism determine how squarely the knife is held on the arbor. Out-of-flat spacers introduce knife tilt that creates unequal clearance from front to back of the cut.
-
-| Specification | Precision Grade | Standard Grade |
-|---------------|-----------------|----------------|
-| Face flatness | 0.002 mm | 0.005 mm |
-| Face parallelism | 0.002 mm | 0.005 mm |
-| Surface roughness (Ra) | 0.2 µm | 0.4 µm |
+Accumulated error grows toward the outer end of the arbor. When outer knife positions shift, the width and clearance of those strips shift with them. In practice the errors are partly positive and partly negative and cancel to some extent, but by how much cannot be predicted, so the only control is measuring every spacer and recording its actual thickness.
 
 ---
 
-## Material and Hardness
+## Spacer Precision Grades
 
-### Tool Steel: D2 (SKD-11) / Cr12
-
-Standard material for industrial slitting spacers. Hardened to 58–62 HRC after rough machining. High chromium content provides good corrosion resistance for typical plant environments.
-
-**When to choose D2 (SKD-11):**
-- Carbon steel and stainless steel slitting
-- Standard industrial production
-- Applications where spacer wear is not a primary concern
-
-### Bearing Steel (SUJ2 / 52100)
-
-Bearing steel offers tighter microstructure and slightly higher achievable hardness (62–64 HRC). Often used for high-precision spacers where consistent dimensional stability is critical.
-
-**When to choose SUJ2:**
-- Precision strip applications
-- High-speed lines where thermal expansion effects matter
-- Applications requiring the tightest dimensional stability over long run times
-
-### Carbide-Faced or Solid Carbide
-
-For highly abrasive materials (silicon steel, hard stainless) where even steel spacers wear, carbide-faced or solid carbide spacers maintain their dimensions over much longer service life.
-
-**When to choose carbide spacers:**
-- Electrical steel (silicon steel) slitting
-- High-abrasive coated materials
-- Operations where spacer wear measurement is showing progressive stack drift
-
-### Hardness Requirements by Application
-
-| Material Being Slit | Recommended Spacer Hardness |
-|--------------------|-----------------------------|
-| Carbon steel (CR/HR) | 58–62 HRC, D2 (SKD-11) |
-| Stainless steel | 60–64 HRC, D2 (SKD-11) or SUJ2 |
-| Aluminum | 58–62 HRC, D2 (SKD-11) |
-| Copper foil | 62–64 HRC (SUJ2) |
-| Electrical steel | Carbide-faced or WC |
-| Lithium battery film | 62–64 HRC (SUJ2) or Carbide |
+| Grade | Thickness tolerance | Parallelism | Flatness | Typical use |
+|-------|---------------------|-------------|----------|-------------|
+| Standard | ±0.005 mm | 0.005 mm | 0.005 mm | General carbon steel, construction material |
+| Precision | ±0.003 mm | 0.003 mm | 0.003 mm | Automotive sheet, appliance material |
+| Ultra-precision | ±0.001 mm | 0.001 mm | 0.002 mm | Electrical steel, battery electrodes, medical devices |
 
 ---
 
-## Surface Treatment
+## Spacer Types
 
-### Hard Chrome Plating
+### Standard Spacers
 
-Applied to improve corrosion resistance and reduce friction between spacer faces. Standard in environments with cutting fluids or humidity.
+The most common type. Made from special steel or tool steel, heat-treated to 45–55 HRC:
+- High rigidity, no deformation under heavy cutting force
+- Wear resistant, dimensionally stable over long use
+- Available as full rings or split (C-type) rings
 
-**Specification:** 5–10 µm chrome layer, minimum 900 HV. Note: chrome plating adds to dimensions — ground-after-plating spacers maintain ±0.002 mm tolerance. Plated-before-grinding spacers may not hold tight tolerances in the plated layer.
+**Best for:** general to medium-high precision slitting.
 
-### Titanium Nitride (TiN) or DLC Coating
+### Lightweight Spacers
 
-Physical vapor deposition (PVD) coatings for applications where contamination of the workpiece is critical (food processing foil, medical packaging film, battery separator). Coating thickness: 2–4 µm.
+Based on the standard spacer, with material removed from non-load-bearing areas to reduce weight. TOA DR also makes patented lightweight spacers built as a metal composite.
 
----
+**Compared with standard spacers:**
+- **Weight:** up to 70% lighter; the actual reduction depends on the design
+- **Accuracy:** determined by the final grinding, so they reach the same precision grades as standard spacers
+- **Changeover:** easier to handle and faster to change; the wider the arbor (for example over 1500 mm), the bigger the difference
+- **Bearing load:** a lighter knife set reduces load on the arbor bearings
+- **Automation:** knife-changing robots and automatic changeover systems have a limit on knife-set weight
+- **Price:** milling adds a machining step; quoted by size
 
-## Spacer Set Design Considerations
+See [Lightweight vs Standard Arbor Spacers](/en/wiki/lightweight-spacers).
 
-### Mixed-Width Spacer Sets
-
-Most slitting tooling sets include spacers of several different widths to build up any target strip width from a finite set of components. Common set design approaches:
-
-**Binary set:** Spacers in widths 1, 2, 4, 8, 16, 32, 64 mm. Any target width from 1–127 mm achievable with 7 or fewer spacers. Minimizes the total number of spacer pieces required.
-
-**Modular set:** Spacers in widths matching your standard product range plus fractional adjustment spacers (0.1, 0.5, 1 mm). More pieces required but faster setup for known product widths.
-
-**Dedicated set:** One spacer set per product width, pre-assembled and labeled. Highest cost but fastest changeover — no on-line width building required.
-
-### Calculating Spacer Width for a Target Strip Width
-
-For each knife pair:
-
-```
-spacer_width = target_strip_width − upper_knife_width − lower_knife_width + clearance_correction
-```
-
-The clearance correction accounts for the fact that clearance is the gap between the vertical faces of the upper and lower knives, which depends on the difference between upper and lower spacer widths at each position.
-
-For standard clearance setup where clearance is set by shifting the lower arbor relative to the upper:
-```
-upper_spacer_width = target_strip_width
-lower_spacer_width = target_strip_width − (clearance × 2)
-```
-
-Maintain a spacer log sheet recording the actual measured width of each spacer in a set, updated after each grind. Calculate the expected strip width from measured spacer widths before mounting to catch accumulated errors before they reach production.
+**Best for:** frequent changeovers and large slitting lines.
 
 ---
 
-## Inspection and Maintenance
+## Spacer Materials
 
-### Incoming Inspection
-
-All precision spacers should be measured before adding to a tooling set:
-
-1. Measure width at 3 or more locations with a calibrated micrometer (resolution 0.001 mm)
-2. Check bore diameter with a plug gauge or bore micrometer
-3. Verify face flatness on a surface plate with a dial gauge
-4. Inspect for surface damage, corrosion, or nicks on faces
-
-Accept/reject criteria: Reject any spacer outside ±0.003 mm of nominal width, or with face nicks deeper than 0.005 mm.
-
-### In-Service Measurement
-
-Spacers wear over time—particularly on abrasive applications. Build spacer measurement into your tooling maintenance cycle:
-
-- Measure spacer widths every 200–500 operational hours depending on material abrasiveness
-- Track width loss vs. operating hours to predict service life
-- Remove from service any spacer that has worn more than 0.005 mm from original nominal
-
-### Storage
-
-Store spacer sets with faces protected from contact. Plastic interleavers or foam separators between spacers prevent face damage during storage and transport. Store vertically in racks (not stacked horizontally) to prevent face-to-face wear.
+| Material | Characteristics | Typical use |
+|----------|-----------------|-------------|
+| Special steel S45C, SCM440 | Standard material, good value | Most metal slitting |
+| Tool steel | Harder, more wear resistant | Lines with frequent changeovers |
 
 ---
 
-## Related Products
+## Spacer Installation in Practice
 
-TOA DR manufactures precision spacers with a thickness tolerance of up to ±0.001 mm and outer diameters up to 400 mm:
+### Before Installation
 
-- [Precision arbor spacers](https://www.slitterline.com/en-US/p1107-knife-spacer-spacer-liner) — thickness tolerance up to ±0.001 mm
-- [Slitter knives](https://www.slitterline.com/en-US/p1105-slitter-rotary-knives-slitter-blade) — matched precision knives for all grades
-- [Complete tooling packages](https://www.slitterline.com/en-US/product-list-1-) — spacers + knives specified for your machine and product range
+**1. Clean the arbor**
+Wipe chips, oil and debris off the arbor with a clean cloth. Any dirt clamped under a spacer adds thickness and affects knife positioning accuracy.
+
+**2. Check arbor runout**
+Arbor face runout must be within 0.003 mm. If it is higher, correct the arbor before mounting knives.
+
+**3. Measure every spacer**
+Before every installation, measure each spacer's actual thickness with a micrometer (0.001 mm resolution) and record it. Measure new spacers too; do not assume they are within tolerance.
+
+**4. Plan the stack**
+Work out which spacers go at each knife position, write it on a setup sheet, and confirm the total thickness matches the design width.
+
+### Installation Principles
+
+**Use as few spacers as possible**
+Build the required thickness from the fewest pieces. Every extra spacer is another source of error. For example, for 20.00 mm, one 20 mm spacer is more accurate than four 5 mm spacers.
+
+**Thick spacers next to the knives**
+Put the thickest spacers on either side of each knife for the most stable support; put thin ones on the inside.
+
+**Keep upper and lower symmetrical**
+Wherever possible, arrange spacers symmetrically on the upper and lower arbors so the two knife sets have similar centers of gravity and the arbors deflect less unevenly during cutting.
+
+### After Installation
+
+**1. Confirm the clearance**
+With the arbors stationary, check the horizontal clearance of every knife pair with a dial indicator. Do not rely on calculated values alone.
+
+**2. Measure knife runout**
+Measure the radial runout of each knife with a dial indicator. After assembly it should be within 0.005 mm; if not, reinstall.
+
+**3. Trial cut at low speed**
+Run 5–10 m at 10–20 m/min, sample strip width and burr height at several positions, and ramp up to production speed only once they meet spec.
+
+---
+
+## Spacer Maintenance and Service Life
+
+### Where Spacers Wear
+
+- **Faces (against the knives):** wear slowly under clamping force and cutting vibration
+- **Bore (against the arbor):** wears from repeated mounting and removal
+
+Wear reduces effective thickness, so knife positions drift.
+
+### Maintenance Schedule
+
+- **Every changeover:** clean the faces and check visually for scratches, rust and deformation
+- **Weekly:** spot-check the thickness of 10–20% of spacers to confirm they are within tolerance
+- **Quarterly:** measure and record the full set to track wear trends
+- **Out of tolerance:** replace the whole batch; do not mix new and old spacers
+
+### When to Replace
+
+Replace a spacer once its measured thickness falls outside the tolerance of its grade. For example, a precision-grade (±0.003 mm) spacer that has worn more than 0.003 mm below nominal thickness can no longer be used as precision grade.
+
+### Inventory Management: Batch Rotation
+
+1. Measure every spacer in a batch on receipt to create a baseline record
+2. Measure once a quarter to track wear rate
+3. Use only one batch of spacers on a given arbor set for the most consistent tolerance
+4. When out of tolerance, replace the whole batch and retire the old batch as a whole
+5. Retired spacers can be downgraded, for example from precision grade to standard-grade use
+
+---
+
+## Spacer Ordering Specifications
+
+When ordering, provide:
+
+| Item | Description | Example |
+|------|-------------|---------|
+| OD | Matched to knife OD | 145 mm |
+| ID | Matched to arbor diameter | 100 mm |
+| Thickness | To 0.001 mm | 25.000 mm |
+| Precision grade | Required tolerance | ±0.003 mm |
+| Material | Steel grade and hardness | S45C, HRC 45–48 |
+| Surface treatment | Rust protection | Precision ground, black oxide |
 
 ---
 
 ## FAQ
 
-**Q: What tolerance should arbor spacers be ground to?**
-±0.002 mm for precision applications; ±0.005 mm for standard industrial slitting. Generic import spacers at ±0.02–0.05 mm accumulate too much error in a multi-knife stack.
+**Q: Why is the finished strip width off when the setup values are correct?**
+The most common cause is accumulated spacer error. Measure every spacer in the set with a micrometer, without trusting nominal values or the last record, calculate the actual total thickness and adjust the setup. Also check that arbor runout is within 0.003 mm.
 
-**Q: What material are slitter spacers made from?**
-D2 (SKD-11) tool steel (58–62 HRC) for general use. SUJ2 bearing steel (62–64 HRC) for higher precision. Carbide-faced for electrical steel slitting where steel spacers wear under abrasive conditions.
+**Q: Should I choose standard or lightweight spacers?**
+If changeovers are infrequent and the arbor diameter is under 180 mm, standard spacers are enough. For frequent changeovers and large slitting lines, lightweight spacers are easier to handle and can greatly improve changeover efficiency.
 
-**Q: How do spacer tolerances affect strip width accuracy?**
-Tolerances accumulate serially — a 20-spacer assembly with ±0.005 mm per piece has ±0.1 mm worst-case accumulated error. Spacer tolerance is often the dominant factor in strip width accuracy.
+**Q: Can spacers from different brands be mixed?**
+Only after measuring the actual thickness of every spacer. Brands differ in manufacturing tolerance and heat-treatment hardness, so spacers with the same nominal size can differ in actual size. Use spacers from the same batch in one knife set to keep accumulated error to a minimum.
 
-**Q: How often should spacers be measured?**
-Every 200–500 operational hours depending on material abrasiveness. Remove from service any spacer worn more than 0.005 mm from nominal.
-
-**Q: What is the difference between upper and lower spacers?**
-Often different widths at each position — the width difference between upper and lower spacers sets the knife clearance at each knife pair location.
+**Q: How often should spacers be replaced?**
+On a single daily shift, a five-year replacement cycle is recommended; it mainly depends on usage, the material being slit and the accuracy required. Keep measurement records and replace spacers once the measured thickness falls outside the tolerance of their grade.
 
 ---
 
-*See also: [Slitter Knife Material Comparison](/en/wiki/slitter-knife-materials) · [Slitting Machine Selection Guide](/en/wiki/slitting-machine-selection) · [Slitting Machine Troubleshooting](/en/wiki/slitting-defects)*
+## Further Reading
+
+- [Lightweight vs Standard Arbor Spacers](/en/wiki/lightweight-spacers)
+- [Slitting Clearance Explained](/en/wiki/slitting-clearance)
+- [Slitter Tooling Installation](/en/wiki/tooling-installation)
+- [Slitter Knives](/en/wiki/slitter-knife)
