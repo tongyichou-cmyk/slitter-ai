@@ -16,7 +16,7 @@ export type ClearanceRow = {
   material: MaterialKey
   // 左閉右開：[min, max)
   thicknessMm: [number, number]
-  // 每側間隙，占材料厚度的百分比
+  // 單邊間隙，占材料厚度的百分比
   clearancePct: [number, number]
   source: Source
 }
