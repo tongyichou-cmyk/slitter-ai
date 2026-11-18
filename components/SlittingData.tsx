@@ -23,7 +23,6 @@ export async function ClearanceTable({ locale, materials }: { locale: Locale; ma
             <th>{t('material')}</th>
             <th>{t('thickness')}</th>
             <th>{t('clearance')}</th>
-            <th>{t('source')}</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +31,6 @@ export async function ClearanceTable({ locale, materials }: { locale: Locale; ma
               <td>{tm(r.material)}</td>
               <td className="num">{r.thicknessMm[0]}–{r.thicknessMm[1]}</td>
               <td className="num">{r.clearancePct[0]}–{r.clearancePct[1]}%</td>
-              <td>{t(`sourceTypes.${r.source.type}`)}</td>
             </tr>
           ))}
           {rules.map(r => (
@@ -40,7 +38,6 @@ export async function ClearanceTable({ locale, materials }: { locale: Locale; ma
               <td>{t(`rules.${r.material}`)}</td>
               <td>{t('anyThickness')}</td>
               <td className="num">{ruleCell(locale, r)}</td>
-              <td>{t(`sourceTypes.${r.source.type}`)}</td>
             </tr>
           ))}
         </tbody>

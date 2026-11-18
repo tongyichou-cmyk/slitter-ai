@@ -150,7 +150,7 @@
     "intro": "These are the starting clearance ranges used across slitter.ai, including the calculator. Clearance is the horizontal gap between the upper and lower knife, per side, as a percentage of material thickness.",
     "material": "Material",
     "thickness": "Thickness (mm)",
-    "clearance": "Clearance per side",
+    "clearance": "Clearance per side (recommended reference values)",
     "source": "Source",
     "version": "Data version",
     "updatedOn": "Updated {date}",

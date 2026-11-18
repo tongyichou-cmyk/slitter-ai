@@ -150,7 +150,7 @@
     "intro": "這是 slitter.ai 全站使用的起始間隙範圍，間隙計算機也使用同一份數據。間隙是上下刀之間的水平距離，以每側占材料厚度的百分比表示。",
     "material": "材料",
     "thickness": "厚度（mm）",
-    "clearance": "每側間隙",
+    "clearance": "每側間隙（建議參考數值）",
     "source": "來源",
     "version": "數據版本",
     "updatedOn": "更新日期：{date}",
