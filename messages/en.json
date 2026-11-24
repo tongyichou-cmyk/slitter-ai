@@ -22,7 +22,8 @@
     },
     "clearanceData": {
       "title": "Slitting Clearance Data Table",
-      "description": "Starting knife clearance ranges by material and thickness, and burr height limits by end use. All values are reference values with their source."
+      "description": "Starting knife clearance ranges by material and thickness, and burr height limits by end use. All values are recommended reference values; confirm by test slitting.",
+      "datasetDescription": "Recommended single-side knife clearance for metal slitting by material (mild steel, stainless steel, aluminum, copper and brass) and thickness, with adjustment rules for high-strength steel, galvanized steel and silicon steel, plus burr height limits by end use. Compiled by TOA DR Enterprise; confirm settings by test slitting."
     },
     "about": {
       "title": "About slitter.ai and TOA DR Enterprise",
@@ -174,6 +175,7 @@
     },
     "burrHeading": "Burr Height Limits",
     "burrIntro": "Common burr height limits by end use, as a percentage of material thickness. The customer's specification always takes precedence.",
+    "license": "This data is licensed under CC BY 4.0. Please credit slitter.ai when citing it.",
     "application": "End use",
     "burrMax": "Maximum burr height",
     "applications": {

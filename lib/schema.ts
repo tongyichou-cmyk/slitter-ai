@@ -89,6 +89,11 @@ export function buildBreadcrumbSchema(items: { name: string; path: string }[]): 
   }
 }
 
+export const DATASET_LICENSE = 'https://creativecommons.org/licenses/by/4.0/'
+
+// Google 規定 Dataset 的 description 必須 50–5000 字元；不合格時讓建置失敗
+const DATASET_DESCRIPTION_RANGE = [50, 5000] as const
+
 export function buildDatasetSchema({
   locale,
   name,
@@ -104,6 +109,11 @@ export function buildDatasetSchema({
   version: string
   updatedAt: string
 }): SchemaObject {
+  const length = [...description].length
+  const [min, max] = DATASET_DESCRIPTION_RANGE
+  if (length < min || length > max) {
+    throw new Error(`Dataset ${path} (${locale}) 的 description 是 ${length} 字元，必須在 ${min}–${max} 之間`)
+  }
   return {
     '@context': 'https://schema.org',
     '@type': 'Dataset',
@@ -113,6 +123,7 @@ export function buildDatasetSchema({
     inLanguage: locale,
     version,
     dateModified: updatedAt,
+    license: DATASET_LICENSE,
     creator: organization(locale),
   }
 }

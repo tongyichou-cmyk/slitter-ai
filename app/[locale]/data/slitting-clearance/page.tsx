@@ -18,6 +18,7 @@ export default async function ClearanceDataPage({ params: { locale } }: { params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'data' })
   const tb = await getTranslations({ locale, namespace: 'breadcrumb' })
+  const tp = await getTranslations({ locale, namespace: 'pages' })
   const page = registry.getPage(locale, PATH)!
   const base = `/${locale}`
 
@@ -26,7 +27,7 @@ export default async function ClearanceDataPage({ params: { locale } }: { params
       <SchemaScript schemas={[buildDatasetSchema({
         locale,
         name: page.title,
-        description: page.description,
+        description: tp('clearanceData.datasetDescription'),
         path: PATH,
         version: SLITTING_DATA.version,
         updatedAt: SLITTING_DATA.updatedAt,
@@ -40,6 +41,7 @@ export default async function ClearanceDataPage({ params: { locale } }: { params
         <h2 className="mt-10">{t('burrHeading')}</h2>
         <p className="mt-3 text-gray-600">{t('burrIntro')}</p>
         <BurrTable locale={locale} />
+        <p className="mt-6 text-sm text-gray-500">{t('license')}</p>
       </div>
     </>
   )
